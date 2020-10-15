@@ -1,0 +1,259 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: SF Medium;
+}
+
+#homeNews .films__all {
+  max-width: 920px;
+}
+
+#homeNews .films__all .mainMaxWidth {
+  padding-top: 120px;
+  background: url("/img/back-news.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#homeNews .films__all .mainMaxWidth .nav__content {
+  text-align: center;
+}
+
+#homeNews .films__all .mainMaxWidth .nav__content .tabCenter .nav-item a {
+  line-height: 24px;
+  height: 24px;
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px solid white;
+  color: black;
+  transition: all .7s;
+}
+
+#homeNews .films__all .mainMaxWidth .nav__content .tabCenter .nav-item a:hover {
+  font-size: 24px;
+}
+
+#homeNews .films__all .mainMaxWidth .nav__content .tabCenter .active a {
+  color: #fa5238;
+  line-height: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card img {
+  height: 250px;
+  border-radius: 4px;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .card-body {
+  color: #4a4a4a;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .card-body a {
+  height: 42px;
+  font-size: 20px;
+  color: black;
+  line-height: 20px;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .card-body a:hover {
+  color: #fb4226;
+  text-decoration: none;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .card-body .iconCard {
+  color: #222;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .card-body .iconCard .wrapIcon {
+  margin-right: 25px;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .card-body .iconCard .wrapIcon img {
+  width: 20px;
+  height: auto;
+  margin-right: 10px;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .card-body .iconCard .wrapIcon img:hover {
+  width: 21px;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .card-body .iconCard .wrapIcon p {
+  color: #bbb;
+  font-size: 13px;
+  line-height: 1.43;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .imgSize2 {
+  height: 150px;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .innerCard .cardImage img {
+  width: 50px;
+  height: 50px;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .innerCard .card-text a {
+  color: #4a4a4a;
+  text-decoration: none;
+  transition: all .7s;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .tab-pane .content__row .news__card .innerCard .card-text a:hover p {
+  color: #fb4226;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .wrapButtonSeeMoreNews .btnViewMore {
+  font-size: 14px;
+  color: #949494;
+  border: 1px solid #949494;
+  border-radius: 4px;
+  text-align: center;
+  background: 0 0;
+  padding: 7px 25px;
+  transition: all .2s;
+  margin: auto;
+  margin-bottom: 20px;
+  display: block;
+}
+
+#homeNews .films__all .mainMaxWidth .tab-content .wrapButtonSeeMoreNews .btnViewMore:hover {
+  background-color: #fb4226;
+  border-color: #fb4226;
+  color: white;
+}
+
+.mobileApp .coverImage {
+  background-image: url("../img/backapp.jpg");
+}
+
+.mobileApp .coverImage .mainMaxWidth {
+  margin: 0 auto;
+  max-width: 940px;
+}
+
+.mobileApp .coverImage .mainMaxWidth .leftText {
+  padding-top: 60px;
+  align-items: center;
+  color: white;
+}
+
+.mobileApp .coverImage .mainMaxWidth .leftText p:first-child {
+  font-size: 40px;
+}
+
+.mobileApp .coverImage .mainMaxWidth .leftText .button-left {
+  background-color: #fb4226;
+  padding: 10px 20px;
+  margin: 10px 0;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+}
+
+.mobileApp .coverImage .mainMaxWidth .leftText .tagA {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.mobileApp .coverImage .mainMaxWidth .rightCarousel {
+  position: relative;
+  text-align: center;
+}
+
+.mobileApp .coverImage .mainMaxWidth .rightCarousel .phone-img {
+  width: 210px;
+}
+
+.mobileApp .coverImage .mainMaxWidth .rightCarousel .showAppDetail {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 195px;
+  height: 100px;
+}
+
+.mobileApp .coverImage .mainMaxWidth .rightCarousel .showAppDetail img {
+  border-radius: 20px;
+}
+
+.footer {
+  background-color: #222;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  font-size: 80%;
+}
+
+.footer .mainMaxWidth {
+  margin: 0 auto;
+  max-width: 940px;
+}
+
+.footer .mainMaxWidth .colFirst a {
+  color: #949494;
+}
+
+.footer .mainMaxWidth .colFirst a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.footer .mainMaxWidth .colSecond .smallIcon {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.footer .mainMaxWidth .colSecond .smallIcon img {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-right: 25px;
+}
+
+.footer .mainMaxWidth .colSecond .smallIcon img:hover {
+  opacity: .7;
+}
+
+.footer .mainMaxWidth .colThird {
+  text-align: center;
+}
+
+.footer .mainMaxWidth .colThird img {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.footer .mainMaxWidth .hrFooter {
+  border-top: 1px solid #4a4a4a;
+}
+
+.footer .mainMaxWidth .imgFooter img {
+  width: 80px;
+  height: auto;
+}
+
+.footer .mainMaxWidth .infoFooter {
+  color: #4a4a4a;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.8;
+}
+
+.footer .mainMaxWidth .infoFooter :first-child {
+  color: white;
+}
+
+.footer .mainMaxWidth .imgFooter .imgBoCo {
+  width: 130px;
+}
+/*# sourceMappingURL=main.css.map */
