@@ -1,0 +1,26 @@
+//Helper
+@import './Helper/variables';
+@import './Helper/mixin';
+@import './Helper/extend';
+
+//Vendor thu tu de code thu vien
+
+//Base
+
+// @import './Base/reset';
+@import './Base/reset';
+@import './Base/customize';
+
+// Component
+// @import './Component/button';
+
+//Layout
+@import './Layouts/filmdetails';
+@import './Layouts/mobileapp';
+@import './Layouts/footer';
+
+
+
+//Pages : code rieng de duoi de code tren
+
+//Theme : chinh sua layout, de code, nen cuoi cung.
