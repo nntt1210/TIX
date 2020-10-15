@@ -8,7 +8,6 @@
        
         .nav__content{
             text-align: center;
-            
             .tabCenter{
                 .nav-item{
                     a{  
@@ -42,6 +41,7 @@
                 .content__row{
                     .news__card{
                         img{
+                            width: 100%;
                             height: 250px; 
                             border-radius: 4px;   
                         }
@@ -85,10 +85,9 @@
                             }
                         .innerCard{
                             .cardImage{
-
                                 img{
                                     width: 50px;
-                                     height: 50px;
+                                    height: 50px;
                                 }
                             }
                             .card-text{ 
