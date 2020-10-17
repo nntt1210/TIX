@@ -1,0 +1,212 @@
+.comingSoon{
+    padding-top: 75px;
+    max-width: 940px;
+    margin: auto;
+    .navCenter{
+        display: flex;
+        text-align: center;
+        border: none;
+        margin-bottom: 30px;
+        justify-content: center;
+        .nav-link{
+            @include text($color-black-0,$fs-2,$fw-bold-0);
+            line-height: 24px;
+            transition: all 0.2s;
+            cursor: pointer;
+            &:hover{
+                @include text($color-black-0,$fs-3,$fw-bold-0);
+                border: none;
+            }
+        }
+        .nav-link.active{
+            border: none;
+            @include text($color-orange-2, $fs-3,$fw-bold-0);
+        }
+    }
+    .tab-content{
+        .tab-pane{
+            display: none;
+            &.active{
+                display: block;
+            }
+        }
+        .owl-carousel{
+            .item{
+                    .film{
+                        padding: 20px 15px;
+                        cursor: pointer;
+                        position: relative;
+                        .showDetail{
+                            position: relative;
+                            img{
+                                display: block;
+                                width: 100%;
+                                border-radius: 4px;
+                            }
+                        }
+                        .avgPoint{
+                            @include text($color-white-0,$fs-5,$fw-normal);
+                            background-color: rgba(12,27,54,.8);
+                            border: 1px solid #1f2e46;
+                            border-radius: 4px;
+                            padding: 2px;
+                            position: absolute;
+                            top: 30px;
+                            right: 24px;
+                            width: 54px;
+                            text-align: center;
+                            line-height: 1.1;
+                            p{
+                                margin: 0;
+                                .smallStar{
+                                    max-width: 8px;
+                                    display: inline;
+                                }
+                                .half{
+                                    max-width: 10px;
+                                    display: inline;
+                                }
+                            }
+                        }
+                        .filmType{
+                            position: absolute;
+                            top: -5px;
+                            left: 12px;
+                            width: 80%;
+                            pointer-events: none;
+                            overflow: hidden;
+                            transform: translate(-5%,-12%);
+                            max-width: 150px;
+                            img{
+                                width: 100%;
+                            }
+                        }
+                        .info{
+                            position: relative;
+                            padding: 10px 0px;
+                            @include text($color-black-0, $fs-0, $fw-bold);
+                            @media screen and (max-width:850px){
+                                display: none;
+                            }
+                            .ageType{
+                                @include text($color-white-0,$fs-0,$fw-normal);
+                                background-color: #fb4226;
+                                border-radius: 4px;
+                                padding: 0 5px;
+                                min-width: 33px;
+                                text-align: center;
+                                display: inline-block;
+                                margin-right: 8px;
+                            }
+                            .ageType-general{
+                                background-color: $color-green-1;
+                            }
+                            .nameFilm{
+                                height: 42px;
+                                color: $color-black-0;
+                                &:hover{
+                                    text-decoration: none;
+                                }
+                            }
+                            .infoFilm{
+                                @include text($color-gray-3,$fs-1,$fw-normal);
+                                margin-bottom: 15px;
+                                margin-top: 8px;
+                            }
+                            .hideHover{
+                                visibility: visible;
+                                opacity: 1;
+                                transition: all .2s;
+                            }
+                            .showHover{
+                                transition: all 0.2s;
+                                opacity: 0;
+                                visibility: hidden;
+                                position: relative;
+                                .buyNow{
+                                    text-decoration: none;
+                                    opacity: 0;
+                                    position: absolute;
+                                    top: 10px;
+                                    left: 0;
+                                    display: block;
+                                    width: 100%;
+                                    border-radius: 4px;
+                                    color: #fff;
+                                    font-size: 18px!important;
+                                    padding: 10px;
+                                    text-align: center;
+                                    background: linear-gradient(to left,#fb4226,#ce3017 100%);
+                                }
+                            }   
+                        
+                        }
+                        &:hover{
+                            .hideHover{
+                                opacity: 0;
+                            }
+                            .showHover{
+                                 visibility: visible;
+                                 opacity: 1;
+                                 position: absolute;
+                                 top: 0;
+                                 width: 100%;
+                                 .buyNow{
+                                     opacity: 1;
+                                     &:hover{
+                                         background: #fb4226;
+                                     }
+                                 }
+                             }
+                        }   
+                        button.playTrailer{
+                            position: absolute;
+                            top: 40%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            background: 0 0;
+                            border: none;
+                            transition: all 0.2s;
+                            &:hover{
+                                opacity: 0.7;
+                            }
+                            img{
+                                width: 50px;
+                            }
+                        }      
+                    }
+                    .hoverInfo{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(to top,#000,transparent 100%);
+                        top: 0;
+                        border-radius: 4px;
+                    }
+                    .showHover{
+                        transition: all 0.2s;
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+            }
+            .owl-prev{
+                left: -70px;
+                @media screen and (max-width: 1000px)
+                {
+                    &{
+                        display: none;
+                    }
+                }
+            }
+            .owl-next{
+                right: -70px;
+                @media screen and (max-width: 1000px)
+                {
+                    &{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

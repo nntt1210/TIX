@@ -1,0 +1,60 @@
+.mobileApp{
+    .coverImage{
+        background-image: url("../img/backapp.jpg");
+    
+        .mainMaxWidth{
+            margin: 0 auto; 
+            max-width: 940px; 
+            
+            .leftText{
+                padding-top: 60px;
+                align-items: center;
+                color: $color-white-0;
+                p:first-child{
+                    font-size: $fs-4;
+                }
+                .button-left{
+                    background-color: #fb4226;
+                    padding: 10px 20px;
+                    margin:  $mg-1 0;
+                    color: $color-white-0;
+                    font-size: $fs-1;
+                    font-weight: $fw-bold-1;
+                    border: none;
+                    border-radius: 4px;
+                }
+                .tagA{
+                    color: $color-white-0;
+                    border-bottom: 1px solid  $color-white-0;
+                }
+               
+            }
+            .rightCarousel{
+                position: relative;
+                text-align: center;
+                
+                .phone-img{
+                    width: 210px;
+                }
+                .showAppDetail{
+                    position: absolute;
+                    top: 20%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    width: 195px;
+                    height: 100px;
+                    
+                    img{
+                        border-radius: 20px;
+                    }
+
+                   
+                }
+  
+            }
+        }
+    
+    }
+    
+    
+}
