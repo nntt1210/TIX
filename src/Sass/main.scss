@@ -1,0 +1,12 @@
+// Base
+@import "./Base/reset";
+@import "./Loading";
+// Helper
+@import "./Helper/mixin";
+@import "./Helper/variables";
+// Layouts
+@import "./Layouts/Header";
+@import "./Layouts/TixCarousel";
+@import "./Layouts/BuyTicketBox";
+@import "./Layouts/ListMovie";
+@import "./Layouts/ShowTime";
