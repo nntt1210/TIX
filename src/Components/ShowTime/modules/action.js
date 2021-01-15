@@ -7,11 +7,12 @@ export const actGetSystemCinemaApi = () => {
     api
       .get(`/QuanLyRap/LayThongTinHeThongRap`)
       .then((result) => {
-        console.log(result.data);
         dispatch(actGetSystemCinemaSuccess(result.data));
+        // console.log(result.data);
       })
       .catch((err) => {
         dispatch(actGetSystemCinemaFailed(err));
+        console.log(err);
       });
   };
 };
@@ -22,50 +23,51 @@ const actGetSystemCinemaRequest = () => {
   };
 };
 
-const actGetSystemCinemaSuccess = (data) => {
+export const actGetSystemCinemaSuccess = (data) => {
   return {
     type: ActionType.GET_SYSTEM_CINEMA_SUCCESS,
     payload: data,
   };
 };
 
-const actGetSystemCinemaFailed = (err) => {
+export const actGetSystemCinemaFailed = (err) => {
   return {
     type: ActionType.GET_SYSTEM_CINEMA_FAILED,
     payload: err,
   };
 };
 
-export const actGetDetailListCinemaApi = (cinemaID) => {
+export const actGetSystemShowTimeApi = (groupID) => {
   return (dispatch) => {
-    dispatch(actGetDetailListCinemaRequest());
+    dispatch(actGetSystemShowTimeRequest());
     api
-      .get(`/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${cinemaID}`)
+      .get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${groupID}`)
       .then((result) => {
-        dispatch(actGetDetailListCinemaSuccess(result.data));
+        dispatch(actGetSystemShowTimeSuccess(result.data));
       })
       .catch((err) => {
-        dispatch(actGetDetailListCinemaFailed(err));
+        dispatch(actGetSystemShowTimeFailed(err));
+        console.log(err);
       });
   };
 };
 
-const actGetDetailListCinemaRequest = () => {
+const actGetSystemShowTimeRequest = () => {
   return {
-    type: ActionType.GET_DETAIL_LIST_CINEMA_REQUEST,
+    type: ActionType.GET_SYSTEM_SHOWTIME_REQUEST,
   };
 };
 
-const actGetDetailListCinemaSuccess = (data) => {
+const actGetSystemShowTimeSuccess = (data) => {
   return {
-    type: ActionType.GET_DETAIL_LIST_CINEMA_SUCCESS,
+    type: ActionType.GET_SYSTEM_SHOWTIME_SUCCESS,
     payload: data,
   };
 };
 
-const actGetDetailListCinemaFailed = (err) => {
+const actGetSystemShowTimeFailed = (err) => {
   return {
-    type: ActionType.GET_DETAIL_LIST_CINEMA_FAILED,
+    type: ActionType.GET_SYSTEM_SHOWTIME_FAILED,
     payload: err,
   };
 };

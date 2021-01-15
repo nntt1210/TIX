@@ -2,7 +2,7 @@ import * as ActionType from "./constants";
 
 let initialState = {
   listCinema: null,
-  listDetailCinema: null,
+  listShowTime: null,
   err: null,
 };
 
@@ -20,20 +20,16 @@ const showTimeReducer = (state = initialState, action) => {
       state.listCinema = null;
       state.err = action.payload;
       return { ...state };
-
-    case ActionType.GET_DETAIL_LIST_CINEMA_REQUEST:
-      state.listDetailCinema = null;
+    case ActionType.GET_SYSTEM_SHOWTIME_REQUEST:
+      state.listShowTime = [];
       state.err = null;
       return { ...state };
-    case ActionType.GET_DETAIL_LIST_CINEMA_SUCCESS:
-      let listDetailCinema = [...state.listDetailCinema];
-      listDetailCinema.push(action.payload);
-      //   state.listDetailCinema = action.payload;
-      state.listDetailCinema = listDetailCinema;
+    case ActionType.GET_SYSTEM_SHOWTIME_SUCCESS:
+      state.listShowTime = action.payload;
       state.err = null;
       return { ...state };
-    case ActionType.GET_DETAIL_LIST_CINEMA_FAILED:
-      state.listDetailCinema = null;
+    case ActionType.GET_SYSTEM_SHOWTIME_FAILED:
+      state.listShowTime = [];
       state.err = action.payload;
       return { ...state };
     default:

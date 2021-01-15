@@ -1,3 +1,12 @@
+body {
+  background-color: #fff;
+  color: #333 !important;
+  line-height: 1.42857 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
 .tab-pane .slick-arrow {
   position: absolute;
   top: 45%;
@@ -51,6 +60,29 @@
 
 .playBtn__overlay button:focus {
   outline: none;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 header .header__content {
@@ -863,7 +895,7 @@ header .header__content .navbar-toggler {
 }
 
 .movieList .listCinemas {
-  min-height: 705px;
+  max-height: 100%;
   width: 92px;
   border: 1px solid #ebebec;
   border-top-left-radius: 4px;
@@ -876,7 +908,7 @@ header .header__content .navbar-toggler {
   }
 }
 
-.movieList .listCinemas .nav-link {
+.movieList .listCinemas .logoWrapper {
   border: 1px solid transparent;
   padding: 20px;
   position: relative;
@@ -884,15 +916,15 @@ header .header__content .navbar-toggler {
   opacity: 0.5;
 }
 
-.movieList .listCinemas .nav-link.active, .movieList .listCinemas .nav-link:hover {
+.movieList .listCinemas .logoWrapper.active, .movieList .listCinemas .logoWrapper:hover {
   opacity: 1;
 }
 
-.movieList .listCinemas .nav-link img {
+.movieList .listCinemas .logoWrapper img {
   width: 50px;
 }
 
-.movieList .listCinemas .nav-link:after {
+.movieList .listCinemas .logoWrapper:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -904,20 +936,32 @@ header .header__content .navbar-toggler {
 }
 
 .movieList #cinemaTabContent {
-  min-height: 705px;
-  border-bottom: 1px solid #ebebec;
-  width: 848px;
+  flex-basis: 30%;
+  min-width: 30%;
+  width: 100%;
+  max-height: 554px;
+  border: 1px solid #ebebec;
+  overflow-y: scroll;
+}
+
+.movieList #cinemaTabContent::-webkit-scrollbar {
+  width: 5px;
+}
+
+.movieList #cinemaTabContent::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.movieList #cinemaTabContent::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 677px) {
   .movieList #cinemaTabContent {
     width: 100%;
   }
-}
-
-.movieList #cinemaTabContent .cinemaList {
-  width: 100%;
-  display: none;
 }
 
 .movieList #cinemaTabContent .cinemaList.active {
@@ -933,7 +977,7 @@ header .header__content .navbar-toggler {
 .movieList #cinemaTabContent .cinemaList .listMovies {
   min-height: 705px;
   border-top: 1px solid #ebebec;
-  width: 30%;
+  width: 100%;
 }
 
 @media screen and (max-width: 677px) {
@@ -943,17 +987,11 @@ header .header__content .navbar-toggler {
 }
 
 .movieList #cinemaTabContent .cinemaList .listMovies .cinema-item {
-  padding: 15px;
-  padding-left: 20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   width: 100%;
+  border: none;
   position: relative;
-  opacity: 0.5;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
+  opacity: 0.7;
+  transition: all 0.5s;
 }
 
 .movieList #cinemaTabContent .cinemaList .listMovies .cinema-item.active, .movieList #cinemaTabContent .cinemaList .listMovies .cinema-item:hover {
@@ -961,58 +999,58 @@ header .header__content .navbar-toggler {
   text-decoration: none;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaImg {
-  width: 50px;
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details {
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo {
-  width: 169px;
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaImg {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
   padding-left: 10px;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo span {
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo .cinemaName {
   display: block;
-  line-height: 1.4;
+  font-weight: 700;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo .cinemaName {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: black;
-  font-size: 14px;
-  font-weight: normal;
-}
-
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo .cinemaName .colorCinema {
-  display: inline-block !important;
-}
-
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo .cinemaName .BHD {
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo .cinemaName .BHDStar {
   color: #8bc541;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo .cinemaName .CNS {
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo .cinemaName .CineStar {
   color: #df0d7a;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo .cinemaName .DDC {
-  color: #9c9c9c;
-}
-
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo .cinemaName .megaGS {
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo .cinemaName .MegaGS {
   color: #e5a813;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo .cinemaName .Lotte {
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo .cinemaName .LotteCinima {
   color: #ca4137;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo .cinemaAddress {
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo .cinemaName .CGV {
+  color: #e71a0f;
+}
+
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo .cinemaName .Galaxy {
+  color: #f60;
+}
+
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo .cinemaAddress {
   font-size: 12px;
   color: #949494;
   overflow: hidden;
@@ -1020,117 +1058,113 @@ header .header__content .navbar-toggler {
   white-space: nowrap;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinemaInfo .redDetail {
+.movieList #cinemaTabContent .cinemaList .listMovies .cinema-item .cinema__details .cinemaInfo .redDetail {
   color: #fb4226 !important;
   font-size: 12px;
 }
 
-.movieList #cinemaTabContent .cinemaList .listMovies .nav-item {
-  position: relative;
-}
-
-.movieList #cinemaTabContent .cinemaList .listMovies .nav-item:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: calc(100% - 40px);
-  transform: translateX(-50%);
-  border-bottom: 1px solid #fff;
-  border-color: rgba(238, 238, 238, 0.878);
-}
-
-.movieList #cinemaTabContent .cinemaList .tab-content {
-  max-height: 705px;
+.movieList .cinemaList__movies {
+  flex-grow: 1;
+  max-height: 554px;
+  width: calc(70% - 92px);
   border: 1px solid #ebebec;
-  position: relative;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .wrapMovie {
-  padding: 20px 15px 17px 20px;
-  width: 100%;
+.movieList .cinemaList__movies .wrapper__collapse {
   position: relative;
-  margin-bottom: 0;
+  width: 100%;
+  padding: 20px;
   border: none;
-  box-shadow: none;
-  -webkit-box-shadow: none;
+  opacity: 1;
+  transition: all 0.5s;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .movieInfo {
+.movieList .cinemaList__movies .wrapper__collapse .main__collapse {
   display: flex;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .movieInfo .movieImg {
+.movieList .cinemaList__movies .wrapper__collapse .main__collapse .theater__img {
   width: 50px;
   height: 50px;
+  object-fit: cover;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .movieInfo .wrapInfo {
-  padding: 5px 15px;
+.movieList .cinemaList__movies .wrapper__collapse .main__collapse .wrapInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding-left: 10px;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .movieInfo .wrapInfo p {
-  margin: 0;
-  line-height: 1.7;
-  font-size: 12px;
-  color: #9b9b9b;
+.movieList .cinemaList__movies .wrapper__collapse .main__collapse .wrapInfo .movieName {
+  display: block;
+  font-weight: 700;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .movieInfo .wrapInfo .ageType {
-  color: white;
-  font-size: 14px;
-  font-weight: normal;
-  background-color: #fb4226;
+.movieList .cinemaList__movies .wrapper__collapse .main__collapse .wrapInfo .movieName .showing__age {
+  display: inline-block;
+  text-align: center;
+  min-width: 30px;
   border-radius: 4px;
+  background: #fb4226;
+  color: #fff;
+  font-size: 14px;
   padding: 0 5px;
-  min-width: 33px;
-  text-align: center;
-  display: inline-block;
   margin-right: 8px;
+  font-weight: 600;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .movieInfo .wrapInfo .ageType-general {
-  background-color: #00ac4d;
+.movieList .cinemaList__movies .wrapper__collapse .main__collapse .wrapInfo .movieDetail {
+  color: #949494;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .movieInfo .wrapInfo .movieTitle {
-  color: black;
-  font-size: 14px;
-  font-weight: bold;
+.movieList .cinemaList__movies .wrapper__collapse .main__collapse::after {
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .version {
-  color: black;
-  font-size: 14px;
-  font-weight: bold;
+.movieList .cinemaList__movies .wrapper__collapse .main__collapse:not(.collapsed)::after {
+  content: "\f077";
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .sessions .session {
-  width: calc(25% - 15px);
+.movieList .cinemaList__movies .wrapper__collapse .digital {
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.movieList .cinemaList__movies .wrapper__collapse .btn-time {
+  display: block;
+  float: left;
+  margin: 0 10px 10px 0;
+  background: rgba(246, 246, 246, 0.6);
+  border: 1px solid #e4e4e4;
+  border-radius: 7px;
   color: #9b9b9b;
   font-size: 14px;
-  font-weight: normal;
-  cursor: pointer;
-  margin: 0 10px 10px 0;
-  padding: 5px 0;
-  transition: all 0.2s;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  background-color: rgba(246, 246, 246, 0.5);
-  border-radius: 7px;
-  border: 1px solid #e4e4e4;
+  font-weight: 700;
+  min-width: 20%;
+  transition: all 0.5s;
 }
 
-.movieList #cinemaTabContent .cinemaList .tab-content .sessions .session .start-time {
+.movieList .cinemaList__movies .wrapper__collapse .btn-time .start {
   color: #108f3e;
   font-size: 18px;
-  font-weight: normal;
-}
-
-.movieList #cinemaTabContent .cinemaList .tab-content .sessions .session:hover .start-time {
-  color: #fb4226;
 }
 /*# sourceMappingURL=main.css.map */
