@@ -78,13 +78,13 @@ export default class CarouselComponent extends Component {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-body">
-                <button type="button" className="close" data-dismiss="modal">
+                {/* <button type="button" className="close" data-dismiss="modal">
                   <img src="./img/close.png" alt />
-                </button>
+                </button> */}
                 <iframe
                   id="iframe"
-                  width={560}
-                  height={315}
+                  width="800"
+                  height="500"
                   src={this.state.trailer}
                   frameBorder={0}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

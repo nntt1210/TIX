@@ -6,7 +6,7 @@ export default class HeaderComponent extends Component {
       <header>
         <div className="header__content">
           <div className="header__left">
-            <img src="./img/web-logo.png" alt />
+            <img src="/img/web-logo.png" alt />
           </div>
           <div className="header__center d-flex align-items-center">
             <ul>
@@ -26,7 +26,7 @@ export default class HeaderComponent extends Component {
           </div>
           <div className="header__right d-flex align-items-center">
             <div className="header__account border-right">
-              <img src="./img/avatar.png" alt />
+              <img src="/img/avatar.png" alt />
               <span>Đăng Nhập</span>
               <span>Đăng Ký</span>
             </div>

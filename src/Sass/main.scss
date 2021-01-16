@@ -1,9 +1,12 @@
+@import "./Helper/mixin";
+
 // Base
 @import "./Base/reset";
+@import "./Base/customize";
 @import "./Loading";
 @import "./Layouts/Loader";
 // Helper
-@import "./Helper/mixin";
+
 @import "./Helper/variables";
 // Layouts
 @import "./Layouts/Header";
@@ -11,3 +14,4 @@
 @import "./Layouts/BuyTicketBox";
 @import "./Layouts/ListMovie";
 @import "./Layouts/ShowTime";
+@import "./Layouts/DetailMoviePage/DetailMovie";

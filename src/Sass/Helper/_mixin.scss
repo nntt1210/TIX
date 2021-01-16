@@ -4,6 +4,20 @@
   font-weight: $fw;
 }
 
+// @mixin RESPONSIVE($screen) {
+//   @if map-has-key($map: $breakpoints, $key: $screen) {
+//     $value: map-get(
+//       $map: $breakpoints,
+//       $key: $screen,
+//     );
+//     @media screen and (min-width: $value) {
+//       @content;
+//     }
+//   } @else {
+//     @error "khong co gia tri";
+//   }
+// }
+
 @mixin styleScrollBar($scroll-horizon: false) {
   /* width or height */
   &::-webkit-scrollbar {
