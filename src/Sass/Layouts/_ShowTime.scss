@@ -4,8 +4,8 @@
   background: url(../img/back-news.png);
   background-size: 100%;
   background-repeat: no-repeat;
-  max-width: 940px;
-  margin: auto;
+  // max-width: 940px;
+  // margin: auto;
   display: flex;
   @media screen and (max-width: 677px) {
     & {
@@ -16,26 +16,46 @@
     display: block;
   }
   .listCinemas {
-    max-height: 100%;
-    width: 92px;
-    @media screen and (max-width: 677px) {
-      width: 100%;
-    }
+    // max-height: 100%;
+    // width: 92px;
+    // @media screen and (max-width: 677px) {
+    //   width: 100%;
+    // }
+    // border: 1px solid #ebebec;
+    // border-top-left-radius: 4px;
+    // border-bottom-left-radius: 4px;
+    flex-basis: 92px;
+    max-height: 554px;
     border: 1px solid #ebebec;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow-y: hidden;
+    overflow-x: auto;
+    transition: all 0.5s;
+    @include styleScrollBar();
+    @media screen and (max-width: 767px) {
+      display: flex;
+    }
     .logoWrapper {
       border: 1px solid transparent;
-      padding: 20px;
+      padding: 15px;
       position: relative;
       transition: all 0.2s;
       opacity: 0.5;
+      width: unset;
+      flex-shrink: 0;
+      @media screen and (min-width: 576px) {
+        padding: 20px;
+      }
       &.active,
       &:hover {
         opacity: 1;
       }
       img {
-        width: 50px;
+        width: 40px;
+        @media screen and (min-width: 576px) {
+          width: 50px;
+        }
       }
       &:after {
         content: "";
@@ -50,12 +70,19 @@
     }
   }
   #cinemaTabContent {
+    // flex-basis: 30%;
+    // min-width: 30%;
+    // width: 100%;
+    // max-height: 554px;
+    // border: 1px solid #ebebec;
+    // overflow-y: scroll;
     flex-basis: 30%;
     min-width: 30%;
     width: 100%;
     max-height: 554px;
     border: 1px solid #ebebec;
-    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
     &::-webkit-scrollbar {
       width: 5px;
     }
@@ -92,11 +119,15 @@
           position: relative;
           opacity: 0.7;
           transition: all 0.5s;
+          @media screen and (max-width: 767px) {
+            opacity: 1;
+          }
           &.active,
           &:hover {
             opacity: 1;
             text-decoration: none;
           }
+
           .cinema__details {
             padding: 20px;
             cursor: pointer;
@@ -161,89 +192,89 @@
     width: calc(70% - 92px);
     border: 1px solid #ebebec;
     overflow-y: auto;
-    .wrapper__collapse {
+  }
+  .wrapper__collapse {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    border: none;
+    opacity: 1;
+    transition: all 0.5s;
+    .main__collapse {
+      display: flex;
       position: relative;
-      width: 100%;
-      padding: 20px;
-      border: none;
-      opacity: 1;
+      cursor: pointer;
       transition: all 0.5s;
-      .main__collapse {
+      .theater__img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+      }
+      .wrapInfo {
         display: flex;
-        position: relative;
-        cursor: pointer;
-        transition: all 0.5s;
-        .theater__img {
-          width: 50px;
-          height: 50px;
-          object-fit: cover;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        padding-left: 10px;
+        .movieName {
+          display: block;
+          font-weight: 700;
+          .showing__age {
+            display: inline-block;
+            text-align: center;
+            min-width: 30px;
+            border-radius: 4px;
+            background: #fb4226;
+            color: #fff;
+            font-size: 14px;
+            padding: 0 5px;
+            margin-right: 8px;
+            font-weight: 600;
+          }
         }
-        .wrapInfo {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+        .movieDetail {
+          color: #949494;
+          font-size: 12px;
           overflow: hidden;
-          padding-left: 10px;
-          .movieName {
-            display: block;
-            font-weight: 700;
-            .showing__age {
-              display: inline-block;
-              text-align: center;
-              min-width: 30px;
-              border-radius: 4px;
-              background: #fb4226;
-              color: #fff;
-              font-size: 14px;
-              padding: 0 5px;
-              margin-right: 8px;
-              font-weight: 600;
-            }
-          }
-          .movieDetail {
-            color: #949494;
-            font-size: 12px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          }
-        }
-        &::after {
-          content: "\f078";
-          font-family: "Font Awesome 5 Free";
-          font-weight: 900;
-          position: absolute;
-          top: 50%;
-          right: 0;
-          transform: translateY(-50%);
-          width: 20px;
-          height: 20px;
-        }
-        &:not(.collapsed)::after {
-          content: "\f077";
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
-      .digital {
-        color: #000;
+      &::after {
+        content: "\f078";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+      }
+      &:not(.collapsed)::after {
+        content: "\f077";
+      }
+    }
+    .digital {
+      color: #000;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .btn-time {
+      display: block;
+      float: left;
+      margin: 0 10px 10px 0;
+      background: hsla(0, 0%, 96.5%, 0.6);
+      border: 1px solid #e4e4e4;
+      border-radius: 7px;
+      color: #9b9b9b;
+      font-size: 14px;
+      font-weight: 700;
+      min-width: 20%;
+      transition: all 0.5s;
+      .start {
+        color: $color-green-3;
         font-size: 18px;
-        font-weight: 500;
-      }
-      .btn-time {
-        display: block;
-        float: left;
-        margin: 0 10px 10px 0;
-        background: hsla(0, 0%, 96.5%, 0.6);
-        border: 1px solid #e4e4e4;
-        border-radius: 7px;
-        color: #9b9b9b;
-        font-size: 14px;
-        font-weight: 700;
-        min-width: 20%;
-        transition: all 0.5s;
-        .start {
-          color: $color-green-3;
-          font-size: 18px;
-        }
       }
     }
   }

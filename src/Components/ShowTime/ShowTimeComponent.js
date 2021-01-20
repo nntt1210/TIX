@@ -14,7 +14,17 @@ class ShowTimeComponent extends Component {
   componentDidMount() {
     this.props.getListCinema();
     this.props.getListShowTime("GP09");
+    window.addEventListener("resize", this.handleResize);
+    console.log(window.innerWidth);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+
+  handleResize = () => {
+    this.forceUpdate();
+  };
 
   resetActiveCinema = (id) => {
     let systemCinema = document.getElementById(id);
@@ -45,33 +55,62 @@ class ShowTimeComponent extends Component {
 
   renderCinemaTabs = () => {
     if (this.props.listCinema) {
-      return this.props.listCinema.map((item, index) => {
-        if (index == 0) {
-          return (
-            <div
-              className="logoWrapper active"
-              data-toggle="tab"
-              data-target={"#" + item.maHeThongRap}
-              role="tab"
-              onClick={() => this.resetActiveCinema(item.maHeThongRap)}
-            >
-              <img src={item.logo} alt={item.maHeThongRap} />
-            </div>
-          );
-        } else {
-          return (
-            <div
-              className="logoWrapper"
-              data-toggle="tab"
-              data-target={"#" + item.maHeThongRap}
-              role="tab"
-              onClick={() => this.resetActiveCinema(item.maHeThongRap)}
-            >
-              <img src={item.logo} alt={item.maHeThongRap} />
-            </div>
-          );
-        }
-      });
+      const width = window.innerWidth;
+      if (width >= 768) {
+        return this.props.listCinema.map((item, index) => {
+          if (index == 0) {
+            return (
+              <div
+                className="logoWrapper active"
+                data-toggle="tab"
+                data-target={"#" + item.maHeThongRap}
+                role="tab"
+                onClick={() => this.resetActiveCinema(item.maHeThongRap)}
+              >
+                <img src={item.logo} alt={item.maHeThongRap} />
+              </div>
+            );
+          } else {
+            return (
+              <div
+                className="logoWrapper"
+                data-toggle="tab"
+                data-target={"#" + item.maHeThongRap}
+                role="tab"
+                onClick={() => this.resetActiveCinema(item.maHeThongRap)}
+              >
+                <img src={item.logo} alt={item.maHeThongRap} />
+              </div>
+            );
+          }
+        });
+      } else {
+        return this.props.listCinema.map((item, index) => {
+          if (index == 0) {
+            return (
+              <div
+                className="logoWrapper active"
+                data-toggle="tab"
+                data-target={"#" + item.maHeThongRap}
+                role="tab"
+              >
+                <img src={item.logo} alt={item.maHeThongRap} />
+              </div>
+            );
+          } else {
+            return (
+              <div
+                className="logoWrapper"
+                data-toggle="tab"
+                data-target={"#" + item.maHeThongRap}
+                role="tab"
+              >
+                <img src={item.logo} alt={item.maHeThongRap} />
+              </div>
+            );
+          }
+        });
+      }
     }
   };
 
@@ -95,64 +134,102 @@ class ShowTimeComponent extends Component {
   };
 
   renderCinema = (arr, id) => {
-    return arr.map((rap, index) => {
-      if (index == 0) {
-        return (
-          <div
-            className="cinema-item active"
-            data-toggle="tab"
-            data-target={"#" + rap.maCumRap}
-            role="tab"
-            aria-selected="true"
-          >
-            <div className="cinema__details">
-              <img
-                className="cinemaImg"
-                src={`./img/${id}_theater.jpg`}
-                alt={rap.maCumRap}
-              />
-              <div className="cinemaInfo">
-                <span className="cinemaName">
-                  <span className={id}>
-                    {this.renderCinemaName(rap.tenCumRap)}
+    const width = window.innerWidth;
+    if (width >= 768) {
+      return arr.map((rap, index) => {
+        if (index == 0) {
+          return (
+            <div
+              className="cinema-item active"
+              data-toggle="tab"
+              data-target={"#" + rap.maCumRap}
+              role="tab"
+              aria-selected="true"
+              key={index}
+            >
+              <div className="cinema__details">
+                <img
+                  className="cinemaImg"
+                  src={`./img/${id}_theater.jpg`}
+                  alt={rap.maCumRap}
+                />
+                <div className="cinemaInfo">
+                  <span className="cinemaName">
+                    <span className={id}>
+                      {this.renderCinemaName(rap.tenCumRap)}
+                    </span>
+                    - {this.renderCinemaAddress(rap.tenCumRap)}
                   </span>
-                  - {this.renderCinemaAddress(rap.tenCumRap)}
-                </span>
-                <span className="cinemaAddress">{rap.diaChi}</span>
-                {/* <span className="redDetail">[chi tiết]</span> */}
+                  <span className="cinemaAddress">{rap.diaChi}</span>
+                  {/* <span className="redDetail">[chi tiết]</span> */}
+                </div>
               </div>
+            </div>
+          );
+        } else {
+          return (
+            <div
+              className="cinema-item"
+              data-toggle="tab"
+              data-target={"#" + rap.maCumRap}
+              role="tab"
+              key={index}
+            >
+              <div className="cinema__details">
+                <img
+                  className="cinemaImg"
+                  src={`./img/${id}_theater.jpg`}
+                  alt={rap.maCumRap}
+                />
+                <div className="cinemaInfo">
+                  <span className="cinemaName">
+                    <span className={id}>
+                      {this.renderCinemaName(rap.tenCumRap)}
+                    </span>
+                    - {this.renderCinemaAddress(rap.tenCumRap)}
+                  </span>
+                  <span className="cinemaAddress">{rap.diaChi}</span>
+                  {/* <span className="redDetail">[chi tiết]</span> */}
+                </div>
+              </div>
+            </div>
+          );
+        }
+      });
+    } else {
+      return arr.map((rap, index) => {
+        return (
+          <div className="cinema-item" key={index}>
+            <div
+              className="collapsed"
+              data-toggle="collapse"
+              data-target={"#" + rap.maCumRap}
+            >
+              <div className="cinema__details">
+                <img
+                  className="cinemaImg"
+                  src={`./img/${id}_theater.jpg`}
+                  alt={rap.maCumRap}
+                />
+                <div className="cinemaInfo">
+                  <span className="cinemaName">
+                    <span className={id}>
+                      {this.renderCinemaName(rap.tenCumRap)}
+                    </span>
+                    - {this.renderCinemaAddress(rap.tenCumRap)}
+                  </span>
+                  <span className="cinemaAddress">{rap.diaChi}</span>
+                  {/* <span className="redDetail">[chi tiết]</span> */}
+                </div>
+              </div>
+            </div>
+            <div className="movies-cinema collapse" id={rap.maCumRap}>
+              {this.renderDetailCinemaMovies(rap.danhSachPhim, rap.maCumRap)}
             </div>
           </div>
         );
-      } else {
-        return (
-          <div
-            className="cinema-item"
-            data-toggle="tab"
-            data-target={"#" + rap.maCumRap}
-            role="tab"
-          >
-            <div className="cinema__details">
-              <img
-                className="cinemaImg"
-                src={`./img/${id}_theater.jpg`}
-                alt={rap.maCumRap}
-              />
-              <div className="cinemaInfo">
-                <span className="cinemaName">
-                  <span className={id}>
-                    {this.renderCinemaName(rap.tenCumRap)}
-                  </span>
-                  - {this.renderCinemaAddress(rap.tenCumRap)}
-                </span>
-                <span className="cinemaAddress">{rap.diaChi}</span>
-                {/* <span className="redDetail">[chi tiết]</span> */}
-              </div>
-            </div>
-          </div>
-        );
-      }
-    });
+      });
+    }
   };
 
   renderSystemCinemas = () => {
@@ -326,7 +403,7 @@ class ShowTimeComponent extends Component {
   };
 
   renderShowTimes = () => {
-    console.log(this.props.listShowTime);
+    // console.log(this.props.listShowTime);
     return this.props.listShowTime.map((item, index) => {
       if (index == 0) return this.renderDetailTimes(item.lstCumRap, true);
       return this.renderDetailTimes(item.lstCumRap, false);
@@ -334,27 +411,53 @@ class ShowTimeComponent extends Component {
   };
 
   render() {
+    const width = window.innerWidth;
+    console.log(width);
     if (!this.props.listCinema || !this.props.listShowTime)
       return <div className="loader"></div>;
     else {
       console.log("Render");
-      return (
-        <section id="cinemas" className="movieList">
-          <div
-            className="nav nav-tabs listCinemas"
-            id="cinemaTab"
-            role="tablist"
-          >
-            {this.renderCinemaTabs()}
-          </div>
-          <div className="tab-content" id="cinemaTabContent">
-            {this.renderSystemCinemas()}
-          </div>
-          <div className="tab-content cinemaList__movies">
-            {this.renderShowTimes()}
-          </div>
-        </section>
-      );
+      if (width >= 768) {
+        return (
+          <section id="cinemas" className="movieList">
+            <div className="myContainer">
+              <div className="row flex-md-row flex-column">
+                <div
+                  className="nav nav-tabs listCinemas"
+                  id="cinemaTab"
+                  role="tablist"
+                >
+                  {this.renderCinemaTabs()}
+                </div>
+                <div className="tab-content" id="cinemaTabContent">
+                  {this.renderSystemCinemas()}
+                </div>
+                <div className="tab-content cinemaList__movies">
+                  {this.renderShowTimes()}
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      } else
+        return (
+          <section id="cinemas" className="movieList">
+            <div className="myContainer">
+              <div className="row flex-md-row flex-column">
+                <div
+                  className="nav nav-tabs listCinemas"
+                  id="cinemaTab"
+                  role="tablist"
+                >
+                  {this.renderCinemaTabs()}
+                </div>
+                <div className="tab-content" id="cinemaTabContent">
+                  {this.renderSystemCinemas()}
+                </div>
+              </div>
+            </div>
+          </section>
+        );
     }
   }
 }

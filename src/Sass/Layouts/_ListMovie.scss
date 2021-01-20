@@ -1,30 +1,33 @@
 .comingSoon {
   padding-top: 75px;
-  max-width: 940px;
-  margin: auto;
+  // max-width: 940px;
+  // margin: auto;
   .row {
     display: flex !important;
     margin: 0;
   }
-  .navCenter {
-    display: flex;
-    text-align: center;
+  .navigation-tab {
     border: none;
-    margin-bottom: 30px;
     justify-content: center;
-    .nav-link {
-      // @include text($color-black-0, $fs-2, $fw-bold-0);
-      line-height: 24px;
-      transition: all 0.2s;
-      cursor: pointer;
-      &:hover {
-        // @include text($color-black-0, $fs-3, $fw-bold-0);
+    .nav-item {
+      .nav-link {
         border: none;
+        border-radius: 0;
+        color: #000;
+        font-size: 24px;
+        font-weight: 500;
+        transform: scale(0.83333);
+        transition: all 0.2s;
+        &.active {
+          color: #fa5238;
+          font-size: 24px;
+          transform: scale(1);
+          background: transparent;
+        }
+        &:hover {
+          transform: scale(1);
+        }
       }
-    }
-    .nav-link.active {
-      border: none;
-      // @include text($color-orange-2, $fs-3, $fw-bold-0);
     }
   }
   .tab-content {
@@ -84,9 +87,14 @@
         background: linear-gradient(0deg, #000, transparent);
         opacity: 0;
         transition: all 0.2s;
+        display: none;
+        @media screen and (min-width: 768px) {
+          display: initial;
+        }
       }
     }
     .playBtn__overlay {
+      display: none;
       button {
         width: 50px;
         height: 50px;
@@ -97,6 +105,9 @@
       }
       &:hover {
         opacity: 0.5;
+      }
+      @media screen and (min-width: 768px) {
+        display: initial;
       }
     }
     &:hover {
@@ -122,19 +133,19 @@
     height: 40px;
     line-height: 20px;
     .btnContainer {
-      display: block;
+      display: none;
       width: 100%;
       height: 40px;
       background: linear-gradient(270deg, #fb4226, #ce3017);
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
     }
     .btnBuyTicket {
-      display: block;
+      display: none;
       height: 100%;
       width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+
       background: linear-gradient(270deg, #fb4226, #ce3017);
       padding: 0;
       font-size: 18px;
@@ -142,6 +153,12 @@
       text-decoration: none;
       &:hover {
         background: #fb4226;
+      }
+      @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
       }
     }
     .movieThumbnail__age {

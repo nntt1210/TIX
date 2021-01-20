@@ -1,26 +1,76 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export default class HeaderComponent extends Component {
+  toggleNavBar = () => {
+    let sideMenu = document.getElementById("sideMenu");
+    sideMenu.classList.add("active");
+  };
+
+  hideNavBar = () => {
+    let sideMenu = document.getElementById("sideMenu");
+    sideMenu.classList.remove("active");
+  };
+
   render() {
     return (
       <header>
         <div className="header__content">
           <div className="header__left">
-            <img src="/img/web-logo.png" alt />
+            <NavLink to="/">
+              <img src="/img/web-logo.png" alt />
+            </NavLink>
           </div>
           <div className="header__center d-flex align-items-center">
             <ul>
               <li>
-                <a href="#now">Lịch Chiếu</a>
+                <Link
+                  activeClass="active"
+                  to="now"
+                  className="menu"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  Lịch chiếu
+                </Link>
               </li>
               <li>
-                <a href="#cinemas">Cụm rạp</a>
+                <Link
+                  activeClass="active"
+                  to="cinemas"
+                  className="menu"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  Cụm rạp
+                </Link>
               </li>
               <li>
-                <a href="#homeNews">Tin Tức</a>
+                <Link
+                  activeClass="active"
+                  to="news"
+                  className="menu"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  Tin tức
+                </Link>
               </li>
               <li>
-                <a href="#app">Ứng dụng</a>
+                <Link
+                  activeClass="active"
+                  to="app"
+                  className="menu"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  Ứng dụng
+                </Link>
               </li>
             </ul>
           </div>
@@ -31,50 +81,78 @@ export default class HeaderComponent extends Component {
               <span>Đăng Ký</span>
             </div>
           </div>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          ></button>
-          <div
-            className="collapse navbar-collapse bg-light"
-            id="navbarCollapse"
-          >
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <a className="nav-link close_nav" href="#">
-                  <img src="./img/avatar.png" alt />
-                  <span>Đăng Nhập</span>
+          <div className="leftmobile"></div>
+          <div className="rightmobile menudropdown">
+            <img
+              className="img-fluid"
+              src="/img/menu-options.png"
+              onClick={this.toggleNavBar}
+            />
+          </div>
+          <div id="sideMenu">
+            <div className="wrapMenuMobile">
+              <div className="wrapFirst">
+                <a>
+                  <img
+                    className="btnLogin btnAvatarMobile"
+                    src="/img/avatar.png"
+                    alt="avatar"
+                  />
+                  Đăng nhập
                 </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link close_nav" href="#now">
-                  Lịch chiếu
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link close_nav" href="#cinemas">
-                  Cụm rạp
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link close_nav" href="#homeNews">
-                  Tin tức
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link close_nav" href="#app">
-                  Ứng dụng
-                </a>
-              </li>
-            </ul>
+                <img
+                  src="/img/next-session.png"
+                  className="close icon-arrow-right"
+                  onClick={this.hideNavBar}
+                />
+              </div>
+              <Link
+                activeClass="active"
+                to="now"
+                className="menu"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={this.hideNavBar}
+              >
+                Lịch chiếu
+              </Link>
+              <Link
+                activeClass="active"
+                to="cinemas"
+                className="menu"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={this.hideNavBar}
+              >
+                Cụm rạp
+              </Link>
+              <Link
+                activeClass="active"
+                to="news"
+                className="menu"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={this.hideNavBar}
+              >
+                Tin tức
+              </Link>
+              <Link
+                activeClass="active"
+                to="app"
+                className="menu"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={this.hideNavBar}
+              >
+                Ứng dụng
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="overlay" />
       </header>
     );
   }

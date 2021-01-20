@@ -1,13 +1,71 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { actGetSystemCinemaApi } from "../../../Components/ShowTime/modules/action";
 import { actDetailMovieApi } from "./modules/action";
 
 class DetailMoviePage extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.fetchDetailMovie(id);
+    if (!this.props.listCinema) {
+      this.props.fetchListCinema();
+    }
+    // console.log(this.props.listCinema);
     // console.log("componentDidMount");
   }
+
+  renderCinemaTabs = () => {
+    if (this.props.listCinema) {
+      return this.props.listCinema.map((item, index) => {
+        if (index == 0) {
+          return (
+            <div
+              className="logo__wrapper active"
+              data-toggle="tab"
+              data-target={"#" + item.maHeThongRap}
+              role="tab"
+              // onClick={() => this.resetActiveCinema(item.maHeThongRap)}
+            >
+              <div className="logo__detail">
+                <img
+                  className="cinema__img"
+                  src={item.logo}
+                  alt={item.maHeThongRap}
+                />
+                <span className="cinema__name">{item.tenHeThongRap}</span>
+                <span className="arrow__extend"></span>
+              </div>
+            </div>
+          );
+        } else {
+          return (
+            <div
+              className="logo__wrapper"
+              data-toggle="tab"
+              data-target={"#" + item.maHeThongRap}
+              role="tab"
+              // onClick={() => this.resetActiveCinema(item.maHeThongRap)}
+            >
+              <div className="logo__detail">
+                <img
+                  className="cinema__img"
+                  src={item.logo}
+                  alt={item.maHeThongRap}
+                />
+                <span className="cinema__name">{item.tenHeThongRap}</span>
+                <span className="arrow__extend"></span>
+              </div>
+            </div>
+          );
+        }
+      });
+    }
+  };
+
+  // resetActiveDay = () => {
+  //   let listDay = document.getElementsByClassName("detail__listOfDay--item");
+
+  // }
 
   render() {
     if (this.props.detailMovie) {
@@ -147,8 +205,51 @@ class DetailMoviePage extends Component {
                 >
                   <div className="detail">
                     <div className="detail__wrapper">
-                      <ul className="detail__listOfDay"></ul>
-                      <div className="nav detail__cinema" role="tablist"></div>
+                      <div className="nav detail__listOfDay" role="tablist">
+                        <div
+                          className="detail__listOfDay--item active"
+                          data-toggle="tab"
+                          role="tab"
+                        >
+                          <p className="dayOfWeek">Thứ 3</p>
+                          <p className="date">01</p>
+                        </div>
+                        <div
+                          className="detail__listOfDay--item"
+                          data-toggle="tab"
+                          role="tab"
+                        >
+                          <p className="dayOfWeek">Thứ 4</p>
+                          <p className="date">02</p>
+                        </div>
+                        <div
+                          className="detail__listOfDay--item"
+                          data-toggle="tab"
+                          role="tab"
+                        >
+                          <p className="dayOfWeek">Thứ 5</p>
+                          <p className="date">03</p>
+                        </div>
+                        <div
+                          className="detail__listOfDay--item"
+                          data-toggle="tab"
+                          role="tab"
+                        >
+                          <p className="dayOfWeek">Thứ 6</p>
+                          <p className="date">04</p>
+                        </div>
+                        <div
+                          className="detail__listOfDay--item"
+                          data-toggle="tab"
+                          role="tab"
+                        >
+                          <p className="dayOfWeek">Thứ 7</p>
+                          <p className="date">05</p>
+                        </div>
+                      </div>
+                      <div className="nav detail__cinema" role="tablist">
+                        {this.renderCinemaTabs()}
+                      </div>
                       <div className="detail__showList tab-content"></div>
                     </div>
                   </div>
@@ -214,8 +315,16 @@ class DetailMoviePage extends Component {
                     >
                       <div className="discuss__item">
                         <div className="row discuss__item--header">
-                          <div className="text-center avatar"></div>
-                          <div className="col pl-1 middle"></div>
+                          <div className="text-center avatar">
+                            <img
+                              className="avatar-img"
+                              src="/img/avatar.png"
+                              alt="avatar"
+                            />
+                          </div>
+                          <div className="col pl-1 middle">
+                            <p className="opinion">Bạn nghĩ gì về phim này?</p>
+                          </div>
                           <div className="text-right star__group">
                             <div className="star__group--default">
                               <i class="fa fa-star icon-star"></i>
@@ -230,10 +339,57 @@ class DetailMoviePage extends Component {
                     </div>
                     <div className="discussion__area">
                       <div className="discuss__item">
-                        <div className="row discuss__item--header"></div>
-                        <div className="discuss__item--body"></div>
+                        <div className="row discuss__item--header">
+                          <div className="text-center avatar">
+                            <img
+                              className="avatar-img"
+                              src="/img/avatar.png"
+                              alt="avatar"
+                            />
+                          </div>
+                          <div className="col pl-1 middle">
+                            <p className="opinion font-weight-bold">
+                              Đinh Phúc Nguyên
+                            </p>
+                            <p className="post__time">17/01, 14:18</p>
+                          </div>
+                          <div className="text-right star__group">
+                            <div className="star__group--comment">
+                              <span className="rating">9</span>
+                              <div className="star">
+                                <img src="/img/star1.png" alt="star" />
+                                <img src="/img/star1.png" alt="star" />
+                                <img src="/img/star1.png" alt="star" />
+                                <img src="/img/star1.png" alt="star" />
+                                <img src="/img/star1.2.png" alt="half star" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="discuss__item--body">
+                          <p className="comment">pro</p>
+                        </div>
                         <div className="line"></div>
-                        <div className="row discuss__item--footer"></div>
+                        <div className="row discuss__item--footer">
+                          <div className="col-12">
+                            <div className="interact__wrapper">
+                              <div className="interact__item">
+                                <span className="interact__item--group">
+                                  <img src="/img/like.png" alt="like" />
+                                  <span className="like__num">0</span>
+                                  <span className="label">Thích</span>
+                                </span>
+                              </div>
+                              <div className="interact__item">
+                                <span className="interact__item--group">
+                                  <img src="/img/comment.png" alt="comment" />
+                                  <span className="comment__num">0</span>
+                                  <span className="label">Bình luận</span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <div className="discuss__item"></div>
                       <div className="discuss__item"></div>
@@ -258,6 +414,7 @@ const mapStateToProps = (state) => {
     loading: state.detailMovieReducer.loading,
     detailMovie: state.detailMovieReducer.detailMovie,
     err: state.detailMovieReducer.err,
+    listCinema: state.showTimeReducer.listCinema,
   };
 };
 
@@ -265,6 +422,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchDetailMovie: (id) => {
       dispatch(actDetailMovieApi(id));
+    },
+    fetchListCinema: () => {
+      dispatch(actGetSystemCinemaApi());
     },
   };
 };

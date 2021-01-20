@@ -83,8 +83,8 @@ export default class CarouselComponent extends Component {
                 </button> */}
                 <iframe
                   id="iframe"
-                  width="800"
-                  height="500"
+                  width="100%"
+                  height="100%"
                   src={this.state.trailer}
                   frameBorder={0}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

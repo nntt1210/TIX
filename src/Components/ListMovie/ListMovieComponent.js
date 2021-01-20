@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import { actListMovieApi, actListUpcomingMovieApi } from "./modules/action";
+import { NavLink } from "react-router-dom";
 
 class ListMovieComponent extends Component {
   constructor(props) {
@@ -63,6 +64,10 @@ class ListMovieComponent extends Component {
     }
   };
 
+  renderLink = (maPhim) => {
+    return "/phim/" + maPhim;
+  };
+
   renderSlide = (currentIndex, movie) => {
     var items = movie
       .slice(currentIndex, currentIndex + 8)
@@ -90,9 +95,12 @@ class ListMovieComponent extends Component {
               <span className="movieThumbnail__age">C13</span>
               {item.tenPhim}
               <div className="playBtn__overlay btnContainer">
-                <a className="btnBuyTicket" href="#">
+                <NavLink
+                  className="btnBuyTicket"
+                  to={this.renderLink(item.maPhim)}
+                >
                   Mua vé
-                </a>
+                </NavLink>
               </div>
             </div>
             <div className="movieThumbnail__rate">
@@ -121,77 +129,79 @@ class ListMovieComponent extends Component {
     };
     return (
       <section id="now" className="comingSoon">
-        <ul className="nav nav-tabs navCenter" id="myTab" role="tablist">
-          <li className="nav-item" role="presentation">
-            <a
-              className="nav-link active"
-              id="home-tab"
-              data-toggle="tab"
-              data-target="#nowShowingFilms"
-              role="tab"
-              aria-controls="home"
-              aria-selected="true"
+        <div className="myContainer">
+          <ul className="nav nav-tabs navigation-tab" id="myTab" role="tablist">
+            <li className="nav-item" role="presentation">
+              <a
+                className="nav-link active"
+                id="home-tab"
+                data-toggle="tab"
+                data-target="#nowShowingFilms"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+              >
+                Đang Chiếu
+              </a>
+            </li>
+            <li className="nav-item" role="presentation">
+              <a
+                className="nav-link"
+                id="profile-tab"
+                data-toggle="tab"
+                data-target="#comingFilms"
+                role="tab"
+                aria-controls="profile"
+                aria-selected="false"
+              >
+                Sắp Chiếu
+              </a>
+            </li>
+          </ul>
+          <div className="tab-content" id="myTabContent">
+            <div
+              className="tab-pane fade show active"
+              id="nowShowingFilms"
+              role="tabpanel"
+              aria-labelledby="home-tab"
             >
-              Đang Chiếu
-            </a>
-          </li>
-          <li className="nav-item" role="presentation">
-            <a
-              className="nav-link"
-              id="profile-tab"
-              data-toggle="tab"
-              data-target="#comingFilms"
-              role="tab"
-              aria-controls="profile"
-              aria-selected="false"
+              <div>
+                <Slider {...settings}>{this.renderNowShowingMovie()}</Slider>
+              </div>
+            </div>
+            <div
+              className="tab-pane fade show"
+              id="comingFilms"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
             >
-              Sắp Chiếu
-            </a>
-          </li>
-        </ul>
-        <div className="tab-content" id="myTabContent">
-          <div
-            className="tab-pane fade show active"
-            id="nowShowingFilms"
-            role="tabpanel"
-            aria-labelledby="home-tab"
-          >
-            <div>
-              <Slider {...settings}>{this.renderNowShowingMovie()}</Slider>
+              <div>
+                <Slider {...settings}>{this.renderUpcomingMovie()}</Slider>
+              </div>
             </div>
           </div>
           <div
-            className="tab-pane fade show"
-            id="comingFilms"
-            role="tabpanel"
-            aria-labelledby="profile-tab"
+            id="movieTrailer1"
+            className="modal fade"
+            aria-hidden="true"
+            tabIndex={-1}
           >
-            <div>
-              <Slider {...settings}>{this.renderUpcomingMovie()}</Slider>
-            </div>
-          </div>
-        </div>
-        <div
-          id="movieTrailer1"
-          className="modal fade"
-          aria-hidden="true"
-          tabIndex={-1}
-        >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-body">
-                {/* <button type="button" className="close" data-dismiss="modal">
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-body">
+                  {/* <button type="button" className="close" data-dismiss="modal">
                   <img src="./img/close.png" alt />
                 </button> */}
-                <iframe
-                  id="iframe"
-                  width="800"
-                  height="500"
-                  src={this.state.trailer}
-                  frameBorder={0}
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;"
-                  allowFullScreen
-                />
+                  <iframe
+                    id="iframe"
+                    width="800"
+                    height="500"
+                    src={this.state.trailer}
+                    frameBorder={0}
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;"
+                    allowFullScreen
+                  />
+                </div>
               </div>
             </div>
           </div>
