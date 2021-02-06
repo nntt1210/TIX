@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import ButtonTime from "../ButtonTime";
+import CinemaItem from "../CinemaItem";
+import ImgWrapper from "../ImgWrapper";
+import LogoWrapper from "../LogoWrapper";
 
 import {
   actGetSystemCinemaApi,
@@ -60,57 +64,51 @@ class ShowTimeComponent extends Component {
         return this.props.listCinema.map((item, index) => {
           if (index == 0) {
             return (
-              <div
-                className="logoWrapper active"
-                data-toggle="tab"
-                data-target={"#" + item.maHeThongRap}
-                role="tab"
-                onClick={() => this.resetActiveCinema(item.maHeThongRap)}
-              >
-                <img src={item.logo} alt={item.maHeThongRap} />
-              </div>
+              <LogoWrapper
+                src={item.logo}
+                alt={item.maHeThongRap}
+                active={true}
+                target={"#" + item.maHeThongRap}
+              ></LogoWrapper>
             );
           } else {
             return (
-              <div
-                className="logoWrapper"
-                data-toggle="tab"
-                data-target={"#" + item.maHeThongRap}
-                role="tab"
-                onClick={() => this.resetActiveCinema(item.maHeThongRap)}
-              >
-                <img src={item.logo} alt={item.maHeThongRap} />
-              </div>
+              <LogoWrapper
+                src={item.logo}
+                alt={item.maHeThongRap}
+                active={false}
+                target={"#" + item.maHeThongRap}
+              ></LogoWrapper>
             );
           }
         });
-      } else {
-        return this.props.listCinema.map((item, index) => {
-          if (index == 0) {
-            return (
-              <div
-                className="logoWrapper active"
-                data-toggle="tab"
-                data-target={"#" + item.maHeThongRap}
-                role="tab"
-              >
-                <img src={item.logo} alt={item.maHeThongRap} />
-              </div>
-            );
-          } else {
-            return (
-              <div
-                className="logoWrapper"
-                data-toggle="tab"
-                data-target={"#" + item.maHeThongRap}
-                role="tab"
-              >
-                <img src={item.logo} alt={item.maHeThongRap} />
-              </div>
-            );
-          }
-        });
-      }
+      } // else {
+      //   return this.props.listCinema.map((item, index) => {
+      //     if (index == 0) {
+      //       return (
+      //         <div
+      //           className="logoWrapper active"
+      //           data-toggle="tab"
+      //           data-target={"#" + item.maHeThongRap}
+      //           role="tab"
+      //         >
+      //           <img src={item.logo} alt={item.maHeThongRap} />
+      //         </div>
+      //       );
+      //     } else {
+      //       return (
+      //         <div
+      //           className="logoWrapper"
+      //           data-toggle="tab"
+      //           data-target={"#" + item.maHeThongRap}
+      //           role="tab"
+      //         >
+      //           <img src={item.logo} alt={item.maHeThongRap} />
+      //         </div>
+      //       );
+      //     }
+      //   });
+      // }
     }
   };
 
@@ -139,60 +137,25 @@ class ShowTimeComponent extends Component {
       return arr.map((rap, index) => {
         if (index == 0) {
           return (
-            <div
-              className="cinema-item active"
-              data-toggle="tab"
-              data-target={"#" + rap.maCumRap}
-              role="tab"
-              aria-selected="true"
-              key={index}
-            >
-              <div className="cinema__details">
-                <img
-                  className="cinemaImg"
-                  src={`./img/${id}_theater.jpg`}
-                  alt={rap.maCumRap}
-                />
-                <div className="cinemaInfo">
-                  <span className="cinemaName">
-                    <span className={id}>
-                      {this.renderCinemaName(rap.tenCumRap)}
-                    </span>
-                    - {this.renderCinemaAddress(rap.tenCumRap)}
-                  </span>
-                  <span className="cinemaAddress">{rap.diaChi}</span>
-                  {/* <span className="redDetail">[chi tiết]</span> */}
-                </div>
-              </div>
-            </div>
+            <CinemaItem
+              system={id}
+              id={rap.maCumRap}
+              target={"#" + rap.maCumRap}
+              name={rap.tenCumRap}
+              address={rap.diaChi}
+              active={true}
+            />
           );
         } else {
           return (
-            <div
-              className="cinema-item"
-              data-toggle="tab"
-              data-target={"#" + rap.maCumRap}
-              role="tab"
-              key={index}
-            >
-              <div className="cinema__details">
-                <img
-                  className="cinemaImg"
-                  src={`./img/${id}_theater.jpg`}
-                  alt={rap.maCumRap}
-                />
-                <div className="cinemaInfo">
-                  <span className="cinemaName">
-                    <span className={id}>
-                      {this.renderCinemaName(rap.tenCumRap)}
-                    </span>
-                    - {this.renderCinemaAddress(rap.tenCumRap)}
-                  </span>
-                  <span className="cinemaAddress">{rap.diaChi}</span>
-                  {/* <span className="redDetail">[chi tiết]</span> */}
-                </div>
-              </div>
-            </div>
+            <CinemaItem
+              system={id}
+              id={rap.maCumRap}
+              target={"#" + rap.maCumRap}
+              name={rap.tenCumRap}
+              address={rap.diaChi}
+              active={false}
+            />
           );
         }
       });
@@ -302,21 +265,23 @@ class ShowTimeComponent extends Component {
         if (min < 10) min = "0" + min;
         if (flag) {
           return (
-            <button className="btn btn-time" key={index}>
-              <span className="start">
-                {hours}:{min}
-              </span>{" "}
-              ~ {endTime}:{min}
-            </button>
+            // <button className="btn btn-time" key={index}>
+            //   <span className="start">
+            //     {hours}:{min}
+            //   </span>{" "}
+            //   ~ {endTime}:{min}
+            // </button>
+            <ButtonTime />
           );
         } else {
           return (
-            <button className="btn btn-time" key={index} disabled>
-              <span className="start">
-                {hours}:{min}
-              </span>{" "}
-              ~ {endTime}:{min}
-            </button>
+            // <button className="btn btn-time" key={index} disabled>
+            //   <span className="start">
+            //     {hours}:{min}
+            //   </span>{" "}
+            //   ~ {endTime}:{min}
+            // </button>
+            <ButtonTime />
           );
         }
       }
@@ -344,11 +309,12 @@ class ShowTimeComponent extends Component {
               data-target={this.renderDataTarget(maCumRap, item.maPhim)}
               aria-expanded="true"
             >
-              <img
+              {/* <img
                 className="theater__img"
                 src={item.hinhAnh}
                 alt={item.tenPhim}
-              />
+              /> */}
+              <ImgWrapper src={item.hinhAnh} alt={item.tenPhim} />
               <div className="wrapInfo">
                 <span className="movieName">
                   <span className="showing__age">C13</span> - {item.tenPhim}

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import BuyTicketBoxComponent from "../BuyTicketBox/BuyTicketBoxComponent";
+import CarouselItem from "../CarouselItem";
 
-export default class CarouselComponent extends Component {
+class CarouselComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,26 +35,13 @@ export default class CarouselComponent extends Component {
   }
 
   setTrailer = (trailer) => {
-    this.setState({
-      trailer,
-    });
+    this.props.updateMovieTrailer(trailer);
   };
 
   renderSlide = () => {
     return this.state.listImg.map((item, index) => {
       return (
-        <div key={index} className="item">
-          <img className="d-block w-100" src={item.src} alt="" />
-          <div className="playBtn__overlay">
-            <button
-              data-toggle="modal"
-              data-target="#movieTrailer"
-              onClick={() => this.setTrailer(item.trailer)}
-            >
-              <img src="img/play-video.png" />
-            </button>
-          </div>
-        </div>
+        <CarouselItem key={index} trailer={item.trailer} hinhAnh={item.src} />
       );
     });
   };
@@ -69,73 +57,11 @@ export default class CarouselComponent extends Component {
     return (
       <section className="tixCarousel">
         <Slider {...settings}>{this.renderSlide()}</Slider>
-        <div
-          id="movieTrailer"
-          className="modal fade"
-          aria-hidden="true"
-          tabIndex={-1}
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-body">
-                {/* <button type="button" className="close" data-dismiss="modal">
-                  <img src="./img/close.png" alt />
-                </button> */}
-                <iframe
-                  id="iframe"
-                  width="100%"
-                  height="100%"
-                  src={this.state.trailer}
-                  frameBorder={0}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+
         <BuyTicketBoxComponent />
       </section>
     );
   }
 }
 
-// import React, { Component } from "react";
-// import Slider from "react-slick";
-
-// export default class CarouselComponent extends Component {
-//   render() {
-//     const settings = {
-//       dots: true,
-//       infinite: true,
-//       speed: 500,
-//       slidesToShow: 1,
-//       slidesToScroll: 1,
-//     };
-//     return (
-//       <div>
-//         <h2> Single Item</h2>
-//         <Slider {...settings}>
-//           <div>
-//             <h3>1</h3>
-//           </div>
-//           <div>
-//             <h3>2</h3>
-//           </div>
-//           <div>
-//             <h3>3</h3>
-//           </div>
-//           <div>
-//             <h3>4</h3>
-//           </div>
-//           <div>
-//             <h3>5</h3>
-//           </div>
-//           <div>
-//             <h3>6</h3>
-//           </div>
-//         </Slider>
-//       </div>
-//     );
-//   }
-// }
+export default CarouselComponent;

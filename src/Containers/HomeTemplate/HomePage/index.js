@@ -1,15 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import MovieTrailer from "../../../Components/MovieTrailer";
 
 import CarouselComponent from "./../../../Components/Carousel/CarouselComponent";
 import ListMovieComponent from "./../../../Components/ListMovie/ListMovieComponent";
 import ShowTimeComponent from "./../../../Components/ShowTime/ShowTimeComponent";
 
-export default function HomePage() {
-  return (
-    <React.Fragment>
-      <CarouselComponent />
-      <ListMovieComponent />
-      <ShowTimeComponent />
-    </React.Fragment>
-  );
+class HomePage extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <CarouselComponent />
+        <ListMovieComponent />
+        <ShowTimeComponent />
+        <MovieTrailer trailer={this.props.trailer} />
+      </React.Fragment>
+    );
+  }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    trailer: state.buttonTrailerReducer.data,
+  };
+};
+
+export default connect(mapStateToProps, null)(HomePage);
+
+// export default function HomePage() {
+//   return (
+//     <React.Fragment>
+//       <CarouselComponent />
+//       <ListMovieComponent />
+//       <ShowTimeComponent />
+//       <MovieTrailer trailer="https://www.youtube.com/embed/LdOM0x0XDMo" />
+//     </React.Fragment>
+//   );
+// }

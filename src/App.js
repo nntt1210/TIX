@@ -3,6 +3,9 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { routesHome } from "./Routes";
 import HomeTemplate from "./Containers/HomeTemplate";
 import { connect } from "react-redux";
+import PageNotFound from "./Containers/PageNotFound";
+import LoginPage from "./Containers/HomeTemplate/LoginPage";
+import RegisterPage from "./Containers/HomeTemplate/RegisterPage";
 
 class App extends Component {
   showLayoutHome = (routes) => {
@@ -21,7 +24,14 @@ class App extends Component {
   };
 
   render() {
-    return <Switch>{this.showLayoutHome(routesHome)}</Switch>;
+    return (
+      <Switch>
+        {this.showLayoutHome(routesHome)}
+        <Route path="/login" component={LoginPage} />
+        <Route path="/register" component={RegisterPage} />
+        <Route path="" component={PageNotFound} />
+      </Switch>
+    );
   }
 }
 

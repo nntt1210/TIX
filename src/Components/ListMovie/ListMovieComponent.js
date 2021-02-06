@@ -3,6 +3,9 @@ import Slider from "react-slick";
 import { connect } from "react-redux";
 import { actListMovieApi, actListUpcomingMovieApi } from "./modules/action";
 import { NavLink } from "react-router-dom";
+import ButtonBuy from "../ButtonBuy";
+import ButtonTrailer from "../ButtonTrailer";
+import MovieItem from "../MovieItem";
 
 class ListMovieComponent extends Component {
   constructor(props) {
@@ -73,47 +76,14 @@ class ListMovieComponent extends Component {
       .slice(currentIndex, currentIndex + 8)
       .map((item, index) => {
         return (
-          <div key={index} className="col-6 col-sm-4 col-md-3 movieThumbnail">
-            <div className="movieThumbnail__img">
-              <a
-                className="img__link"
-                href="#"
-                style={{ backgroundImage: `url(${item.hinhAnh})` }}
-              ></a>
-              <div className="playBtn__overlay">
-                <button
-                  data-toggle="modal"
-                  data-target="#movieTrailer1"
-                  onClick={() => this.setTrailer(item.trailer)}
-                >
-                  <img src="img/play-video.png" />
-                </button>
-              </div>
-            </div>
-
-            <div className="movieThumbnail__title">
-              <span className="movieThumbnail__age">C13</span>
-              {item.tenPhim}
-              <div className="playBtn__overlay btnContainer">
-                <NavLink
-                  className="btnBuyTicket"
-                  to={this.renderLink(item.maPhim)}
-                >
-                  Mua vé
-                </NavLink>
-              </div>
-            </div>
-            <div className="movieThumbnail__rate">
-              <span>{item.danhGia}</span>
-              <div className="star">
-                <img src="img/star1.png" />
-                <img src="img/star1.png" />
-                <img src="img/star1.png" />
-                <img src="img/star1.png" />
-                <img src="img/star1.png" />
-              </div>
-            </div>
-          </div>
+          <MovieItem
+            key={index}
+            hinhAnh={item.hinhAnh}
+            maPhim={item.maPhim}
+            tenPhim={item.tenPhim}
+            danhGia={item.danhGia}
+            trailer={item.trailer}
+          />
         );
       });
     return items;
@@ -177,31 +147,6 @@ class ListMovieComponent extends Component {
             >
               <div>
                 <Slider {...settings}>{this.renderUpcomingMovie()}</Slider>
-              </div>
-            </div>
-          </div>
-          <div
-            id="movieTrailer1"
-            className="modal fade"
-            aria-hidden="true"
-            tabIndex={-1}
-          >
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content">
-                <div className="modal-body">
-                  {/* <button type="button" className="close" data-dismiss="modal">
-                  <img src="./img/close.png" alt />
-                </button> */}
-                  <iframe
-                    id="iframe"
-                    width="800"
-                    height="500"
-                    src={this.state.trailer}
-                    frameBorder={0}
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;"
-                    allowFullScreen
-                  />
-                </div>
               </div>
             </div>
           </div>
