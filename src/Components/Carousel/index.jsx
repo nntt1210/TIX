@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import BuyTicketBoxComponent from "../BuyTicketBox/BuyTicketBoxComponent";
 import CarouselItem from "../CarouselItem";
+import useStyles from "./style";
 
 export default function Carousel() {
   const [listImg] = useState([
@@ -43,8 +44,10 @@ export default function Carousel() {
     slidesToScroll: 1,
   };
 
+  const styles = useStyles();
+
   return (
-    <section className="tixCarousel" style={{ marginTop: "60px" }}>
+    <section className={styles.root} style={{ marginTop: "60px" }}>
       <Slider {...settings}>{renderSlide()}</Slider>
 
       {/* <BuyTicketBoxComponent /> */}

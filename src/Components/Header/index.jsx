@@ -17,6 +17,7 @@ export default function Header() {
       </Box>
       <Box className={styles.center}>
         <Link
+          // containerId="now"
           activeClass="active"
           to="now"
           // className="menu"
@@ -28,6 +29,7 @@ export default function Header() {
           Lịch chiếu
         </Link>
         <Link
+          // containerId="cinemas"
           activeClass="active"
           to="cinemas"
           // className="menu"
@@ -39,6 +41,7 @@ export default function Header() {
           Cụm rạp
         </Link>
         <Link
+          // containerId="news"
           activeClass="active"
           to="news"
           // className="menu"
@@ -50,6 +53,7 @@ export default function Header() {
           Tin tức
         </Link>
         <Link
+          // containerId="app"
           activeClass="active"
           to="app"
           // className="menu"
