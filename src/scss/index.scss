@@ -1,0 +1,19 @@
+//helper
+@import "./Helper/mixin";
+@import "./Helper/variables";
+
+//Layout
+@import "./Layouts/header";
+@import "./Layouts/carousel";
+@import "./Layouts/comingSoon";
+@import "./Layouts/movieList";
+@import "./Layouts/filmdetails";
+@import "./Layouts/footer";
+@import "./Layouts/mobileapp";
+
+@import "../components/Loader/styles";
+@import "../scss/Layouts/modal";
+
+// Base
+@import "./Base/reset";
+@import "./Base/normalized";

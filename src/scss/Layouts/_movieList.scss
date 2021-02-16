@@ -1,0 +1,236 @@
+.movieList{
+    padding-top: 120px;
+    padding-bottom: 50px;
+    // background: url(../img/back-news.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    max-width: 940px;
+    margin: auto;
+    display: flex;
+    @media screen and (max-width: 677px)
+    {
+        &{
+            display: block;
+        }
+    }
+    .nav{
+        display: block;
+    }
+    .listCinemas{
+        min-height: 705px;
+        width: 92px;
+        @media screen and (max-width: 677px){
+            width: 100%;
+        }
+        border: 1px solid #ebebec;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        .nav-link{
+            border: 1px solid transparent;
+            padding: 20px;
+            position: relative;
+            transition: all .2s;
+            opacity: 0.5;
+            &.active,&:hover{
+                opacity: 1;
+            }
+            img{
+                width: 50px;
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: calc(100% - 40px);
+                transform: translateX(-50%);
+                border-bottom: 1px solid #fff;
+                border-color: rgba(238, 238, 238, 0.878);
+            }
+        }
+    }
+    #cinemaTabContent{
+        min-height: 705px;
+        border-bottom: 1px solid #ebebec;
+        width: 848px;
+        @media screen and (max-width: 677px){
+            width: 100%;
+        }
+        .cinemaList{
+            width: 100%;
+            display: none;
+            &.active{
+                display: flex;
+                @media screen and (max-width: 677px){
+                    &{
+                        display: block;
+                    }
+                }
+            }
+            .listMovies{
+                min-height: 705px;
+                border-top: 1px solid #ebebec;
+                width: 30%;
+                @media screen and (max-width: 677px){
+                    width: 100%;
+                }
+                .cinema-item{
+                    padding: 15px;
+                    padding-left: 20px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    width: 100%;
+                    position: relative;
+                    opacity: .5;
+                    cursor: pointer;
+                    transition: all .2s;
+                    display: flex;
+                    &.active,&:hover{
+                        opacity: 1;
+                        text-decoration: none;
+                    }
+                    .cinemaImg{
+                        width: 50px;
+                    }
+                    .cinemaInfo{
+                        width: 169px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        display: block;
+                        padding-left: 10px;
+                        span{
+                            display: block;
+                            line-height: 1.4;
+                        }
+                        .cinemaName{
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            @include text($color-black-0, $fs-0, $fw-normal);
+                            .colorCinema{
+                                display: inline-block!important;
+                            }
+                            .BHD{
+                                color: $color-green-4;
+                            }
+                            .CNS{
+                                color: $color-pink;
+                            }
+                            .DDC{
+                                color: $color-gray-6;
+                            }
+                            .megaGS{
+                                color: $color-yellow;
+                            }
+                            .Lotte{
+                                color: $color-brown;
+                            }
+                        }
+                        .cinemaAddress{
+                            font-size: 12px;
+                            color: #949494;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                        .redDetail{
+                            color: #fb4226!important;
+                            font-size: 12px;    
+                        }
+                    }
+                }
+                
+                .nav-item{
+                    position: relative;
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        width: calc(100% - 40px);
+                        transform: translateX(-50%);
+                        border-bottom: 1px solid #fff;
+                        border-color: rgba(238, 238, 238, 0.878);
+                    }
+                }
+            }
+            .tab-content{
+                max-height: 705px;
+                border: 1px solid #ebebec;
+                position: relative;
+                overflow-y: auto;
+                overflow-x: hidden;
+                .wrapMovie{
+                    padding: 20px 15px 17px 20px;
+                    width: 100%;
+                    position: relative;
+                    margin-bottom: 0;
+                    border: none;
+                    box-shadow: none;
+                    -webkit-box-shadow: none;
+                }
+                .movieInfo{
+                    display: flex;
+                    .movieImg{
+                        width: 50px;
+                        height: 50px;
+                    }
+                    .wrapInfo{
+                        padding: 5px 15px;
+                        p{
+                            margin: 0;
+                            line-height: 1.7;
+                            font-size: 12px;
+                            color: #9b9b9b;
+                        }
+                        .ageType{
+                            @include text($color-white-0,$fs-0,$fw-normal);
+                            background-color: #fb4226;
+                            border-radius: 4px;
+                            padding: 0 5px;
+                            min-width: 33px;
+                            text-align: center;
+                            display: inline-block;
+                            margin-right: 8px;
+                        }
+                        .ageType-general{
+                            background-color: $color-green-1;
+                        }
+                        .movieTitle{
+                            @include text($color-black-0, $fs-0, $fw-bold);
+                        }
+                    }
+                }
+                .version{
+                    @include text($color-black-0, $fs-0, $fw-bold);
+                }
+                .sessions{
+                    .session{
+                        width: calc(25% - 15px);
+                        @include text($color-gray-2, $fs-0, $fw-normal);
+                        cursor: pointer;
+                        margin: 0 10px 10px 0;
+                        padding: 5px 0;
+                        transition: all .2s;
+                        text-decoration: none;
+                        display: inline-block;
+                        text-align: center;
+                        background-color: rgba(246,246,246,.5);
+                        border-radius: 7px;
+                        border: 1px solid #e4e4e4;
+                        .start-time{
+                            @include text($color-green-3, $fs-6, $fw-normal);
+                        }
+                        &:hover{
+                            .start-time{
+                                color: $color-orange-1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
