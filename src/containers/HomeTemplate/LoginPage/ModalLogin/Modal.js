@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import { actAuthApi } from "./modules/actions";
+import { LoginGoogle } from "../GoogleLogin/googleLogin";
+
 
 class Modal extends Component {
 
@@ -27,6 +29,13 @@ class Modal extends Component {
         if (err) {
             return <div className="alert alert-danger"> {err.response.data}</div>
         }
+    }
+    renderGoogleLogin = () => {
+        return (
+            <div className="col-xs-12 mt-3">
+                <LoginGoogle />
+            </div>
+        )
     }
     render() {
         return (
@@ -68,11 +77,7 @@ class Modal extends Component {
                                         <img className="sigInLogo" src="https://tix.vn/app/assets/img/login/btn-Zalo.png" />
                                     </a>
                                 </div>
-                                <div className="col-xs-12 mt-3">
-                                    <a className="loginBtn">
-                                        <img className="sigInLogo" src="https://tix.vn/app/assets/img/login/btn-Google.png" />
-                                    </a>
-                                </div>
+                                {this.renderGoogleLogin()}
                                 <hr />
                                 <div className="col-xs-12 mt-3  rounded">
                                     <div>
@@ -103,10 +108,12 @@ class Modal extends Component {
                                                         Sign In
                                                 </button>
                                                 </div>
-                                                <div className="col-6 bg-light rounded p-0">
-                                                    <NavLink className="loginBtn  " to="/signUp">
-                                                        Sign Up
-                                                    </NavLink>
+                                                <div className="col-6 rounded p-0" >
+                                                    <button className="btn btn-primary" >
+                                                        <NavLink className="loginBtn" to="/signUp" >
+                                                            Sign Up
+                                                        </NavLink>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </form>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getDataModal } from "../../containers/HomeTemplate/HomePage/module/action";
+import { getDataModal } from "../../containers/HomeTemplate/CarouselPage/module/action";
 
 
 function mapStateToProps(state) {
@@ -12,6 +12,7 @@ function mapStateToProps(state) {
 class OwlItem extends Component {
     render() {
         const { item } = this.props;
+        console.log("OwlItem", item);
         if (item && item.length > 0) {
             return item.map(item => {
                 return (

@@ -16,8 +16,8 @@ const reducerComingSoon = (state = initReducer, action) => {
         }
         case ActionType.SUCCESS_DATA_COMING_SOON: {
             state.isLoading = false;
-            console.log("reducerComingSoon", action.payload.items);
-            state.movieComingSoon = action.payload.items;
+            console.log("reducerComingSoon", action.payload);
+            state.movieComingSoon = action.payload;
             state.err = null;
             return { ...state };
         }

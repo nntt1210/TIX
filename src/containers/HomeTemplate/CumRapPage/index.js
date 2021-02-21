@@ -7,7 +7,6 @@ import reducerCumRap from "./modules/reducerCumRapPage";
 
 class CumRapPage extends Component {
 
-
     renderContentCinemas = (detailCinemas) => {
         console.log('detailCinemas', detailCinemas);
         if (detailCinemas && detailCinemas.length > 0) {

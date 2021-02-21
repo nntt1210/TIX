@@ -15,7 +15,7 @@ class NavBarHome extends Component {
     componentDidMount() {
         if (localStorage.getItem('UserAuthenticated')) {
             console.log("NavBarHome", JSON.parse(localStorage.getItem("UserAuthenticated")).hoTen);
-            this.setState({ user: JSON.parse(localStorage.getItem("UserAuthenticated")).hoTen });
+            this.setState({ user: JSON.parse(localStorage.getItem("UserAuthenticated")).hoTen || JSON.parse(localStorage.getItem("UserAuthenticated")).Es.sd });
         } else {
             this.setState({ user: "Đăng Nhập" });
         }

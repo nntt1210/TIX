@@ -2,14 +2,15 @@
 import * as ActionType from './constants';
 import api from "../../../../api/index";
 
-export const actFetchComingSoonApi = () => {
+export const actFetchComingSoonApi = (movieId) => {
     return dispatch => {
         dispatch(actRequestMovie());
         api
-            .get(`api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP15`)
+            .get(`api/QuanLyPhim/LayDanhSachPhim?maNhom=GP15`)
             .then((result) => {
                 console.log('actFetchComingSoonApi', result.data);
                 dispatch(actListMovieSuccess(result.data));
+                // dispatch(actFetchFilmDetail(result.data))
             })
             .catch((err) => {
                 console.log(err);

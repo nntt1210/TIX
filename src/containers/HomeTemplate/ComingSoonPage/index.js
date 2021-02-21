@@ -16,7 +16,9 @@ class ComingSoon extends Component {
                             movieLichChieu={movieList}
                         />
                     </div>
+                    
                 </div>
+                
             )
         }
     }

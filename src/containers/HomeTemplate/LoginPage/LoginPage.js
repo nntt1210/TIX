@@ -13,10 +13,8 @@ class LoginPage extends Component {
         if (loading) return <Loader />
         if (localStorage.getItem('UserAuthenticated')) return <Redirect to='/' />;
         return (
-
             <div className="Login" id="logIn">
                 <Modal />
-
             </div>
         );
     }

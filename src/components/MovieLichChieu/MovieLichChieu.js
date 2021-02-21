@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { actFetchFilmDetail } from "./modules/action";
 
 class MovieLichChieu extends Component {
 
+    displayModal = ()=>{}
     render() {
-        const { movieLichChieu } = this.props;
-        console.log("movieLichChieu", movieLichChieu);
+        const { movieLichChieu, movie } = this.props;
+        // console.log("mapStateToProps", movie.thoiLuong);
         return movieLichChieu.map((item) => {
+            // { this.props.handleDispatch(item.maPhim) }
             return (
                 <>
                     <div className=" col-3 film">
@@ -27,7 +30,7 @@ class MovieLichChieu extends Component {
                                 <span className="ageType">
                                     C18
                                                 </span>
-                                <span>Ác Quỷ Đối Đầu - Deliver Us From Evil - (C18)</span>
+                                <span>{item.tenPhim}</span>
                             </div>
                             <div className="infoFilm hideHover">
                                 100 phút
@@ -50,10 +53,16 @@ class MovieLichChieu extends Component {
 }
 function mapStateToProps(state) {
     return {
-
+        movie: state.reducerMovieDetail.data
     };
 }
-
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleDispatch: (movieId) => {
+            dispatch(actFetchFilmDetail(movieId))
+        }
+    }
+}
 export default connect(
-    mapStateToProps,
+    mapStateToProps, mapDispatchToProps
 )(MovieLichChieu);
