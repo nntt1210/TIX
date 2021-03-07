@@ -6,6 +6,8 @@ import reducerCumRap from "../containers/HomeTemplate/CumRapPage/modules/reducer
 import { addReducerRegister } from "../containers/HomeTemplate/LoginPage/RegisterForm/modules/reducerRegister";
 import { authPageReducer } from "../containers/HomeTemplate/LoginPage/ModalLogin/modules/reducerLogin";
 import reducerMovieDetail from "../components/MovieLichChieu/modules/reducerMovieDetail";
+import reducerSecondPage from "../containers/HomeTemplate/HomeSecondPage/modules/reducerSecondPage";
+
 
 const rootReducer = combineReducers({
     //noi chua cac reducer con
@@ -16,5 +18,7 @@ const rootReducer = combineReducers({
     authPageReducer,
     addReducerRegister,
     reducerMovieDetail,
+    reducerSecondPage,
+
 });
 export default rootReducer;

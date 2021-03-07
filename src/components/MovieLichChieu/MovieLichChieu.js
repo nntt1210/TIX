@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actFetchFilmDetail } from "./modules/action";
+import { Link } from 'react-router-dom';
+
+//MOVIE IN LICH CHIEU SAP CHIEU
 
 class MovieLichChieu extends Component {
 
-    displayModal = ()=>{}
+
     render() {
-        const { movieLichChieu, movie } = this.props;
-        // console.log("mapStateToProps", movie.thoiLuong);
+        const { movieLichChieu, movie, currentPosition } = this.props;
+
         return movieLichChieu.map((item) => {
             // { this.props.handleDispatch(item.maPhim) }
+            console.log("movieLichChieu", item);
+
             return (
                 <>
-                    <div className=" col-3 film">
-                        <a href="https://tix.vn/phim/2447-lich-chieu-ac-quy-doi-dau">
+                    <div className="col-3 film">
+                        <Link to={`/phim/${item.maPhim}`}>
                             <div className="showDetail">
                                 <img src={item.hinhAnh} alt />
                                 <div className="hoverInfo showHover">
@@ -22,25 +27,32 @@ class MovieLichChieu extends Component {
                             <span className="avgPoint">
                                 <p className="txtPoint">8.8</p>
                                 <p>
-                                    <img className="smallStar" src="./img/star1.png" alt /><img className="smallStar" src="./img/star1.png" alt /><img className="smallStar" src="./img/star1.png" alt /><img className="smallStar" src="./img/star1.png" alt /><img className="half" src="./img/star1.2.png" alt />
+                                    <img className="smallStar" src="./img/star1.png" alt />
+                                    <img className="smallStar" src="./img/star1.png" alt />
+                                    <img className="smallStar" src="./img/star1.png" alt />
+                                    <img className="smallStar" src="./img/star1.png" alt />
+                                    <img className="half" src="./img/star1.2.png" alt />
                                 </p>
                             </span>
-                        </a><div className="info"><a href="https://tix.vn/phim/2447-lich-chieu-ac-quy-doi-dau">
-                            <div className="nameFilm hideHover">
-                                <span className="ageType">
-                                    C18
-                                                </span>
-                                <span>{item.tenPhim}</span>
-                            </div>
-                            <div className="infoFilm hideHover">
-                                100 phút
-                                            </div>
-                        </a><div className="showHover"><a href="https://tix.vn/phim/2447-lich-chieu-ac-quy-doi-dau">
-                        </a><a href="https://tix.vn/phim/2447-lich-chieu-ac-quy-doi-dau" className="buyNow">MUA VÉ</a>
+                        </Link>
+                        <div className="info">
+                            <Link to={`/phim/${item.maPhim}`}>
+                                <div className="nameFilm hideHover">
+                                    <span className="ageType">
+                                        C18
+                                    </span>
+                                    <span>{item.tenPhim}</span>
+                                </div>
+                                <div className="infoFilm hideHover">
+                                    100 phút
+                                </div>
+                            </Link>
+                            <div className="showHover"><Link className="buyNow" to={`/phim/${item.maPhim}`}>MUA VÉ</Link>
                             </div>
                         </div>
-                        <button className="playTrailer" data-toggle="modal" data-target="#Modal" onclick="displayModal(this)">
-                            <span className="d-none">https://www.youtube.com/embed/jU06ylSH-BY</span>
+                        <button className="btn playTrailer" data-toggle="modal" data-target="#Modal"
+                            onclick="displayModal(this)" to={`/phim/${item.maPhim}`}>
+                            <span className="d-none">{item.trailer}</span>
                             <img src="./img/play-video.png" alt />
                         </button>
                     </div>

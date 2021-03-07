@@ -6,20 +6,23 @@ import CarouselPage from '../CarouselPage';
 import ComingSoon from '../ComingSoonPage/index';
 import TinTucPage from '../TinTucPage';
 import CumRapPage from '../CumRapPage';
+import MobileApp from '../../../components/MobileApp/MobileApp';
 
 
 
 class HomeMainPage extends Component {
 
+
     render() {
         return (
             <>
-                <NavBarHome />
+                {/* <NavBarHome /> */}
                 <CarouselPage />
                 <ComingSoon />
                 <CumRapPage />
                 <TinTucPage />
-                <FooterHome />
+                <MobileApp />
+                {/* <FooterHome /> */}
             </>
         );
     }

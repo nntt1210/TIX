@@ -10,7 +10,7 @@ export const actFetchListMovieHomePageApi = (soTrang) => {
     return dispatch => {
         dispatch(actRequestMovie());
         api
-            .get(`api/QuanLyPhim/LayDanhSachPhim?maNhom=GP15`)
+            .get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP15`)
             .then((result) => {
                 console.log('redux', result.data);
                 dispatch(actListMovieSuccess(result.data));

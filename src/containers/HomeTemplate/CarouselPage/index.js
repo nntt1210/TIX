@@ -15,36 +15,42 @@ class CarouselPage extends Component {
     renderHTML = () => {
         const { movieCarousel } = this.props;
         // console.log("renderhtml", movieCarousel);
-        if (movieCarousel && movieCarousel.length > 0) {
-            return (
-                <OwlCarousel
-                    items="1"
-                    autoplay="true"
-                    dots="false"
-                    nav=" true"
-                    loop="true"
-                    navText={[`<img src=${process.env.PUBLIC_URL}/img/back-session.png />`
-                        , `<img src=${process.env.PUBLIC_URL}/img/next-session.png />`]}
-                    responsive={
-                        {
-                            0: {
-                                nav: false,
-                                dots: false,
-                            }
-                        },
-                        {
-                            600: {
-                                nav: true,
-                                dots: true,
-                            }
-                        }
 
-                    }
-                    className="owl-theme" >
-                    <OwlItem item={movieCarousel} />
-                </OwlCarousel >
-            )
-        }
+        if (movieCarousel && movieCarousel.length > 0)
+            for (let currentPosition = 0; currentPosition < (movieCarousel.length / 8); currentPosition++) {
+                var newMovieCarousel = movieCarousel.slice(currentPosition, currentPosition + 8);
+                console.log("newMovieCarousel", newMovieCarousel);
+                return (
+                    <OwlCarousel
+                        items="1"
+                        autoplay="true"
+                        dots="false"
+                        nav=" true"
+                        loop="true"
+                        navText={[`<img src=${process.env.PUBLIC_URL}/img/back-session.png />`
+                            , `<img src=${process.env.PUBLIC_URL}/img/next-session.png />`]}
+                        responsive={
+                            {
+                                0: {
+                                    nav: false,
+                                    dots: false,
+                                }
+                            },
+                            {
+                                600: {
+                                    nav: true,
+                                    dots: true,
+                                }
+                            }
+
+                        }
+                        className="owl-theme" >
+                        <OwlItem item={newMovieCarousel} />
+                    </OwlCarousel >
+                )
+            }
+
+
     }
     render() {
         const { modalItem, isLoading } = this.props;

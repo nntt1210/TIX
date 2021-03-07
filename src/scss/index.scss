@@ -10,7 +10,14 @@
 @import "./Layouts/filmdetails";
 @import "./Layouts/footer";
 @import "./Layouts/mobileapp";
+@import "./Layouts/homesecondpage";
 
+//faq, chinhsachBaoMat, thoaThuanSuDung
+@import "./Layouts/faqPage";
+@import "./Layouts/chinhSachBM";
+@import "./Layouts/thoaThuanSD";
+
+//layout component
 @import "../components/Loader/styles";
 @import "../scss/Layouts/modal";
 

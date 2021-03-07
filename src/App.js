@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, withRouter, Route } from 'react-router-dom';
 import { LayoutHome } from './containers/HomeTemplate';
-import { HomeTemplate } from './containers/HomeTemplate';
+import HomeTemplate from './containers/HomeTemplate';
 import { routesHome } from './routes';
 
 class App extends Component {
@@ -27,4 +27,4 @@ class App extends Component {
 }
 
 // const ConnectComponent = connect(null, null)(App);
-export default App;
+export default withRouter(App);

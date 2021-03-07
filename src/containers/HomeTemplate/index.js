@@ -1,24 +1,28 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import FooterHome from '../../components/FooterHome';
+import NavBarHome from '../../components/NavBarHome';
 
-
-export function LayoutHome(props) {
-
+function LayoutHome(props) {
+    console.log("LayoutHome", props.children);
     return (
         <>
-            {/* <HomeMainPage /> */}
+            <NavBarHome />
             {props.children}
+            <FooterHome />
         </>
     )
 }
-export function HomeTemplate({ Component, ...props }) {
-    console.log(props);
+export default function HomeTemplate({ Component, ...props }) {
+    console.log("HomeTemplate", Component, props);
     return (
         <Route
-            render={(componentProps) => (
-                <LayoutHome>
-                    <Component {...componentProps} />
-                </LayoutHome>
-            )} />
+            {...props}
+            render={
+                (componentProps) => (
+                    <LayoutHome>
+                        <Component {...componentProps} />
+                    </LayoutHome>
+                )} />
     )
 }

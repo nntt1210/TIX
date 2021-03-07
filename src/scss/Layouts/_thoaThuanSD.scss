@@ -1,0 +1,93 @@
+.thoaThuanContent {
+  margin-top: 100px;
+
+  .side-menu {
+    width: 250px;
+    z-index: 1;
+    h4 {
+      @include text($color-gray-2, $fs-6, $fw-normal);
+      padding: 24px 0 20px 0;
+      border-bottom: #eee 1px solid;
+      float: left;
+      width: 100%;
+    }
+    li {
+      border-left: #eee 1px solid;
+      padding: 15px 0;
+      float: left;
+      width: 100%;
+      height: 70px;
+      line-height: 120%;
+      font-size: 14px;
+      margin-left: 22px;
+      .div {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 30px;
+        width: 180px;
+      }
+      .active a,
+      &:hover a {
+        @include text($color-blue-3, $fs-2, $fw-normal);
+      }
+    }
+    a {
+      @include text($color-gray-9, $fs-2, $fw-normal);
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .main {
+    .contain {
+      .sideLeft {
+        .group {
+          h1 {
+            @include text($color-black-0, $fs-7, $fw-bold-0);
+            text-align: center;
+          }
+          p {
+            margin-top: 20px;
+            @include text($color-black-0, $fs-5, $fw-bold-0);
+          }
+
+          .item {
+            h2 {
+              @include text($color-black-0, $fs-3, $fw-bold-0);
+              text-align: left;
+            }
+            .m-section {
+              p {
+                @include text($color-black-0, $fs-5, $fw-normal);
+                @include text($color-black-0, $fs-5, $fw-normal);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .sideRight {
+    width: 300px;
+    padding-left: 30px;
+    @include text($color-gray-1, $fs-6, $fw-normal);
+    ul {
+      text-decoration: none;
+      list-style: none;
+      li {
+        text-align: left;
+        padding: 5px 0;
+        &:hover a {
+          @include text($color-blue-3, $fs-1, $fw-normal);
+        }
+        a {
+          @include text($color-gray-9, $fs-1, $fw-normal);
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

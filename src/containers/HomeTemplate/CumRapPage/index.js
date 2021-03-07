@@ -13,12 +13,12 @@ class CumRapPage extends Component {
             return detailCinemas.map((item) => {
                 return (
                     <div className="tab-content" id="cinemaTabContent">
-                        <div class="tab-pane fade show active cinemaList" id={`#${item.maHeThongRap}`} role="tabpanel" aria-labelledby="BHD-tab">
+                        <div className="tab-pane fade show active cinemaList" id={`#${item.maHeThongRap}`} role="tabpanel" aria-labelledby="BHD-tab">
                             <ul className="nav nav-tabs listMovies" role="tablist">
                                 <CineList listCine={item.lstCumRap} />
                             </ul>
-                            <div className="tab-content selectScroll">
-                                <div className="tab-pane fade show active" id="bitexco" role="tabpanel" aria-labelledby="bitexco-tab">
+                            <div className="tab-content selectScroll ">
+                                <div className="tab-pane fade show active" id="bhd-star-cineplex-bitexco" role="tabpanel" aria-labelledby="bitexco-tab">
                                     <div className="movieInfo" data-toggle="collapse" href="#cinema-28-film-2123" aria-expanded="true">
                                         <img className="movieImg" src="./img/tenet-15768107031731_60x60.jpg" alt />
                                         <div className="wrapInfo">
@@ -29,6 +29,20 @@ class CumRapPage extends Component {
                                             <p>120 phút - TIX 7.3 - IMDb 0</p>
                                         </div>
                                     </div>
+
+                                </div>
+                                <div className="tab-pane fade show active" id="bhd-star-cineplex-3-2" role="tabpanel" aria-labelledby="bitexco-tab">
+                                    <div className="movieInfo" data-toggle="collapse" href="#cinema-28-film-2123" aria-expanded="true">
+                                        <img className="movieImg" src="./img/tenet-15768107031731_60x60.jpg" alt />
+                                        <div className="wrapInfo">
+                                            <p>
+                                                <span className="ageType">C16</span>
+                                                <span className="movieTitle">Tenet -</span>
+                                            </p>
+                                            <p>120 phút - TIX 7.3 - IMDb 0</p>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div className="movieSession collapse in collapse show" id="cinema-28-film-2123" aria-expanded="true">
                                     <div className="listTime">
@@ -54,6 +68,25 @@ class CumRapPage extends Component {
   </span>
   ~ 21:05
 </a>
+                                            <a className="session">
+                                                <span className="start-time">
+                                                    14:20
+  </span>
+  ~ 16:20
+</a>
+                                            <a className="session">
+                                                <span className="start-time">
+                                                    16:15
+  </span>
+  ~ 18:15
+</a>
+                                            <a className="session">
+                                                <span className="start-time">
+                                                    19:05
+  </span>
+  ~ 21:05
+</a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +96,6 @@ class CumRapPage extends Component {
                 )
             })
         }
-
     }
     render() {
         const { cinemasList, detailCinemas } = this.props;
@@ -73,9 +105,7 @@ class CumRapPage extends Component {
                 <ul className="nav nav-tabs listCinemas" id="cinemaTab" role="tablist">
                     <CinemasSideBar cinemasList={cinemasList} />
                 </ul>
-                <div className="tab-content" id="cinemaTabContent">
-                    {this.renderContentCinemas(detailCinemas)}
-                </div>
+                {this.renderContentCinemas(detailCinemas)}
             </section>
 
         );

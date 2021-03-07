@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 function mapStateToProps(state) {
     return {
 
-    };
+    };  
 }
-
+//movie row in tin tuc Page
 class MovieRow extends Component {
     render() {
         const { movie } = this.props;
