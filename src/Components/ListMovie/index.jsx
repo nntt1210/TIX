@@ -1,11 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { actListMovieApi, actListUpcomingMovieApi } from "./modules/action";
+import { actListMovieApi } from "./modules/action";
 import Slider from "react-slick";
 import MovieItem from "../MovieItem";
 import { Box } from "@material-ui/core";
-import { useState } from "react";
 import useStyles from "./style";
 import useContainerStyles from "./../MyContainer/style";
 import { getFullDate } from "../../Helpers/time-manager";
@@ -18,33 +17,13 @@ export default function ListMovie(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
-  //   const userLogin = useSelector((state) => state.userLogin);
   const listMovie = useSelector((state) => state.listMovieReducer.data);
-  const upcomingMovie = useSelector((state) => state.listMovieReducer.nextData);
-  const loading = useSelector((state) => state.listMovieReducer.loading);
   const dispatch = useDispatch();
   const styles = useStyles();
   const containerStyles = useContainerStyles();
-  //   const [loading, setLoading] = useState(false);
-
-  //   useEffect(() => {
-  //     //   console.log(loading);
-  //     //   if (!loading) {
-  //     //     dispatch(actListMovieApi("09"));
-  //     //   }
-  //     //   dispatch(actListUpcomingMovieApi("10"));
-  //     async function fetchData() {
-  //       await dispatch(actListMovieApi("GP09"));
-  //     }
-  //     fetchData();
-  //   }, []);
   useEffect(() => {
     if (listMovie.length == 0) dispatch(actListMovieApi("GP00"));
   }, [dispatch]);
-
-  //   setLoading(true);
-
   const renderSlide = (currentIndex, movie) => {
     var items = movie
       .slice(currentIndex, currentIndex + 8)
@@ -120,19 +99,6 @@ export default function ListMovie(props) {
               Đang Chiếu
             </a>
           </li>
-          <li className="nav-item" role="presentation">
-            <a
-              className={styles.navLink}
-              id="profile-tab"
-              data-toggle="tab"
-              data-target="#comingFilms"
-              role="tab"
-              aria-controls="profile"
-              aria-selected="false"
-            >
-              Sắp Chiếu
-            </a>
-          </li>
         </ul>
         <Box className="tab-content" id="myTabContent">
           <Box
@@ -143,16 +109,6 @@ export default function ListMovie(props) {
           >
             <Box>
               <Slider {...settings}>{renderMovies(listMovie)}</Slider>
-            </Box>
-          </Box>
-          <Box
-            className="tab-pane fade show"
-            id="comingFilms"
-            role="tabpanel"
-            aria-labelledby="profile-tab"
-          >
-            <Box>
-              {/* <Slider {...settings}>{renderUpcomingMovies(listMovie)}</Slider> */}
             </Box>
           </Box>
         </Box>

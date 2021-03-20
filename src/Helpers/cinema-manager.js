@@ -3,9 +3,6 @@ import CinemaItem from "../Components/CinemaItem";
 import ImgWrapper from "../Components/ImgWrapper";
 import MovieAge from "../Components/MovieAge";
 import LogoWrapper from "../Components/LogoWrapper";
-// import useStyles from "../Components/ShowTime/style";
-
-// const styles = useStyles();
 
 export const renderCinemaTabs = (listCinema = [], width) => {
   console.log(listCinema);
@@ -96,12 +93,6 @@ export const renderCinema = (width, arr, id) => {
   }
 };
 
-{
-  /* <div className="movies-cinema collapse" id={rap.maCumRap}>
-{renderDetailCinemaMovies(rap.danhSachPhim, rap.maCumRap)}
-</div> */
-}
-
 export const renderSystemCinemas = (width, listShowTime = [], styles) => {
   if (listShowTime.length > 0) {
     return listShowTime.map((item, index) => {
@@ -112,7 +103,7 @@ export const renderSystemCinemas = (width, listShowTime = [], styles) => {
             className="tab-pane fade show active"
             id={item.maHeThongRap}
           >
-            <div class={"nav nav-tabs" + " " + styles.listMovies}>
+            <div class={`nav nav-tabs ${styles.listMovies}`}>
               {renderCinema(width, item.lstCumRap, item.maHeThongRap)}
             </div>
           </div>
@@ -120,7 +111,7 @@ export const renderSystemCinemas = (width, listShowTime = [], styles) => {
       } else {
         return (
           <div key={index} className="tab-pane fade" id={item.maHeThongRap}>
-            <div class={"nav nav-tabs" + " " + styles.listMovies}>
+            <div class={`nav nav-tabs ${styles.listMovies}`}>
               {renderCinema(width, item.lstCumRap, item.maHeThongRap)}
             </div>
           </div>

@@ -9,7 +9,7 @@ import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 
 import Container from "@material-ui/core/Container";
 import useStyles from "./style";

@@ -26,11 +26,11 @@ export default function MovieDiscussion() {
             </div>
             <div className="text-right star__group">
               <div className="star__group--default">
-                <i class={"fa fa-star" + " " + styles.iconStar}></i>
-                <i class={"fa fa-star" + " " + styles.iconStar}></i>
-                <i class={"fa fa-star" + " " + styles.iconStar}></i>
-                <i class={"fa fa-star" + " " + styles.iconStar}></i>
-                <i class={"fa fa-star" + " " + styles.iconStar}></i>
+                <i class={`fa fa-star ${styles.iconStar}`}></i>
+                <i class={`fa fa-star ${styles.iconStar}`}></i>
+                <i class={`fa fa-star ${styles.iconStar}`}></i>
+                <i class={`fa fa-star ${styles.iconStar}`}></i>
+                <i class={`fa fa-star ${styles.iconStar}`}></i>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function MovieDiscussion() {
             </div>
           </div>
           <div className={styles.body}>
-            <p className="comment">pro</p>
+            <p className="comment">good</p>
           </div>
           <div className={styles.line}></div>
           <div className="row discuss__item--footer">

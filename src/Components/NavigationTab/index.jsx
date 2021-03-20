@@ -10,7 +10,7 @@ export default function NavigationTab(props) {
         <a
           className={`${styles.link} active`}
           data-toggle="tab"
-          href={"#" + `${id}`}
+          href={`#${id}`}
           role="tab"
           // aria-selected="true"
         >
@@ -21,13 +21,7 @@ export default function NavigationTab(props) {
   else
     return (
       <li className="nav-item" role="presentation">
-        <a
-          className={styles.link}
-          data-toggle="tab"
-          href={`#${id}`}
-          role="tab"
-          // aria-selected="true"
-        >
+        <a className={styles.link} data-toggle="tab" href={`#${id}`} role="tab">
           {content}
         </a>
       </li>

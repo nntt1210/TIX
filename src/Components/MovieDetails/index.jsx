@@ -13,11 +13,10 @@ export default function MovieDetails(props) {
   return (
     <Box className={`${styles.root} ${styles.container}`}>
       <Box className="row align-items-center">
-        <Box className={styles.thumbnail + " " + "col-3"}>
+        <Box className={`${styles.thumbnail} col-3`}>
           <Box className={styles.imgThumbnail}>
             <MovieWrapper hinhAnh={hinhAnh} />
             <ButtonOverlay trailer={trailer} />
-            {/* <Box className="publish__date"></Box> */}
           </Box>
         </Box>
         <Box className="col-6">
@@ -25,18 +24,11 @@ export default function MovieDetails(props) {
             <Box className="col-9 col-md-12">
               <p>Khởi chiếu: {new Date(ngayKhoiChieu).toLocaleDateString()}</p>
               <h6 className={styles.title}>
-                {/* <span className="showing__age">C13</span> */}
                 <MovieAge />
                 {tenPhim}
               </h6>
-              {/* <p></p> */}
             </Box>
-            {/* col-3 col-md-12 */}
             <Box className="col-3 text-center text-md-left">
-              {/* <a href="#" className="btnBuyTicket">
-                        Mua vé
-                      </a> */}
-              {/*max-width: 100px */}
               <ButtonBuy />
             </Box>
           </Box>
