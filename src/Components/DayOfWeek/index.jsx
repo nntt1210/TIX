@@ -1,4 +1,5 @@
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
+import classNames from "classnames";
 import React from "react";
 import useStyles from "./style";
 
@@ -8,13 +9,23 @@ export default function DayOfWeek(props) {
   if (active)
     return (
       <Box
-        className={`active ${styles.item}`}
+        className={classNames(active, styles.item)}
         data-toggle="tab"
         role="tab"
         onClick={props.onClick}
       >
-        <p className={`${styles.weekDay} ${styles.paragraph}`}>{day}</p>
-        <p className={`${styles.date} ${styles.paragraph}`}>{date}</p>
+        <Typography
+          component="p"
+          className={classNames(styles.weekDay + " " + styles.paragraph)}
+        >
+          {day}
+        </Typography>
+        <Typography
+          component="p"
+          className={classNames(styles.date, styles.paragraph)}
+        >
+          {date}
+        </Typography>
       </Box>
     );
   else
@@ -25,8 +36,18 @@ export default function DayOfWeek(props) {
         role="tab"
         onClick={props.onClick}
       >
-        <p className={`${styles.weekDay} ${styles.paragraph}`}>{day}</p>
-        <p className={`${styles.date} ${styles.paragraph}`}>{date}</p>
+        <Typography
+          component="p"
+          className={classNames(styles.weekDay + " " + styles.paragraph)}
+        >
+          {day}
+        </Typography>
+        <Typography
+          component="p"
+          className={classNames(styles.date, styles.paragraph)}
+        >
+          {date}
+        </Typography>
       </Box>
     );
 }

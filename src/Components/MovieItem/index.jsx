@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core";
+import { Avatar, Box } from "@material-ui/core";
 import React from "react";
 import ButtonOverlay from "../ButtonOverlay";
 import MovieAge from "../MovieAge";
@@ -27,11 +27,11 @@ export default function MovieItem(props) {
       <Box className={styles.rate}>
         <Box component="span">{danhGia}</Box>
         <Box className={styles.star}>
-          <img src="img/star1.png" alt="star" />
-          <img src="img/star1.png" alt="star" />
-          <img src="img/star1.png" alt="star" />
-          <img src="img/star1.png" alt="star" />
-          <img src="img/star1.png" alt="star" />
+          <Avatar variant="square" src="img/star1.png" alt="star" />
+          <Avatar variant="square" src="img/star1.png" alt="star" />
+          <Avatar variant="square" src="img/star1.png" alt="star" />
+          <Avatar variant="square" src="img/star1.png" alt="star" />
+          <Avatar variant="square" src="img/star1.png" alt="star" />
         </Box>
       </Box>
     </Box>

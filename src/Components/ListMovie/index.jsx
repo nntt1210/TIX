@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { actListMovieApi } from "./modules/action";
 import Slider from "react-slick";
 import MovieItem from "../MovieItem";
-import { Box } from "@material-ui/core";
+import { Box, List, ListItem } from "@material-ui/core";
 import useStyles from "./style";
 import useContainerStyles from "./../MyContainer/style";
 import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 // import { getFullDate } from "../../Helpers/time-manager";
 
 export default function ListMovie(props) {
@@ -82,16 +83,16 @@ export default function ListMovie(props) {
   return (
     <Box id="movieList" className={styles.root}>
       <Box className={containerStyles.root}>
-        <ul
+        <List
           className={classNames("nav nav-tabs", styles.nav)}
           id="myTab"
           role="tablist"
         >
-          <li className="nav-item" role="presentation">
-            <a
-              href="/#"
+          <ListItem className="nav-item" role="presentation">
+            <NavLink
+              to="/#"
               className={classNames("active", styles.navLink)}
-              id="home-tab"
+              id="now-showing-tab"
               data-toggle="tab"
               data-target="#nowShowingFilms"
               role="tab"
@@ -99,9 +100,23 @@ export default function ListMovie(props) {
               aria-selected="true"
             >
               Đang Chiếu
-            </a>
-          </li>
-        </ul>
+            </NavLink>
+          </ListItem>
+          <ListItem className="nav-item" role="presentation">
+            <NavLink
+              to="/#"
+              className={classNames("active", styles.navLink)}
+              id="upcoming-tab"
+              data-toggle="tab"
+              data-target="#upcomingFilms"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >
+              Sắp Chiếu
+            </NavLink>
+          </ListItem>
+        </List>
         <Box className="tab-content" id="myTabContent">
           <Box
             className="tab-pane fade show active"

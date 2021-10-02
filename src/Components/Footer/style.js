@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   colFirst: {
     "& a": {
       color: theme.color.gray.main,
+      display: "block",
       "&:hover": {
         color: theme.color.white.main,
         textDecoration: "none",
@@ -47,9 +48,8 @@ const useStyles = makeStyles((theme) => ({
   colThird: {
     textAlign: "center",
     "& img": {
-      height: "30px",
-      width: "30px",
-      marginRight: "10px",
+      height: "100%",
+      width: "100%",
     },
   },
   hrFooter: {
@@ -70,6 +70,13 @@ const useStyles = makeStyles((theme) => ({
   },
   imgBoCo: {
     width: "130px",
+  },
+  brandImg: {
+    width: "fit-content",
+    height: "fit-content",
+  },
+  logoWrapper: {
+    display: "flex",
   },
 }));
 export default useStyles;

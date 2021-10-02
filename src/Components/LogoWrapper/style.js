@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     cursor: "pointer",
     position: "relative",
+    "& div": {
+      width: "fit-content",
+      height: "fit-content",
+    },
   },
   name: {
     paddingLeft: "10px",

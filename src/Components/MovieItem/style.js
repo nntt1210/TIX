@@ -69,8 +69,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    "& img": {
+    "& div": {
       width: "8px",
+      height: "auto",
     },
   },
   container: {

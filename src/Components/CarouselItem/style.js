@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  trailerImg: {
+    width: "100%",
+    height: "auto",
+  },
 }));
 
 export default useStyles;

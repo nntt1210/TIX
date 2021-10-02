@@ -1,4 +1,5 @@
 import { Box } from "@material-ui/core";
+import classNames from "classnames";
 import React from "react";
 import {
   renderCinemaAddress,
@@ -24,12 +25,15 @@ export default function CinemaCollapse(props) {
             alt={maHeThongRap}
           />
           <Box className={styles.wrapInfo}>
-            <span className={styles.branch}>
-              <span className={`${styles.name} ${maHeThongRap}`}>
+            <Box component="span" className={styles.branch}>
+              <Box
+                component="span"
+                className={classNames(styles.name + " " + maHeThongRap)}
+              >
                 {renderCinemaName(tenCumRap)}{" "}
-              </span>
+              </Box>
               {"- "} {renderCinemaAddress(tenCumRap)}
-            </span>
+            </Box>
           </Box>
         </Box>
       </Box>

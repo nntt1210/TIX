@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core";
+import { Avatar, Box } from "@material-ui/core";
 import React from "react";
 import useStyles from "./style";
 
@@ -17,7 +17,7 @@ export default function LogoWrapper(props) {
           style={{ padding: 0 }}
         >
           <Box className={styles.detail}>
-            <img src={src} alt={alt} />
+            <Avatar variant="square" src={src} alt={alt} />
             <Box component="span" className={styles.name}>
               {name}
             </Box>
@@ -35,7 +35,7 @@ export default function LogoWrapper(props) {
           style={{ padding: 0 }}
         >
           <Box className={styles.detail}>
-            <img src={src} alt={alt} />
+            <Avatar variant="square" src={src} alt={alt} />
             <Box component="span" className={styles.name}>
               {name}
             </Box>
@@ -53,7 +53,7 @@ export default function LogoWrapper(props) {
           role="tab"
         >
           <Box className={styles.detail} style={{ padding: 0 }}>
-            <img src={src} alt={alt} />
+            <Avatar variant="square" src={src} alt={alt} />
           </Box>
         </Box>
       );
@@ -66,7 +66,7 @@ export default function LogoWrapper(props) {
           role="tab"
         >
           <Box className={styles.detail} style={{ padding: 0 }}>
-            <img src={src} alt={alt} />
+            <Avatar variant="square" src={src} alt={alt} />
           </Box>
         </Box>
       );

@@ -42,12 +42,18 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     cursor: "pointer",
     position: "relative",
-    "& img": {
+    "& div": {
       width: "40px",
       [theme.breakpoints.up("xs")]: {
         width: "50px",
       },
     },
+    // "& img": {
+    //   width: "40px",
+    //   [theme.breakpoints.up("xs")]: {
+    //     width: "50px",
+    //   },
+    // },
   },
   name: {
     paddingLeft: "10px",

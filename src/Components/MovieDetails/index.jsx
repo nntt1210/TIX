@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import React from "react";
 import ButtonBuy from "../ButtonBuy";
 import ButtonOverlay from "../ButtonOverlay";
@@ -22,11 +22,13 @@ export default function MovieDetails(props) {
         <Box className="col-6">
           <Box className="row align-items-center">
             <Box className="col-9 col-md-12">
-              <p>Khởi chiếu: {new Date(ngayKhoiChieu).toLocaleDateString()}</p>
-              <h6 className={styles.title}>
+              <Typography component="p">
+                Khởi chiếu: {new Date(ngayKhoiChieu).toLocaleDateString()}
+              </Typography>
+              <Typography component="h6" className={styles.title}>
                 <MovieAge />
                 {tenPhim}
-              </h6>
+              </Typography>
             </Box>
             <Box className="col-3 text-center text-md-left">
               <ButtonBuy />

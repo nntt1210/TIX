@@ -1,3 +1,4 @@
+import { Avatar, Box } from "@material-ui/core";
 import React from "react";
 import { renderShowList } from "../../Helpers/detail-movie-manager";
 import useStyles from "./style";
@@ -6,22 +7,29 @@ export default function LogoWrapperCollapse(props) {
   const styles = useStyles();
   const { src, alt, target, name, movie, listShowTime, currentDate } = props;
   return (
-    <div className={styles.logo}>
-      <div
+    <Box className={styles.logo}>
+      <Box
         // class="collapsed MOBILE wrapper__collapse"
         data-toggle="collapse"
         data-target={"#" + target + "-collapse"}
       >
-        <div className={styles.detail}>
-          <img class="theaterList__image" src={src} alt={alt} />
-          <span className={styles.name}>{name}</span>
-          <span className={styles.arrow}></span>
-        </div>
-      </div>
-      <div className="collapse" id={target + "-collapse"}>
+        <Box className={styles.detail}>
+          <Avatar
+            variant="square"
+            class="theaterList__image"
+            src={src}
+            alt={alt}
+          />
+          <Box component="span" className={styles.name}>
+            {name}
+          </Box>
+          <Box component="span" className={styles.arrow}></Box>
+        </Box>
+      </Box>
+      <Box className="collapse" id={target + "-collapse"}>
         {renderShowList(target, movie, listShowTime, currentDate)}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 
   /* <div class={styles.wrapperCollapse}>

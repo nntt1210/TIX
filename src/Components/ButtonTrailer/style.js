@@ -9,5 +9,9 @@ const useStyles = makeStyles((theme) => ({
       outline: "none",
     },
   },
+  playImg: {
+    width: "fit-content",
+    height: "fit-content",
+  },
 }));
 export default useStyles;

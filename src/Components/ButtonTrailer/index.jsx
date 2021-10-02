@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Avatar, Button } from "@material-ui/core";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { actGetMovieTrailer } from "./modules/action";
@@ -15,7 +15,12 @@ export default function ButtonTrailer(props) {
       className={styles.button}
       onClick={() => dispatch(actGetMovieTrailer(trailer))}
     >
-      <img className="img-fluid" src="/img/play-video.png" alt="play trailer" />
+      <Avatar
+        variant="square"
+        className={styles.playImg}
+        src="/img/play-video.png"
+        alt="play trailer"
+      />
     </Button>
   );
 }

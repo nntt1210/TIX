@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import React from "react";
 import useStyles from "./style";
@@ -18,7 +18,9 @@ export default function RatingPoint(props) {
             //   }}
           ></Box>
         </Box>
-        <span className={styles.point}>5</span>
+        <Box component="span" className={styles.point}>
+          5
+        </Box>
       </Box>
       <Box>
         {/* <img src="/img/star1.png" alt="Star" />
@@ -34,7 +36,9 @@ export default function RatingPoint(props) {
           readOnly
         />
       </Box>
-      <p className={styles.rating}>37 người đánh giá</p>
+      <Typography component="p" className={styles.rating}>
+        37 người đánh giá
+      </Typography>
     </Box>
   );
 }

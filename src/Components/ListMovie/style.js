@@ -48,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
   nav: {
     border: "none",
     justifyContent: "center",
+    "& li": {
+      display: "inline-block",
+      width: "fit-content",
+    },
   },
   navLink: {
     border: "none",
@@ -68,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       transform: "scale(1)",
       color: "#fa5238!important",
+      textDecoration: "none",
     },
   },
 }));
