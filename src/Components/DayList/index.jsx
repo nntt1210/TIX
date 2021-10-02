@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DayOfWeek from "./../DayOfWeek";
 
 export default function DayList(props) {
-  const [list, setlist] = useState([
+  const [list] = useState([
     { day: "Thứ 3", date: "01" },
     { day: "Thứ 4", date: "02" },
     { day: "Thứ 5", date: "03" },

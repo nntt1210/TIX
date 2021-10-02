@@ -20,6 +20,7 @@ export default function MovieTrailer(props) {
               </button> */}
             <iframe
               id="iframe"
+              title="trailer video"
               width="100%"
               height="85%"
               className={styles.video}

@@ -7,7 +7,8 @@ import MovieItem from "../MovieItem";
 import { Box } from "@material-ui/core";
 import useStyles from "./style";
 import useContainerStyles from "./../MyContainer/style";
-import { getFullDate } from "../../Helpers/time-manager";
+import classNames from "classnames";
+// import { getFullDate } from "../../Helpers/time-manager";
 
 export default function ListMovie(props) {
   const settings = {
@@ -22,8 +23,8 @@ export default function ListMovie(props) {
   const styles = useStyles();
   const containerStyles = useContainerStyles();
   useEffect(() => {
-    if (listMovie.length == 0) dispatch(actListMovieApi("GP00"));
-  }, [dispatch]);
+    if (listMovie.length === 0) dispatch(actListMovieApi("GP00"));
+  }, [dispatch, listMovie.length]);
   const renderSlide = (currentIndex, movie) => {
     var items = movie
       .slice(currentIndex, currentIndex + 8)
@@ -66,29 +67,30 @@ export default function ListMovie(props) {
     }
   };
 
-  const renderUpcomingMovies = (list) => {
-    if (list) {
-      console.log(getFullDate(list[0].ngayKhoiChieu));
-      let upcomingList = list.filter(
-        (item) =>
-          new Date(getFullDate(item.ngayKhoiChieu)) >= new Date("7/3/2021")
-      );
-      console.log(upcomingList);
-      return renderMovies(upcomingList);
-    }
-  };
+  // const renderUpcomingMovies = (list) => {
+  //   if (list) {
+  //     console.log(getFullDate(list[0].ngayKhoiChieu));
+  //     let upcomingList = list.filter(
+  //       (item) =>
+  //         new Date(getFullDate(item.ngayKhoiChieu)) >= new Date("7/3/2021")
+  //     );
+  //     console.log(upcomingList);
+  //     return renderMovies(upcomingList);
+  //   }
+  // };
 
   return (
     <Box id="movieList" className={styles.root}>
       <Box className={containerStyles.root}>
         <ul
-          className={"nav nav-tabs" + " " + styles.nav}
+          className={classNames("nav nav-tabs", styles.nav)}
           id="myTab"
           role="tablist"
         >
           <li className="nav-item" role="presentation">
             <a
-              className={"active" + " " + styles.navLink}
+              href="/#"
+              className={classNames("active", styles.navLink)}
               id="home-tab"
               data-toggle="tab"
               data-target="#nowShowingFilms"

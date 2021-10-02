@@ -26,7 +26,7 @@ export default function HomePage() {
   useEffect(() => {
     setLoading(true);
     if (!movieLoading && !cinemaLoading && !showTimeLoading) setLoading(false);
-  });
+  }, [movieLoading, cinemaLoading, showTimeLoading]);
   // // if (movieLoading || cinemaLoading || showTimeLoading) return <Loader />;
   // // else
   // // if (!movieLoading && !cinemaLoading && !showTimeLoading)

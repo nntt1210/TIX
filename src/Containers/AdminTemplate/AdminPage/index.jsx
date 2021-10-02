@@ -55,7 +55,7 @@ const Admin = ({ match }) => {
 
   useEffect(() => {
     dispatch(getAccountInfo(user, { taiKhoan: user.taiKhoan }));
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   useEffect(() => {
     dispatch(actGetAccountsTypeApi());

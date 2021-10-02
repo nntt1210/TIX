@@ -3,6 +3,7 @@ import CinemaItem from "../Components/CinemaItem";
 import ImgWrapper from "../Components/ImgWrapper";
 import MovieAge from "../Components/MovieAge";
 import LogoWrapper from "../Components/LogoWrapper";
+import classNames from "classnames";
 
 export const renderCinemaTabs = (listCinema = [], width) => {
   console.log(listCinema);
@@ -172,6 +173,8 @@ export const renderMovieTimes = (arr) => {
       } else {
         return <ButtonTime key={index} hour={hour} min={min} disabled={true} />;
       }
+    } else {
+      return null;
     }
   });
 };
@@ -214,7 +217,9 @@ export const renderDetailCinemaMovies = (arr, maCumRap, styles) => {
           </div>
           <div className="collapse show" id={renderID(maCumRap, item.maPhim)}>
             <div className="pt-3 row">
-              <div className={"col-12" + " " + styles.digital}>2D Digital</div>
+              <div className={classNames("col-12", styles.digital)}>
+                2D Digital
+              </div>
               <div className="col-12">
                 {renderMovieTimes(item.lstLichChieuTheoPhim)}
               </div>
@@ -222,14 +227,13 @@ export const renderDetailCinemaMovies = (arr, maCumRap, styles) => {
           </div>
         </div>
       );
-    }
-    if (index === arr.length - 1 && !flag) {
+    } else if (index === arr.length - 1 && !flag) {
       return (
         <div className="alert alert-danger">
           Cụm rạp này hôm nay không có phim
         </div>
       );
-    }
+    } else return null;
   });
 };
 

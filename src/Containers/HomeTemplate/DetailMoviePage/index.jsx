@@ -42,17 +42,11 @@ export default function DetailMoviePage(props) {
     dispatch(actDetailMovieApi(id));
     if (listCinema.length === 0) dispatch(actGetSystemCinemaApi());
     if (listShowTime.length === 0) dispatch(actGetSystemShowTimeApi("GP09"));
-  }, [dispatch]);
+  }, [dispatch, id, listCinema.length, listShowTime.length]);
 
   if (detailMovie && listCinema && listShowTime) {
-    const {
-      tenPhim,
-      trailer,
-      hinhAnh,
-      ngayKhoiChieu,
-      danhGia,
-      moTa,
-    } = detailMovie;
+    const { tenPhim, trailer, hinhAnh, ngayKhoiChieu, danhGia, moTa } =
+      detailMovie;
     return (
       <section>
         <Box className={styles.content}>

@@ -23,9 +23,7 @@ export default function LogoWrapperCollapse(props) {
       </div>
     </div>
   );
-}
 
-{
   /* <div class={styles.wrapperCollapse}>
 <div
   class={styles.mainCollapse}

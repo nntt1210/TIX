@@ -55,11 +55,11 @@ const actBookTicketRequest = () => {
   };
 };
 
-const actBookTicketSuccess = () => {
-  return {
-    type: ActionType.BOOKING_SUCCESS,
-  };
-};
+// const actBookTicketSuccess = () => {
+//   return {
+//     type: ActionType.BOOKING_SUCCESS,
+//   };
+// };
 
 const actBookTicketFailed = (err) => {
   return {

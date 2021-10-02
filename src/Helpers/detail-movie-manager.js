@@ -5,7 +5,7 @@ import LogoWrapperCollapse from "../Components/LogoWrapperCollapse";
 
 export const renderCinemaTabs = (listCinema) => {
   return listCinema.map((item, index) => {
-    if (index == 0) {
+    if (index === 0) {
       return (
         <LogoWrapper
           src={item.logo}
@@ -70,7 +70,7 @@ export const renderCinemaContent = (
   currentDate
 ) => {
   return listCinema.map((item, index) => {
-    if (index == 0) {
+    if (index === 0) {
       return (
         <Box className="tab-pane fade active show" id={item.maHeThongRap}>
           {renderShowList(
@@ -123,7 +123,7 @@ export const renderShowList = (
   // // console.log(lst);
   // let lstCumRap = [];
   // if (newLST.length > 0) lstCumRap = newLST[0].lstCumRap;
-  if (list.length == 0)
+  if (list.length === 0)
     return (
       <Box className="alert alert-danger">Cụm rạp này không có lịch chiếu</Box>
     );
@@ -133,7 +133,7 @@ export const renderShowList = (
       console.log("list", list);
       // console.log(list[0].thongTinRap.maCumRap, lstCumRap[i].maCumRap);
       let newList = list.filter(
-        (item) => item.thongTinRap.maCumRap == lstCumRap[i].maCumRap
+        (item) => item.thongTinRap.maCumRap === lstCumRap[i].maCumRap
       );
       console.log(newList);
       if (newList.length > 0) {
