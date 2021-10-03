@@ -43,9 +43,13 @@ export default function SignIn() {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <img className="img-fluid" src="/img/web-logo.png" alt="TIX" />
+        <Box className={classes.paper}>
+          <Avatar
+            variant="square"
+            src="/img/web-logo.png"
+            className={classes.avatar}
+          >
+            {/* <img className="img-fluid" src="/img/web-logo.png" alt="TIX" /> */}
           </Avatar>
           <Typography component="h1" variant="h5">
             Đăng Nhập
@@ -110,7 +114,7 @@ export default function SignIn() {
               </Form>
             )}
           />
-        </div>
+        </Box>
         <Box mt={8}>
           <Copyright />
         </Box>

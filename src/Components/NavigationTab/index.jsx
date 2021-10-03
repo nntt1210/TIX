@@ -1,4 +1,7 @@
+import { ListItem } from "@material-ui/core";
+import classNames from "classnames";
 import React from "react";
+import { NavLink } from "react-router-dom";
 import useStyles from "./style";
 
 export default function NavigationTab(props) {
@@ -6,24 +9,29 @@ export default function NavigationTab(props) {
   const styles = useStyles();
   if (active)
     return (
-      <li className="nav-item" role="presentation">
-        <a
-          className={`${styles.link} active`}
+      <ListItem className="nav-item" role="presentation">
+        <NavLink
+          to={`#${id}`}
+          className={classNames(styles.link, "active")}
           data-toggle="tab"
-          href={`#${id}`}
           role="tab"
           // aria-selected="true"
         >
           {content}
-        </a>
-      </li>
+        </NavLink>
+      </ListItem>
     );
   else
     return (
-      <li className="nav-item" role="presentation">
-        <a className={styles.link} data-toggle="tab" href={`#${id}`} role="tab">
+      <ListItem className="nav-item" role="presentation">
+        <NavLink
+          to={`#${id}`}
+          className={styles.link}
+          data-toggle="tab"
+          role="tab"
+        >
           {content}
-        </a>
-      </li>
+        </NavLink>
+      </ListItem>
     );
 }

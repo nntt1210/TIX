@@ -53,10 +53,12 @@ export default function SignUp(props) {
   return (
     <Container maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <img className="img-fluid" src="/img/web-logo.png" alt="TIX" />
-        </Avatar>
+      <Box className={classes.paper}>
+        <Avatar
+          variant="square"
+          src="/img/web-logo.png"
+          className={classes.avatar}
+        ></Avatar>
         <Typography component="h1" variant="h5">
           Đăng Ký
         </Typography>
@@ -167,7 +169,7 @@ export default function SignUp(props) {
             </Form>
           )}
         </Formik>
-      </div>
+      </Box>
       <Box mt={5}>
         <Copyright />
       </Box>

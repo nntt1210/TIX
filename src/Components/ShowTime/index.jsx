@@ -11,6 +11,7 @@ import {
 } from "./modules/action";
 import useStyles from "./style";
 import useContainerStyles from "./../MyContainer/style";
+import { Box } from "@material-ui/core";
 
 export default function ShowTime() {
   const width = window.innerWidth;
@@ -34,44 +35,44 @@ export default function ShowTime() {
   if (listShowTime && listCinema) {
     if (width >= 768) {
       return (
-        <section id="scheduleCinema" className={styles.root}>
-          <div className={containerStyles.root}>
-            <div className="row flex-md-row flex-column">
-              <div
+        <Box id="scheduleCinema" className={styles.root}>
+          <Box className={containerStyles.root}>
+            <Box className="row flex-md-row flex-column">
+              <Box
                 className={`nav nav-tabs ${styles.listCinema}`}
                 id="cinemaTab"
                 // role="tablist"
               >
                 {renderCinemaTabs(listCinema, width)}
-              </div>
-              <div className={styles.cinemaTabContent} id="cinemaTabContent">
+              </Box>
+              <Box className={styles.cinemaTabContent} id="cinemaTabContent">
                 {renderSystemCinemas(width, listShowTime, styles)}
-              </div>
-              <div className={`tab-content ${styles.cinemaMovies}`}>
+              </Box>
+              <Box className={`tab-content ${styles.cinemaMovies}`}>
                 {renderShowTimes(listShowTime, styles)}
-              </div>
-            </div>
-          </div>
-        </section>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       );
     } else
       return (
-        <section id="scheduleCinema" className={styles.root}>
-          <div className={containerStyles.root}>
-            <div className="row flex-md-row flex-column">
-              <div
+        <Box id="scheduleCinema" className={styles.root}>
+          <Box className={containerStyles.root}>
+            <Box className="row flex-md-row flex-column">
+              <Box
                 className={`nav nav-tabs ${styles.listCinema}`}
                 id="cinemaTab"
                 role="tablist"
               >
                 {renderCinemaTabs(listCinema, width)}
-              </div>
-              <div className={styles.cinemaTabContent} id="cinemaTabContent">
+              </Box>
+              <Box className={styles.cinemaTabContent} id="cinemaTabContent">
                 {renderSystemCinemas(listShowTime, styles)}
-              </div>
-            </div>
-          </div>
-        </section>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       );
-  } else return <div className="text-center">Loading</div>;
+  } else return <Box className="text-center">Loading</Box>;
 }

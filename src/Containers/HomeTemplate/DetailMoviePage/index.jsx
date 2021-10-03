@@ -1,4 +1,5 @@
-import { Box } from "@material-ui/core";
+import { Box, List } from "@material-ui/core";
+import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DayList from "../../../Components/DayList";
@@ -48,7 +49,7 @@ export default function DetailMoviePage(props) {
     const { tenPhim, trailer, hinhAnh, ngayKhoiChieu, danhGia, moTa } =
       detailMovie;
     return (
-      <section>
+      <Box>
         <Box className={styles.content}>
           <MovieBackground hinhAnh={hinhAnh} alt={tenPhim} />
           <MovieDetails
@@ -61,7 +62,10 @@ export default function DetailMoviePage(props) {
         </Box>
         <Box id="movieDetail" className={styles.detail}>
           <Box className={styles.myContainer}>
-            <ul className={`nav nav-tabs ${styles.nav}`} role="tablist">
+            <List
+              className={classNames("nav nav-tabs", styles.nav)}
+              role="tablist"
+            >
               <NavigationTab
                 id="lichChieu"
                 content="Lịch chiếu"
@@ -69,7 +73,7 @@ export default function DetailMoviePage(props) {
               />
               <NavigationTab id="thongTin" content="Thông tin" active={false} />
               <NavigationTab id="danhGia" content="Đánh giá" active={false} />
-            </ul>
+            </List>
             {/* className="tab-content" */}
             <Box>
               <Box
@@ -131,7 +135,7 @@ export default function DetailMoviePage(props) {
           </Box>
         </Box>
         <MovieTrailer trailer={trailer} />
-      </section>
+      </Box>
     );
   } else return <Loader />;
   // return <div className="text-center">Loading</div>;
