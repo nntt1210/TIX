@@ -183,6 +183,11 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
     },
   },
+  navLink: {
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
 }));
 
 export const CssMenu = withStyles((theme) => ({

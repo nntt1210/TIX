@@ -6,11 +6,8 @@ import LogoWrapper from "../Components/LogoWrapper";
 import classNames from "classnames";
 
 export const renderCinemaTabs = (listCinema = [], width) => {
-  console.log(listCinema);
   if (width >= 768) {
     return listCinema.map((item, index) => {
-      console.log(item);
-
       if (index === 0) {
         return (
           <LogoWrapper

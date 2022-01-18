@@ -7,8 +7,8 @@ const useStyles = makeStyles((theme) => ({
     left: "50%",
     transform: "translate(-50%, -50%)",
     opacity: 0,
+    transition: "0.5s all",
     "&:hover": {
-      transition: "all 0.2s",
       opacity: 0.7,
     },
 

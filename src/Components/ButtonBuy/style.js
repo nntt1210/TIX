@@ -11,12 +11,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "18px",
     color: "#fff",
     textDecoration: "none",
-    transition: "all 0.2s",
+    transition: "0.5s all",
     "&:hover": {
       background: "#fb4226",
       color: "#fff",
       textDecoration: "none",
-      transition: "all 0.2s",
     },
     [theme.breakpoints.up("md")]: {
       display: "flex",

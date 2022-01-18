@@ -30,8 +30,6 @@ export default function ShowTime() {
     if (listShowTime.length === 0) dispatch(actGetSystemShowTimeApi("GP00"));
   }, [listCinema, listShowTime, dispatch]);
 
-  console.log(listShowTime, listCinema);
-
   if (listShowTime && listCinema) {
     if (width >= 768) {
       return (

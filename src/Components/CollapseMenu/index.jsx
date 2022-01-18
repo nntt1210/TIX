@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { IconButton, MenuList, MenuItem, Drawer } from "@material-ui/core";
+import { IconButton, MenuList, MenuItem, Drawer, Box } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -25,7 +25,7 @@ const CollapseMenu = ({ links }) => {
 
   const createMenu = (anchor) => {
     return (
-      <div
+      <Box
         className={styles.list}
         role="presentation"
         onClick={toggle(anchor, false)}
@@ -45,7 +45,7 @@ const CollapseMenu = ({ links }) => {
             </MenuItem>
           ))}
         </MenuList>
-      </div>
+      </Box>
     );
   };
 

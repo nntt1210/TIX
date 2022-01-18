@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, MenuItem, Link } from "@material-ui/core";
+import { Box, MenuItem, Link, Avatar } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -10,6 +10,7 @@ import useStyles, { CssMenu } from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import Tag from "./../Tag";
 import { REMOVE_CREDENTIALS } from "./../../Containers/AdminTemplate/modules/constants";
+import classNames from "classnames";
 
 export default function Header() {
   const theme = useTheme();
@@ -61,7 +62,7 @@ export default function Header() {
     <Box className={styles.root}>
       <Box className={styles.left}>
         <NavLink className="d-block" to="/">
-          <img src="/img/web-logo.png" alt="logo" />
+          <Avatar variant="square" src="/img/web-logo.png" alt="logo" />
         </NavLink>
       </Box>
       <Box className={styles.center}>{createNavlinks()}</Box>
@@ -78,7 +79,10 @@ export default function Header() {
         {userLogin ? (
           <>
             {userLogin.maLoaiNguoiDung === "QuanTri" ? (
-              <NavLink to="/admin" className={styles.icon}>
+              <NavLink
+                to="/admin"
+                className={classNames(styles.icon + " " + styles.navLink)}
+              >
                 <Tag
                   iconElement={<SupervisorAccountIcon fontSize="large" />}
                   color={theme.color.orange.light}
@@ -109,7 +113,7 @@ export default function Header() {
               open={Boolean(accountAnchor)}
               onClose={handleClose}
             >
-              <NavLink to="/account-detail">
+              <NavLink className={styles.navLink} to="/account-detail">
                 <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
               </NavLink>
               <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
@@ -117,7 +121,7 @@ export default function Header() {
           </>
         ) : (
           <Box className={styles.signInUp}>
-            <NavLink to="/signin">
+            <NavLink className={styles.navLink} to="/signin">
               <Tag
                 iconElement={<AccountCircleIcon fontSize="large" />}
                 color={theme.color.gray.main}

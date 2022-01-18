@@ -14,7 +14,7 @@ class CinemaService {
   }
   fetchCinemaTime(systemId) {
     return api.get(
-      `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${systemId}&maNhom=GP00`
+      `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${systemId}&maNhom=GP03`
     );
   }
 }

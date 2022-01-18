@@ -19,10 +19,6 @@ export default function HomePage() {
   );
   const [loading, setLoading] = useState(false);
 
-  console.log(movieLoading);
-  console.log(cinemaLoading);
-  console.log(showTimeLoading);
-
   useEffect(() => {
     setLoading(true);
     if (!movieLoading && !cinemaLoading && !showTimeLoading) setLoading(false);

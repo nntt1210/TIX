@@ -2,8 +2,8 @@ import api from "./../Api";
 class AdminService {
   fetchAccounts(keyWord) {
     const url = keyWord
-      ? `/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP00&tuKhoa=${keyWord}`
-      : `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP00`;
+      ? `/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP03&tuKhoa=${keyWord}`
+      : `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP03`;
     return api.get(url);
   }
   fetchAccountTypes() {

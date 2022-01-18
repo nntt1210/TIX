@@ -41,12 +41,13 @@ const useStyles = makeStyles((theme) => ({
   },
 
   linkText: {
-    color: theme.palette.text.primary,
-
+    color: theme.color.black.main,
+    transition: "all 0.3s",
+    fontWeight: 600,
     "&:hover": {
       textDecoration: "none",
-      color: theme.palette.text.secondary,
-      transition: "all 0.3s",
+      color: theme.color.orange.main,
+      backgroundColor: "rgba(0, 0, 0, 0)",
     },
   },
 }));

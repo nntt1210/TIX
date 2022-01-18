@@ -9,7 +9,11 @@ export default function MovieWrapper(props) {
     <NavLink
       className={styles.link}
       to={`/phim/${maPhim}`}
-      style={{ backgroundImage: `url(${hinhAnh})` }}
+      style={{
+        backgroundImage: hinhAnh
+          ? `url(${hinhAnh})`
+          : `url(/img/default-movie.jpg)`,
+      }}
     >
       {/* <i class="fa fa-phone" aria-hidden="true" style={{ display: "none" }}></i> */}
     </NavLink>

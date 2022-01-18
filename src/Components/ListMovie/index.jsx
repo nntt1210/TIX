@@ -24,7 +24,7 @@ export default function ListMovie(props) {
   const styles = useStyles();
   const containerStyles = useContainerStyles();
   useEffect(() => {
-    if (listMovie.length === 0) dispatch(actListMovieApi("GP00"));
+    if (listMovie.length === 0) dispatch(actListMovieApi("GP03"));
   }, [dispatch, listMovie.length]);
   const renderSlide = (currentIndex, movie) => {
     var items = movie
