@@ -83,7 +83,7 @@ export default function ListMovie(props) {
   return (
     <Box id="movieList" className={styles.root}>
       <Box className={containerStyles.root}>
-        <List
+        {/* <List
           className={classNames("nav nav-tabs", styles.nav)}
           id="myTab"
           role="tablist"
@@ -116,7 +116,7 @@ export default function ListMovie(props) {
               Sắp Chiếu
             </NavLink>
           </ListItem>
-        </List>
+        </List> */}
         <Box className="tab-content" id="myTabContent">
           <Box
             className="tab-pane fade show active"

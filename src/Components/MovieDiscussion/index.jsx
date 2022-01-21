@@ -8,7 +8,7 @@ export default function MovieDiscussion() {
   const styles = useStyles();
   const containerStyles = useContainerStyles();
   return (
-    <Box className={styles.root + " " + containerStyles.root}>
+    <Box className={styles.root}>
       <Box
         className={styles.input}
         data-toggle="modal"
@@ -57,7 +57,7 @@ export default function MovieDiscussion() {
                 component="p"
                 className={`font-weight-bold ${styles.opinion}`}
               >
-                Đinh Phúc Nguyên
+                Tam Nguyen
               </Typography>
               <Typography component="p" className="post__time">
                 17/01, 14:18
@@ -94,7 +94,7 @@ export default function MovieDiscussion() {
                 <Box className={styles.interact}>
                   <Box component="span" className={styles.interactGroup}>
                     <Avatar variant="square" src="/img/like.png" alt="like" />
-                    <Box component="span" className="like__num">
+                    <Box component="span" className={styles.like}>
                       0
                     </Box>
                     <Box component="span" className="label">
@@ -109,7 +109,7 @@ export default function MovieDiscussion() {
                       src="/img/comment.png"
                       alt="comment"
                     />
-                    <Box component="span" className="comment__num">
+                    <Box component="span" className={styles.comment}>
                       0
                     </Box>
                     <Box component="span" className="label">

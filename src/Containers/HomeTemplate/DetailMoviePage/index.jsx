@@ -1,4 +1,5 @@
-import { Box, List } from "@material-ui/core";
+import { Box, List, Tabs, Tab, Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,6 +24,39 @@ import { actDetailMovieApi } from "./modules/action";
 
 import useStyles from "./style";
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
+
 export default function DetailMoviePage(props) {
   const styles = useStyles();
   const [currentDate, setCurrentDate] = useState("01");
@@ -36,14 +70,19 @@ export default function DetailMoviePage(props) {
     (state) => state.showTimeReducer.listShowTime
   );
   const id = props.match.params.id;
-  console.log(id);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actDetailMovieApi(id));
     if (listCinema.length === 0) dispatch(actGetSystemCinemaApi());
-    if (listShowTime.length === 0) dispatch(actGetSystemShowTimeApi("GP09"));
+    if (listShowTime.length === 0) dispatch(actGetSystemShowTimeApi("GP03"));
   }, [dispatch, id, listCinema.length, listShowTime.length]);
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   if (detailMovie && listCinema && listShowTime) {
     const { tenPhim, trailer, hinhAnh, ngayKhoiChieu, danhGia, moTa } =
@@ -62,81 +101,59 @@ export default function DetailMoviePage(props) {
         </Box>
         <Box id="movieDetail" className={styles.detail}>
           <Box className={styles.myContainer}>
-            <List
-              className={classNames("nav nav-tabs", styles.nav)}
-              role="tablist"
-            >
-              <NavigationTab
-                id="lichChieu"
-                content="Lịch chiếu"
-                active={true}
-              />
-              <NavigationTab id="thongTin" content="Thông tin" active={false} />
-              <NavigationTab id="danhGia" content="Đánh giá" active={false} />
-            </List>
-            {/* className="tab-content" */}
-            <Box>
-              <Box
-                className={`tab-pane fade show active ${styles.largeScreen}`}
-                id="lichChieu"
-                role="tabpanel"
-                aria-labelledby="lichChieu-tab"
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+              <Tabs
+                className={styles.nav}
+                value={value}
+                onChange={handleChange}
+                aria-label="basic tabs example"
               >
-                <Box className={styles.listTime}>
-                  <Box className={styles.detailWrapper}>
-                    <Box className={`nav ${styles.listOfDay}`} role="tablist">
-                      <DayList onClick={(date) => setCurrentDate(date)} />
-                    </Box>
-                    <Box
-                      className={`nav ${styles.detailCinema}`}
-                      role="tablist"
-                    >
-                      {renderCinemaTabs(listCinema)}
-                    </Box>
-                    <Box
-                      className={`nav ${styles.collapseDetailCinema}`}
-                      role="tablist"
-                    >
-                      {renderCollapseCinemaTabs(
-                        listCinema,
-                        detailMovie,
-                        listShowTime,
-                        currentDate
-                      )}
-                    </Box>
-                    <Box className={styles.detailShowList}>
-                      {renderCinemaContent(
-                        listCinema,
-                        detailMovie,
-                        listShowTime,
-                        currentDate
-                      )}
-                    </Box>
+                <Tab label="Lịch chiếu" {...a11yProps(0)} />
+                <Tab label="Thông tin" {...a11yProps(1)} />
+                <Tab label="Đánh giá" {...a11yProps(2)} />
+              </Tabs>
+            </Box>
+            <TabPanel value={value} index={0}>
+              <Box className={styles.listTime}>
+                <Box className={styles.detailWrapper}>
+                  <Box className={`nav ${styles.listOfDay}`} role="tablist">
+                    <DayList onClick={(date) => setCurrentDate(date)} />
+                  </Box>
+                  <Box className={`nav ${styles.detailCinema}`} role="tablist">
+                    {renderCinemaTabs(listCinema)}
+                  </Box>
+                  <Box
+                    className={`nav ${styles.collapseDetailCinema}`}
+                    role="tablist"
+                  >
+                    {renderCollapseCinemaTabs(
+                      listCinema,
+                      detailMovie,
+                      listShowTime,
+                      currentDate
+                    )}
+                  </Box>
+                  <Box className={styles.detailShowList}>
+                    {renderCinemaContent(
+                      listCinema,
+                      detailMovie,
+                      listShowTime,
+                      currentDate
+                    )}
                   </Box>
                 </Box>
               </Box>
-              <Box
-                className="tab-pane fade"
-                id="thongTin"
-                role="tabpanel"
-                aria-labelledby="thongTin-tab"
-              >
-                <MovieInfo ngayKhoiChieu={ngayKhoiChieu} moTa={moTa} />
-              </Box>
-              <Box
-                className="tab-pane fade"
-                id="danhGia"
-                role="tabpanel"
-                aria-labelledby="danhGia-tab"
-              >
-                <MovieDiscussion />
-              </Box>
-            </Box>
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <MovieInfo ngayKhoiChieu={ngayKhoiChieu} moTa={moTa} />
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              <MovieDiscussion />
+            </TabPanel>
           </Box>
         </Box>
         <MovieTrailer trailer={trailer} />
       </Box>
     );
   } else return <Loader />;
-  // return <div className="text-center">Loading</div>;
 }

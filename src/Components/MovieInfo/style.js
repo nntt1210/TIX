@@ -6,21 +6,31 @@ const useStyles = makeStyles((theme) => ({
     background: "#0a2029",
     color: "#e9e9e9",
     fontSize: "14px",
+    "& > div": {
+      backgroundColor: "white",
+      padding: "1rem",
+    },
   },
   row: {
     display: "flex",
     marginBottom: "20px",
+    "&:last-child": {
+      marginBottom: 0,
+    },
   },
   title: {
     width: "35%",
-    color: "#fff",
+    color: theme.color.black.main,
+    fontWeight: "bold",
   },
   content: {
     width: "40%",
+    color: theme.color.black.main,
   },
   description: {
     width: "100%",
     textAlign: "justify",
+    color: theme.color.black.main,
   },
   //   container: {
   //     containerStyle,

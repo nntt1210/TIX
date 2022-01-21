@@ -3,7 +3,9 @@ body {
   font-family: "Lato", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  padding-right: 0 !important;
 }
 
 code {
@@ -25,7 +27,6 @@ code {
 .row {
   margin: 0 !important;
 }
-/* html,
-body {
-  height: 100%;
-} */
+.PrivateTabIndicator-colorSecondary-105 {
+  background-color: #fb4226 !important;
+}

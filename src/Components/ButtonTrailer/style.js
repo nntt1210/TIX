@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
       outline: "none",
     },
     "& span": {
-      width: "50px",
-      height: "50px",
+      width: "64px",
+      height: "64px",
     },
     "&:hover": {
       opacity: "0.7",

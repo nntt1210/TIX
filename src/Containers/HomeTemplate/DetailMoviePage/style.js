@@ -33,6 +33,24 @@ const useStyles = makeStyles((theme) => ({
   nav: {
     border: "none",
     justifyContent: "center",
+    backgroundColor: theme.color.white.main,
+    "& li": {
+      width: "fit-content",
+    },
+    "& .MuiTabs-flexContainer": {
+      display: "block",
+      width: "fit-content",
+      margin: "0 auto",
+    },
+    "& button": {
+      "&:focus": {
+        outline: "none",
+      },
+      "& span": {
+        fontWeight: "bold",
+        fontSize: "1rem",
+      },
+    },
   },
   listTime: {
     margin: "30px 0 0",

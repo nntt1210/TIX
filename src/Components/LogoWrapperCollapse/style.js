@@ -2,22 +2,12 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    // border: "1px solid transparent",
-    // padding: "15px",
-    // position: "relative",
-    // transition: "all 0.2s",
-    // opacity: 0.5,
-    // width: "unset",
-    // flexShrink: 0,
-    // [theme.breakpoints.up("sm")]: {
-    //   padding: "20px",
-    // },
     width: "100%",
     border: "none",
     position: "relative",
     opacity: 1,
     transition: "all .5s",
-    "&:after": {
+    "&::after": {
       content: "",
       position: "absolute",
       left: "50%",
@@ -26,12 +16,14 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#ebebec",
       height: "2px",
       width: "calc(100% - 40px)",
+      // "&:last-child": {
+      //   display: "none",
+      // },
     },
-    // "&.active": {
-    //   opacity: 1,
-    // },
-    // "&:hover": {
-    //   opacity: 1,
+    // "&:last-child": {
+    //   "&::after": {
+    //     display: "none",
+    //   },
     // },
   },
   detail: {

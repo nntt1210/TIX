@@ -2,10 +2,10 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    [theme.breakpoints.up("sm")]: {
-      width: "70%",
-    },
-    width: "85%",
+    // [theme.breakpoints.up("sm")]: {
+    //   width: "70%",
+    // },
+    // width: "85%",
     marginTop: "30px",
     background: "#0a2029",
     paddingBottom: "20px",
@@ -69,8 +69,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "flex-end",
     alignItems: "center",
+    "& > div": {
+      width: "fit-content",
+      height: "fit-content",
+    },
     "& img": {
-      width: "10px",
+      width: "20px",
     },
   },
   body: {
@@ -92,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
     "& img": {
       display: "inline-block",
       width: "20px",
+      height: "fit-content",
       marginRight: "10px",
       "&:hover": {
         transform: "scale(1.1)",
@@ -106,6 +111,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
+  },
+  like: {
+    marginRight: "5px",
+  },
+  comment: {
+    marginRight: "5px",
   },
   btnViewMore: {
     color: "#949494",

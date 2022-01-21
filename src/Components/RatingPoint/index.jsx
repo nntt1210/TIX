@@ -37,7 +37,7 @@ export default function RatingPoint(props) {
         />
       </Box>
       <Typography component="p" className={styles.rating}>
-        37 người đánh giá
+        37 lượt đánh giá
       </Typography>
     </Box>
   );

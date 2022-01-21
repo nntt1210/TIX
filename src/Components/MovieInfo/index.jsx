@@ -9,7 +9,7 @@ export default function MovieInfo(props) {
   const { ngayKhoiChieu, moTa } = props;
   return (
     <Box className={styles.root}>
-      <Box className={`${containerStyles} row`}>
+      <Box className="row">
         <Box className="col-12 col-md-6">
           <Box className={styles.row}>
             <Box className={styles.title}>Ngày công chiếu</Box>

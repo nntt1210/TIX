@@ -5,6 +5,7 @@ import ButtonOverlay from "../ButtonOverlay";
 import MovieAge from "../MovieAge";
 import MovieWrapper from "../MovieWrapper";
 import RatingPoint from "../RatingPoint";
+import moment from "moment";
 import useStyles from "./style";
 
 export default function MovieDetails(props) {
@@ -23,7 +24,8 @@ export default function MovieDetails(props) {
           <Box className="row align-items-center">
             <Box className="col-9 col-md-12">
               <Typography component="p">
-                Khởi chiếu: {new Date(ngayKhoiChieu).toLocaleDateString()}
+                Khởi chiếu:{" "}
+                {moment(new Date(ngayKhoiChieu)).format("DD/MM/YYYY")}
               </Typography>
               <Typography component="h6" className={styles.title}>
                 <MovieAge />
