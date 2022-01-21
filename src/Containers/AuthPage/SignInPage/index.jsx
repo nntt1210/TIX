@@ -61,7 +61,8 @@ export default function SignIn() {
               matKhau: "",
             }}
             onSubmit={handleSubmit}
-            render={(formikProps) => (
+          >
+            {(formikProps) => (
               <Form className={classes.form} noValidate autoComplete="off">
                 <TextField
                   variant="outlined"
@@ -114,7 +115,7 @@ export default function SignIn() {
                 </Grid>
               </Form>
             )}
-          />
+          </Formik>
         </Box>
         <Box mt={8}>
           <Copyright />

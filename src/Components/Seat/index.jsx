@@ -13,7 +13,6 @@ const Seat = (props) => {
   const [pick, setPick] = useState(false);
   const { seat, seatNumber, seatLetter, reserved } = props;
   let newSeat = { ...seat, letter: seatLetter };
-  console.log(newSeat);
   const handleClick = () => {
     setPick(!pick);
     dispatch(actChooseSeat(newSeat));

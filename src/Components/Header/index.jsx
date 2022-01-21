@@ -67,15 +67,6 @@ export default function Header() {
       </Box>
       <Box className={styles.center}>{createNavlinks()}</Box>
       <Box className={styles.right}>
-        {/* <Box className={styles.account}>
-          <img src="/img/avatar.png" alt />
-          <NavLink className={styles.link} to="/signin">
-            Đăng Nhập
-          </NavLink>
-          <NavLink className={styles.link} to="/signup">
-            Đăng Ký
-          </NavLink>
-        </Box> */}
         {userLogin ? (
           <>
             {userLogin.maLoaiNguoiDung === "QuanTri" ? (
@@ -93,31 +84,38 @@ export default function Header() {
             ) : (
               <></>
             )}
-
-            <Box
-              className={styles.signInUp}
-              aria-haspopup="true"
-              onClick={handleClick}
-            >
-              <Tag
-                iconElement={<AccountCircleIcon fontSize="large" />}
-                color={theme.color.orange.light}
-                hoverColor={theme.color.orange.light}
-                title={userLogin.hoTen}
-              />
-            </Box>
-            <CssMenu
-              id="simple-menu"
-              anchorEl={accountAnchor}
-              keepMounted
-              open={Boolean(accountAnchor)}
-              onClose={handleClose}
-            >
-              <NavLink className={styles.navLink} to="/account-detail">
-                <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
-              </NavLink>
-              <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
-            </CssMenu>
+            {userLogin.maLoaiNguoiDung === "KhachHang" ? (
+              <>
+                <Box
+                  className={styles.signInUp}
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                >
+                  <Tag
+                    iconElement={<AccountCircleIcon fontSize="large" />}
+                    color={theme.color.orange.light}
+                    hoverColor={theme.color.orange.light}
+                    title={userLogin.hoTen}
+                  />
+                </Box>
+                <CssMenu
+                  id="simple-menu"
+                  anchorEl={accountAnchor}
+                  keepMounted
+                  open={Boolean(accountAnchor)}
+                  onClose={handleClose}
+                >
+                  <NavLink className={styles.navLink} to="/account-detail">
+                    <MenuItem onClick={handleClose}>
+                      Thông tin tài khoản
+                    </MenuItem>
+                  </NavLink>
+                  <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
+                </CssMenu>
+              </>
+            ) : (
+              <></>
+            )}
           </>
         ) : (
           <Box className={styles.signInUp}>

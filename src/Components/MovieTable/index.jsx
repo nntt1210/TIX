@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import Search from "../../components/Search";
+// import Search from "../SearchMovie";
 import { Box } from "@material-ui/core";
 import Table from "../DataTable";
 import IconButton from "@material-ui/core/IconButton";

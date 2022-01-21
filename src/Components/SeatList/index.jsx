@@ -32,14 +32,12 @@ const SeatList = ({ list }) => {
         if (index % 11 === 0) {
           letter = letters[rowIndex];
           rowIndex++;
-
-          console.log(letter);
           return (
-            <>
-              <Grid key={index} item xs={1}>
+            <React.Fragment key={index}>
+              <Grid item xs={1}>
                 <Letter index={index / 11 + currentRow} />
               </Grid>
-              <Grid key={seat.maGhe} item xs={1}>
+              <Grid item xs={1}>
                 <Seat
                   seat={seat}
                   type={type}
@@ -48,12 +46,12 @@ const SeatList = ({ list }) => {
                   reserved={seat.daDat}
                 />
               </Grid>
-            </>
+            </React.Fragment>
           );
         }
         return (
-          <>
-            <Grid key={seat.maGhe} item xs={1}>
+          <React.Fragment key={index}>
+            <Grid item xs={1}>
               <Seat
                 seat={seat}
                 type={type}
@@ -62,7 +60,7 @@ const SeatList = ({ list }) => {
                 reserved={seat.daDat}
               />
             </Grid>
-          </>
+          </React.Fragment>
         );
       });
   };

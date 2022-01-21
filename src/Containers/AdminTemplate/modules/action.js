@@ -41,7 +41,6 @@ export const actGetAccountsTypeApi = (keyword) => {
     adminService
       .fetchAccountTypes(keyword)
       .then((result) => {
-        console.log(result);
         dispatch(actGetAccountsTypeSuccess(result.data));
       })
       .catch((err) => {

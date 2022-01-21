@@ -16,7 +16,7 @@ export default function LogoWrapperCollapse(props) {
         <Box className={styles.detail}>
           <Avatar
             variant="square"
-            class="theaterList__image"
+            className="theaterList__image"
             src={src}
             alt={alt}
           />

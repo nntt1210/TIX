@@ -3,7 +3,6 @@ import UserForm from "../UserForm";
 import UserTable from "../UserTable";
 
 export default function UserManagement() {
-  console.log("UserManagement");
   return (
     <>
       <UserForm />

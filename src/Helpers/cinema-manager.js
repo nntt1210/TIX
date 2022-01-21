@@ -53,6 +53,7 @@ export const renderCinema = (width, arr, id) => {
         if (index === 0) {
           return (
             <CinemaItem
+              key={index}
               system={id}
               id={rap.maCumRap}
               target={"#" + rap.maCumRap}
@@ -64,6 +65,7 @@ export const renderCinema = (width, arr, id) => {
         } else {
           return (
             <CinemaItem
+              key={index}
               system={id}
               id={rap.maCumRap}
               target={"#" + rap.maCumRap}
@@ -78,6 +80,7 @@ export const renderCinema = (width, arr, id) => {
       return arr.map((rap, index) => {
         return (
           <CinemaItem
+            key={index}
             system={id}
             id={rap.maCumRap}
             target={"#" + rap.maCumRap}
@@ -227,7 +230,7 @@ export const renderDetailCinemaMovies = (arr, maCumRap, styles) => {
       );
     } else if (index === arr.length - 1 && !flag) {
       return (
-        <Box className="alert alert-danger">
+        <Box key={index} className="alert alert-danger">
           Cụm rạp này hôm nay không có phim
         </Box>
       );

@@ -15,6 +15,7 @@ export default function DayList(props) {
     if (index === 0) {
       return (
         <DayOfWeek
+          key={index}
           active={true}
           day={item.day}
           date={item.date}
@@ -24,6 +25,7 @@ export default function DayList(props) {
     } else
       return (
         <DayOfWeek
+          key={index}
           active={false}
           day={item.day}
           date={item.date}

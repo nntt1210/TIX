@@ -91,7 +91,7 @@ export default function MovieDiscussion() {
             <Box className="col-12">
               <Box className="interact__wrapper">
                 <Box className={styles.interact}>
-                  <Box component="span" className={styles.interactGroup}>
+                  <Box className={styles.interactGroup}>
                     <Avatar variant="square" src="/img/like.png" alt="like" />
                     <Box component="span" className={styles.likeNum}>
                       0
@@ -102,7 +102,7 @@ export default function MovieDiscussion() {
                   </Box>
                 </Box>
                 <Box className={styles.interact}>
-                  <Box component="span" className={styles.interactGroup}>
+                  <Box className={styles.interactGroup}>
                     <Avatar
                       variant="square"
                       src="/img/comment.png"

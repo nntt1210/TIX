@@ -25,7 +25,6 @@ import { getAccountInfo } from "../../AuthPage/modules/action";
 
 const Admin = ({ match }) => {
   const { url } = match;
-  console.log(url);
   const location = useLocation();
   const styles = useStyles();
   const theme = useTheme();
@@ -59,7 +58,6 @@ const Admin = ({ match }) => {
 
   useEffect(() => {
     dispatch(actGetAccountsTypeApi());
-    console.log("hello");
   }, [dispatch]);
 
   const resetState = () => {
@@ -76,17 +74,6 @@ const Admin = ({ match }) => {
     localStorage.removeItem("userLogin");
     resetState();
   };
-
-  // const showLayoutAdmin = () => {
-  //   if (routes && routes.length > 0) {
-  //     console.log(routes);
-  //     return routes.map((item, index) => {
-  //       return (
-  //         <Route key={index} path={item.path} component={item.component} />
-  //       );
-  //     });
-  //   }
-  // };
 
   return (
     <Container className={styles.root}>

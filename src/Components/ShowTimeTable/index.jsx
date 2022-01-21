@@ -79,7 +79,6 @@ const ShowTimeTable = (props) => {
 
   useEffect(() => {
     dispatch(actGetSystemShowTimeApi("GP03"));
-    console.log("getCinemaShowTimes");
   }, [dispatch]);
 
   let tableData = getShowTimeInfo(

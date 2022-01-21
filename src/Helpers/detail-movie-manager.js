@@ -8,6 +8,7 @@ export const renderCinemaTabs = (listCinema) => {
     if (index === 0) {
       return (
         <LogoWrapper
+          key={index}
           src={item.logo}
           alt={item.maHeThongRap}
           target={"#" + item.maHeThongRap}
@@ -19,6 +20,7 @@ export const renderCinemaTabs = (listCinema) => {
     } else {
       return (
         <LogoWrapper
+          key={index}
           src={item.logo}
           alt={item.maHeThongRap}
           target={"#" + item.maHeThongRap}
@@ -72,7 +74,11 @@ export const renderCinemaContent = (
   return listCinema.map((item, index) => {
     if (index === 0) {
       return (
-        <Box className="tab-pane fade active show" id={item.maHeThongRap}>
+        <Box
+          key={index}
+          className="tab-pane fade active show"
+          id={item.maHeThongRap}
+        >
           {renderShowList(
             item.maHeThongRap,
             detailMovie,
@@ -83,7 +89,7 @@ export const renderCinemaContent = (
       );
     } else {
       return (
-        <Box className="tab-pane fade" id={item.maHeThongRap}>
+        <Box key={index} className="tab-pane fade" id={item.maHeThongRap}>
           {renderShowList(
             item.maHeThongRap,
             detailMovie,

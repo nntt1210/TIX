@@ -1,4 +1,4 @@
-import { Box, Tabs, Tab, Typography } from "@material-ui/core";
+import { Box, Tabs, Tab } from "@material-ui/core";
 import PropTypes from "prop-types";
 // import classNames from "classnames";
 import React, { useEffect, useState } from "react";
@@ -35,11 +35,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box>{children}</Box>}
     </div>
   );
 }
@@ -101,7 +97,7 @@ export default function DetailMoviePage(props) {
         </Box>
         <Box id="movieDetail" className={styles.detail}>
           <Box className={styles.myContainer}>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Box>
               <Tabs
                 className={styles.nav}
                 value={value}
