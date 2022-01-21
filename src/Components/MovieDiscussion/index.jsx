@@ -1,12 +1,11 @@
 import { Avatar, Box, Icon, Typography, Button } from "@material-ui/core";
 import classNames from "classnames";
 import React from "react";
-import useContainerStyles from "../MyContainer/style";
+// import useContainerStyles from "../MyContainer/style";
 import useStyles from "./style";
 
 export default function MovieDiscussion() {
   const styles = useStyles();
-  const containerStyles = useContainerStyles();
   return (
     <Box className={styles.root}>
       <Box
@@ -94,7 +93,7 @@ export default function MovieDiscussion() {
                 <Box className={styles.interact}>
                   <Box component="span" className={styles.interactGroup}>
                     <Avatar variant="square" src="/img/like.png" alt="like" />
-                    <Box component="span" className={styles.like}>
+                    <Box component="span" className={styles.likeNum}>
                       0
                     </Box>
                     <Box component="span" className="label">
@@ -109,7 +108,7 @@ export default function MovieDiscussion() {
                       src="/img/comment.png"
                       alt="comment"
                     />
-                    <Box component="span" className={styles.comment}>
+                    <Box component="span" className={styles.commentNum}>
                       0
                     </Box>
                     <Box component="span" className="label">

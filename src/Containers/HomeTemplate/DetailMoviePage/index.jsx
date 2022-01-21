@@ -1,6 +1,6 @@
-import { Box, List, Tabs, Tab, Typography } from "@material-ui/core";
+import { Box, Tabs, Tab, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+// import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DayList from "../../../Components/DayList";
@@ -10,7 +10,7 @@ import MovieDetails from "../../../Components/MovieDetails";
 import MovieDiscussion from "../../../Components/MovieDiscussion";
 import MovieInfo from "../../../Components/MovieInfo";
 import MovieTrailer from "../../../Components/MovieTrailer";
-import NavigationTab from "../../../Components/NavigationTab";
+
 import {
   actGetSystemCinemaApi,
   actGetSystemShowTimeApi,

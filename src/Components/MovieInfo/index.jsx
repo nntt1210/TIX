@@ -1,11 +1,11 @@
 import { Box } from "@material-ui/core";
 import React from "react";
-import useContainerStyles from "../MyContainer/style";
+// import useContainerStyles from "../MyContainer/style";
 import useStyles from "./style";
 
 export default function MovieInfo(props) {
   const styles = useStyles();
-  const containerStyles = useContainerStyles();
+  // const containerStyles = useContainerStyles();
   const { ngayKhoiChieu, moTa } = props;
   return (
     <Box className={styles.root}>

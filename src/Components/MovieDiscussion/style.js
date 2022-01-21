@@ -112,10 +112,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  like: {
+  likeNum: {
     marginRight: "5px",
   },
-  comment: {
+  commentNum: {
     marginRight: "5px",
   },
   btnViewMore: {

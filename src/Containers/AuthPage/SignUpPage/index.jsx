@@ -38,13 +38,10 @@ export default function SignUp(props) {
       userService
         .signUp(user)
         .then((res) => {
-          //console.log(res);
           alert("Đăng kí thành công");
           props.history.replace("signin");
         })
         .catch((err) => {
-          console.log(user);
-          console.log(err.response.data);
           alert(err.response.data);
         })
     );
@@ -54,11 +51,14 @@ export default function SignUp(props) {
     <Container maxWidth="xs">
       <CssBaseline />
       <Box className={classes.paper}>
-        <Avatar
-          variant="square"
-          src="/img/web-logo.png"
-          className={classes.avatar}
-        ></Avatar>
+        <Link href="/home">
+          <Avatar
+            variant="square"
+            src="/img/web-logo.png"
+            className={classes.avatar}
+          ></Avatar>
+        </Link>
+
         <Typography component="h1" variant="h5">
           Đăng Ký
         </Typography>

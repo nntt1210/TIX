@@ -3,6 +3,7 @@ import CinemaItem from "../Components/CinemaItem";
 import ImgWrapper from "../Components/ImgWrapper";
 import MovieAge from "../Components/MovieAge";
 import LogoWrapper from "../Components/LogoWrapper";
+import { Box } from "@material-ui/core";
 import classNames from "classnames";
 
 export const renderCinemaTabs = (listCinema = [], width) => {
@@ -96,23 +97,23 @@ export const renderSystemCinemas = (width, listShowTime = [], styles) => {
     return listShowTime.map((item, index) => {
       if (index === 0) {
         return (
-          <div
+          <Box
             key={index}
             className="tab-pane fade show active"
             id={item.maHeThongRap}
           >
-            <div class={`nav nav-tabs ${styles.listMovies}`}>
+            <Box className={`nav nav-tabs ${styles.listMovies}`}>
               {renderCinema(width, item.lstCumRap, item.maHeThongRap)}
-            </div>
-          </div>
+            </Box>
+          </Box>
         );
       } else {
         return (
-          <div key={index} className="tab-pane fade" id={item.maHeThongRap}>
-            <div class={`nav nav-tabs ${styles.listMovies}`}>
+          <Box key={index} className="tab-pane fade" id={item.maHeThongRap}>
+            <Box className={`nav nav-tabs ${styles.listMovies}`}>
               {renderCinema(width, item.lstCumRap, item.maHeThongRap)}
-            </div>
-          </div>
+            </Box>
+          </Box>
         );
       }
     });
@@ -190,8 +191,8 @@ export const renderDetailCinemaMovies = (arr, maCumRap, styles) => {
     if (item.lstLichChieuTheoPhim.length > 0) {
       flag = true;
       return (
-        <div className={styles.wrapperCollapse} key={index}>
-          <div
+        <Box className={styles.wrapperCollapse} key={index}>
+          <Box
             className={styles.mainCollapse}
             data-toggle="collapse"
             data-target={renderDataTarget(maCumRap, item.maPhim)}
@@ -203,32 +204,32 @@ export const renderDetailCinemaMovies = (arr, maCumRap, styles) => {
                 alt={item.tenPhim}
               /> */}
             <ImgWrapper src={item.hinhAnh} alt={item.tenPhim} />
-            <div className={styles.wrapInfo}>
+            <Box className={styles.wrapInfo}>
               <span className={styles.movieName}>
                 <MovieAge /> - {item.tenPhim}
               </span>
               <span className={styles.movieDetail}>
                 116 phút - TIX 8.6 - IMDb 0
               </span>
-            </div>
-          </div>
-          <div className="collapse show" id={renderID(maCumRap, item.maPhim)}>
-            <div className="pt-3 row">
-              <div className={classNames("col-12", styles.digital)}>
+            </Box>
+          </Box>
+          <Box className="collapse show" id={renderID(maCumRap, item.maPhim)}>
+            <Box className="pt-3 row">
+              <Box className={classNames("col-12", styles.digital)}>
                 2D Digital
-              </div>
-              <div className="col-12">
+              </Box>
+              <Box className="col-12">
                 {renderMovieTimes(item.lstLichChieuTheoPhim)}
-              </div>
-            </div>
-          </div>
-        </div>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       );
     } else if (index === arr.length - 1 && !flag) {
       return (
-        <div className="alert alert-danger">
+        <Box className="alert alert-danger">
           Cụm rạp này hôm nay không có phim
-        </div>
+        </Box>
       );
     } else return null;
   });
@@ -238,19 +239,19 @@ export const renderDetailTimes = (arr = [], active, styles) => {
   return arr.map((item, index) => {
     if (index === 0 && active) {
       return (
-        <div
+        <Box
           className="tab-pane fade active show"
           id={item.maCumRap}
           key={index}
         >
           {renderDetailCinemaMovies(item.danhSachPhim, item.maCumRap, styles)}
-        </div>
+        </Box>
       );
     } else {
       return (
-        <div className="tab-pane fade" id={item.maCumRap} key={index}>
+        <Box className="tab-pane fade" id={item.maCumRap} key={index}>
           {renderDetailCinemaMovies(item.danhSachPhim, item.maCumRap, styles)}
-        </div>
+        </Box>
       );
     }
   });

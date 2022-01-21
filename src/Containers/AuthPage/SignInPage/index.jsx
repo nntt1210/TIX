@@ -44,13 +44,14 @@ export default function SignIn() {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box className={classes.paper}>
-          <Avatar
-            variant="square"
-            src="/img/web-logo.png"
-            className={classes.avatar}
-          >
-            {/* <img className="img-fluid" src="/img/web-logo.png" alt="TIX" /> */}
-          </Avatar>
+          <Link href="/home">
+            <Avatar
+              variant="square"
+              src="/img/web-logo.png"
+              className={classes.avatar}
+            ></Avatar>
+          </Link>
+
           <Typography component="h1" variant="h5">
             Đăng Nhập
           </Typography>

@@ -310,7 +310,7 @@ export default function Footer() {
                   variant="square"
                   className={styles.imgBoCo}
                   alt="Bộ Công Thương"
-                  title
+                  title="Bộ Công Thương"
                   src="/img/d1e6bd560daa9e20131ea8a0f62e87f8.png"
                 />
               </NavLink>

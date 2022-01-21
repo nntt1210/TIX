@@ -27,7 +27,7 @@ export default function ShowTime() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (listCinema.length === 0) dispatch(actGetSystemCinemaApi());
-    if (listShowTime.length === 0) dispatch(actGetSystemShowTimeApi("GP00"));
+    if (listShowTime.length === 0) dispatch(actGetSystemShowTimeApi("GP03"));
   }, [listCinema, listShowTime, dispatch]);
 
   if (listShowTime && listCinema) {

@@ -4,12 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { actListMovieApi } from "./modules/action";
 import Slider from "react-slick";
 import MovieItem from "../MovieItem";
-import { Box, List, ListItem } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import useStyles from "./style";
 import useContainerStyles from "./../MyContainer/style";
-import classNames from "classnames";
-import { NavLink } from "react-router-dom";
-// import { getFullDate } from "../../Helpers/time-manager";
 
 export default function ListMovie(props) {
   const settings = {
@@ -68,55 +65,9 @@ export default function ListMovie(props) {
     }
   };
 
-  // const renderUpcomingMovies = (list) => {
-  //   if (list) {
-  //     console.log(getFullDate(list[0].ngayKhoiChieu));
-  //     let upcomingList = list.filter(
-  //       (item) =>
-  //         new Date(getFullDate(item.ngayKhoiChieu)) >= new Date("7/3/2021")
-  //     );
-  //     console.log(upcomingList);
-  //     return renderMovies(upcomingList);
-  //   }
-  // };
-
   return (
     <Box id="movieList" className={styles.root}>
       <Box className={containerStyles.root}>
-        {/* <List
-          className={classNames("nav nav-tabs", styles.nav)}
-          id="myTab"
-          role="tablist"
-        >
-          <ListItem className="nav-item" role="presentation">
-            <NavLink
-              to="/#"
-              className={classNames("active", styles.navLink)}
-              id="now-showing-tab"
-              data-toggle="tab"
-              data-target="#nowShowingFilms"
-              role="tab"
-              aria-controls="home"
-              aria-selected="true"
-            >
-              Đang Chiếu
-            </NavLink>
-          </ListItem>
-          <ListItem className="nav-item" role="presentation">
-            <NavLink
-              to="/#"
-              className={classNames("active", styles.navLink)}
-              id="upcoming-tab"
-              data-toggle="tab"
-              data-target="#upcomingFilms"
-              role="tab"
-              aria-controls="home"
-              aria-selected="true"
-            >
-              Sắp Chiếu
-            </NavLink>
-          </ListItem>
-        </List> */}
         <Box className="tab-content" id="myTabContent">
           <Box
             className="tab-pane fade show active"
