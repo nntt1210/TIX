@@ -311,12 +311,7 @@ const ShowTimeForm = (props) => {
         </Grid>
       </Box>
 
-      <Button
-        variant="contained"
-        color="secondary"
-        className={styles.button}
-        type="submit"
-      >
+      <Button variant="contained" className={styles.button} type="submit">
         Thêm mới
       </Button>
     </form>

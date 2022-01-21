@@ -292,7 +292,7 @@ const MovieForm = (props) => {
 
       <Button
         variant="contained"
-        color="secondary"
+        color="primary"
         className={styles.button}
         type="submit"
       >

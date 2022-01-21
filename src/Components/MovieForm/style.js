@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    color: theme.palette.secondary.main,
+    color: theme.color.orange.main,
     margin: theme.spacing(1, 0),
     fontSize: theme.typography.h6.fontSize,
   },
@@ -106,6 +106,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(1, 0),
       borderColor: theme.palette.primary.main,
       borderRadius: theme.shape.borderRadius,
+      height: "100%",
       "& p": {
         margin: theme.spacing(0.5, 1),
       },
@@ -127,14 +128,14 @@ const useStyles = makeStyles((theme) => ({
         },
       },
 
-      [theme.breakpoints.up("xs")]: {
-        height: 370,
-        margin: 0,
-      },
-      [theme.breakpoints.up("md")]: {
-        height: 389,
-        margin: theme.spacing(1, 0),
-      },
+      // [theme.breakpoints.up("xs")]: {
+      //   height: 370,
+      //   margin: 0,
+      // },
+      // [theme.breakpoints.up("md")]: {
+      //   height: 389,
+      //   margin: theme.spacing(1, 0),
+      // },
     },
   },
 

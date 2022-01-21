@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
   },
   title: {
-    color: theme.palette.secondary.main,
+    color: theme.color.orange.main,
     margin: theme.spacing(1, 0),
     textAlign: "left",
     fontSize: theme.typography.h6.fontSize,

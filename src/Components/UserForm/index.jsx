@@ -229,7 +229,6 @@ export default function UserForm() {
 
         <Button
           variant="contained"
-          color="secondary"
           className={styles.button}
           type="submit"
           // type="button"

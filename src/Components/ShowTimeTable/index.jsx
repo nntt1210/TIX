@@ -78,11 +78,9 @@ const ShowTimeTable = (props) => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(actGetSystemShowTimeApi("GP00"));
+    dispatch(actGetSystemShowTimeApi("GP03"));
     console.log("getCinemaShowTimes");
   }, [dispatch]);
-
-  console.log(selectedMovie);
 
   let tableData = getShowTimeInfo(
     showTimes,
@@ -103,6 +101,7 @@ const ShowTimeTable = (props) => {
         classes={{ root: styles.checkbox, label: styles.label }}
         control={
           <Checkbox
+            color="primary"
             checked={search}
             onChange={() => setSearch(!search)}
             name="search"

@@ -114,12 +114,16 @@ const useStyles = makeStyles((theme) => ({
   },
 
   button: {
-    color: theme.color.white,
+    color: theme.color.white.main,
     margin: theme.spacing(1, 0),
     fontSize: theme.typography.subtitle2.fontSize,
     fontWeight: theme.typography.subtitle2.fontWeight,
+    background: theme.color.orange.main,
     "&:focus": {
       outline: "none",
+    },
+    "&:hover": {
+      background: theme.color.orange.dark,
     },
 
     [theme.breakpoints.up("xs")]: {

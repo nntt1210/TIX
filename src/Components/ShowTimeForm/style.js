@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    color: theme.palette.secondary.main,
+    color: theme.color.orange.main,
     margin: theme.spacing(1, 0),
     textAlign: "left",
     fontSize: theme.typography.h6.fontSize,
@@ -97,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   icon: {
-    color: theme.palette.secondary.main,
+    color: theme.color.orange.main,
   },
 
   datePicker: {
@@ -139,11 +139,15 @@ const useStyles = makeStyles((theme) => ({
   },
 
   button: {
-    color: theme.palette.white,
+    color: theme.color.white.main,
+    backgroundColor: theme.color.orange.main,
     margin: theme.spacing(1, 0),
     marginBottom: theme.spacing(2),
     fontSize: theme.typography.subtitle2.fontSize,
     fontWeight: theme.typography.subtitle2.fontWeight,
+    "&:hover": {
+      backgroundColor: theme.color.orange.dark,
+    },
     "&:focus": {
       outline: "none",
     },
