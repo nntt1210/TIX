@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { Redirect } from "react-router-dom";
-import { Box, Container, Grid } from "@material-ui/core";
+import { Box, Container, Grid } from "@mui/material";
 import BookingNavBar from "../../../Components/BookingNavBar";
 import PriceInfo from "../../../Components/PriceInfo";
 import SeatPlan from "../../../Components/SeatPlan";

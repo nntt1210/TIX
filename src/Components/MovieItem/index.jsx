@@ -1,4 +1,4 @@
-import { Avatar, Box } from "@material-ui/core";
+import { Avatar, Box } from "@mui/material";
 import React from "react";
 import ButtonOverlay from "../ButtonOverlay";
 import MovieAge from "../MovieAge";

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import Search from "../../components/Search";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import Table from "../DataTable";
-import IconButton from "@material-ui/core/IconButton";
-import CreateIcon from "@material-ui/icons/Create";
-import DeleteIcon from "@material-ui/icons/Delete";
+import IconButton from "@mui/material/IconButton";
+import CreateIcon from "@mui/icons-material/Create";
+import DeleteIcon from "@mui/icons-material/Delete";
 import useStyles from "./style";
 // import {
 //   GET_EDIT_STATUS,
@@ -67,7 +67,7 @@ export default function UserTable() {
       <IconButton
         onClick={() => handleEdit(account)}
         className={styles.iconButton}
-      >
+        size="large">
         <CreateIcon color="primary" />
       </IconButton>
     ),
@@ -76,7 +76,7 @@ export default function UserTable() {
         type="button"
         onClick={() => handleDelete(account.taiKhoan)}
         className={styles.iconButton}
-      >
+        size="large">
         <DeleteIcon color="error" />
       </IconButton>
     ),

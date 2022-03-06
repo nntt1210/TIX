@@ -7,7 +7,7 @@ import {
   Collapse,
   FormControlLabel,
   Checkbox,
-} from "@material-ui/core";
+} from "@mui/material";
 import { getFullDate, getTime } from "../../Helpers/time-manager";
 // import {
 //   getCinemaSystemInfo,

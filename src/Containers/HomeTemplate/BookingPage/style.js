@@ -1,10 +1,10 @@
-import { makeStyles } from "@material-ui/core";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 0,
 
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down('xl')]: {
       maxWidth: "none",
     },
   },

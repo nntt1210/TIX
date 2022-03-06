@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ListItem, Typography } from "@material-ui/core";
+import { ListItem, Typography } from "@mui/material";
 import Show from "../Show";
 import CinemaInfo from "../CinemaInfo";
 import StartTimeList from "../StartTimeList";

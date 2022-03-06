@@ -1,4 +1,4 @@
-import { Box, Typography, Link } from "@material-ui/core";
+import { Box, Typography, Link } from "@mui/material";
 import React from "react";
 import useStyles from "./style";
 
@@ -26,7 +26,7 @@ export default function PageNotFound(props) {
                 <Typography component="p" className="font-weight-bold">
                   Have you tried turning it off and on again?
                 </Typography>
-                <Link href="/" className={styles.goHome}>
+                <Link href="/" className={styles.goHome} underline="hover">
                   Go to Home
                 </Link>
               </Box>

@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: (props) => props.maxHeight,
     maxWidth: (props) => props.maxWidth,
 
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down('xl')]: {
       maxHeight: "100% !important",
     },
   },

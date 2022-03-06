@@ -1,7 +1,7 @@
 import React from "react";
-import { useTheme } from "@material-ui/core";
-import { Box } from "@material-ui/core";
-import WeekendIcon from "@material-ui/icons/Weekend";
+import { useTheme } from "@mui/material";
+import { Box } from "@mui/material";
+import WeekendIcon from "@mui/icons-material/Weekend";
 import Tag from "../Tag";
 import useStyles from "./style";
 

@@ -2,7 +2,7 @@ import React from "react";
 import useStyles from "./style";
 import ButtonTrailer from "./../ButtonTrailer";
 import ButtonBuy from "./../ButtonBuy";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 
 export default function ButtonOverlay(props) {
   const styles = useStyles();

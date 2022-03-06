@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actListMovieApi } from "./modules/action";
 import Slider from "react-slick";
 import MovieItem from "../MovieItem";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import useStyles from "./style";
 import useContainerStyles from "./../MyContainer/style";
 

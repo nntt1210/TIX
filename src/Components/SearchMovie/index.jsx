@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Button, Container, Grid, Box } from "@material-ui/core";
+import { Button, Container, Grid, Box } from "@mui/material";
 import useStyle from "./style";
 import DropDown from "../DropDown";
 import { getMovieShowTimes } from "../../redux/actions/showTimeAction";

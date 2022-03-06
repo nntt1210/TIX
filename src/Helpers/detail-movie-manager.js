@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import CinemaCollapse from "../Components/CinemaCollapse";
 import LogoWrapper from "../Components/LogoWrapper";
 import LogoWrapperCollapse from "../Components/LogoWrapperCollapse";

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, IconButton, Typography } from "@material-ui/core";
-import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
+import { Box, IconButton, Typography } from "@mui/material";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import useStyles from "./style";
 
 const Tag = (props) => {
@@ -10,7 +10,7 @@ const Tag = (props) => {
 
   return (
     <Box className={styles.root}>
-      <IconButton className={styles.icon}>
+      <IconButton className={styles.icon} size="large">
         {iconElement}
         <Typography className={styles.title} variant="subtitle1">
           {!props.noTitle && title}

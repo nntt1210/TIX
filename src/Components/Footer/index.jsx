@@ -1,4 +1,4 @@
-import { Avatar, Box, Divider, Typography } from "@material-ui/core";
+import { Avatar, Box, Divider, Typography } from "@mui/material";
 import classNames from "classnames";
 import React from "react";
 import { NavLink } from "react-router-dom";

@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     padding: theme.spacing(0, 0.5),
     color: (props) => (props.color ? props.color : theme.color.blue.light),
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down('xl')]: {
       display: "none",
     },
   },

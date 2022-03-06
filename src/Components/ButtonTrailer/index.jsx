@@ -1,4 +1,4 @@
-import { Avatar, Button } from "@material-ui/core";
+import { Avatar, Button } from "@mui/material";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { actGetMovieTrailer } from "./modules/action";

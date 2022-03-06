@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     // max-width: 940px;
     // margin: auto;
     display: "flex",
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down('xl')]: {
       display: "none",
     },
     [theme.breakpoints.up("lg")]: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
     transition: "all 0.5s",
     // @include styleScrollBar();
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       display: "flex",
     },
   },

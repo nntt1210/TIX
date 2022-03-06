@@ -1,4 +1,4 @@
-import { Box, Tabs, Tab } from "@material-ui/core";
+import { Box, Tabs, Tab } from "@mui/material";
 import PropTypes from "prop-types";
 // import classNames from "classnames";
 import React, { useEffect, useState } from "react";

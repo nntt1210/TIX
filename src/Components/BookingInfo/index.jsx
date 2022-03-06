@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography } from "@mui/material";
 import Table from "../DataTable";
 import { getFullDate, getTime } from "../../Helpers/time-manager";
 import { flatArray } from "../../Helpers/array-manager";

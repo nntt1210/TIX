@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Box, Collapse, Typography } from "@material-ui/core";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Box, Collapse, Typography } from "@mui/material";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import useStyles from "./style";
 
 const ShowTime = ({ info, showList, hasOpenIcon, opened }) => {

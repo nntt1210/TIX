@@ -1,5 +1,5 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Box,
   Typography,
@@ -7,24 +7,21 @@ import {
   Button,
   Grid,
   FormHelperText,
-} from "@material-ui/core";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from "@material-ui/pickers";
-import ImageUploader from "react-images-upload";
-import useStyles from "./style";
+} from '@mui/material';
+import DateFnsUtils from '@date-io/date-fns';
+import { LocalizationProvider, DatePicker } from '@mui/lab';
+import ImageUploader from 'react-images-upload';
+import useStyles from './style';
 // import { addMovie, editMovie } from "../../redux/actions/adminAction";
-import { getFullDate } from "../../Helpers/time-manager";
+import { getFullDate } from '../../Helpers/time-manager';
 // import { GET_POSTER } from "../../redux/actions/actionType";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import {
   actEditMovie,
   actAddMovie,
-} from "../../Containers/AdminTemplate/modules/action";
-import * as ActionType from "./../../Containers/AdminTemplate/modules/constants";
+} from '../../Containers/AdminTemplate/modules/action';
+import * as ActionType from './../../Containers/AdminTemplate/modules/constants';
 
 const MovieForm = (props) => {
   const styles = useStyles();
@@ -59,28 +56,28 @@ const MovieForm = (props) => {
     },
     validationSchema: Yup.object({
       maPhim: Yup.string()
-        .required("Vui lòng nhập mã phim")
-        .matches(/^[0-9]*$/, "Vui lòng chỉ nhập số"),
-      tenPhim: Yup.string().required("Vui lòng nhập tên phim"),
-      biDanh: Yup.string().required("Vui lòng nhập bí danh"),
-      trailer: Yup.string().required("Vui lòng nhập link trailer"),
-      moTa: Yup.string().required("Vui lòng nhập mô tả"),
-      maNhom: Yup.string().required("Vui lòng nhập mã nhóm"),
+        .required('Vui lòng nhập mã phim')
+        .matches(/^[0-9]*$/, 'Vui lòng chỉ nhập số'),
+      tenPhim: Yup.string().required('Vui lòng nhập tên phim'),
+      biDanh: Yup.string().required('Vui lòng nhập bí danh'),
+      trailer: Yup.string().required('Vui lòng nhập link trailer'),
+      moTa: Yup.string().required('Vui lòng nhập mô tả'),
+      maNhom: Yup.string().required('Vui lòng nhập mã nhóm'),
       ngayKhoiChieu: Yup.date()
         .nullable()
-        .typeError("")
-        .required("Vui lòng chọn ngày khởi chiếu"),
-      danhGia: Yup.string().required("Vui lòng đánh giá phim"),
+        .typeError('')
+        .required('Vui lòng chọn ngày khởi chiếu'),
+      danhGia: Yup.string().required('Vui lòng đánh giá phim'),
     }),
     onSubmit: (values) => {
-      console.log("hihi");
+      console.log('hihi');
       let postValues = {
         ...values,
         ...{ ngayKhoiChieu: getFullDate(values.ngayKhoiChieu) },
       };
 
       if (poster === null) {
-        alert("Vui lòng upload poster phim");
+        alert('Vui lòng upload poster phim');
       } else {
         isEdited
           ? dispatch(actEditMovie(postValues, poster, user.accessToken))
@@ -90,9 +87,9 @@ const MovieForm = (props) => {
   });
 
   return (
-    <form autoComplete="off" onSubmit={formik.handleSubmit}>
+    <form autoComplete='off' onSubmit={formik.handleSubmit}>
       <Box className={styles.content}>
-        <Typography className={styles.title} component="h1" variant="h5">
+        <Typography className={styles.title} component='h1' variant='h5'>
           Quản lý phim
         </Typography>
 
@@ -101,12 +98,12 @@ const MovieForm = (props) => {
             <Box className={styles.info}>
               <TextField
                 className={styles.input}
-                id="maNhom"
-                name="maNhom"
-                label="Mã nhóm"
-                variant="outlined"
-                type="text"
-                size="small"
+                id='maNhom'
+                name='maNhom'
+                label='Mã nhóm'
+                variant='outlined'
+                type='text'
+                size='small'
                 disabled={isEdited}
                 value={formik.values.maNhom}
                 onChange={formik.handleChange}
@@ -121,12 +118,12 @@ const MovieForm = (props) => {
 
               <TextField
                 className={styles.input}
-                id="maPhim"
-                name="maPhim"
-                label="Mã phim"
-                variant="outlined"
-                type="text"
-                size="small"
+                id='maPhim'
+                name='maPhim'
+                label='Mã phim'
+                variant='outlined'
+                type='text'
+                size='small'
                 disabled={isEdited}
                 value={formik.values.maPhim}
                 onChange={formik.handleChange}
@@ -141,12 +138,12 @@ const MovieForm = (props) => {
 
               <TextField
                 className={styles.input}
-                id="tenPhim"
-                name="tenPhim"
-                label="Tên phim"
-                variant="outlined"
-                type="text"
-                size="small"
+                id='tenPhim'
+                name='tenPhim'
+                label='Tên phim'
+                variant='outlined'
+                type='text'
+                size='small'
                 value={formik.values.tenPhim}
                 onChange={formik.handleChange}
                 InputLabelProps={{
@@ -160,12 +157,12 @@ const MovieForm = (props) => {
 
               <TextField
                 className={styles.input}
-                id="biDanh"
-                name="biDanh"
-                label="Bí danh"
-                variant="outlined"
-                type="text"
-                size="small"
+                id='biDanh'
+                name='biDanh'
+                label='Bí danh'
+                variant='outlined'
+                type='text'
+                size='small'
                 value={formik.values.biDanh}
                 onChange={formik.handleChange}
                 InputLabelProps={{
@@ -179,12 +176,12 @@ const MovieForm = (props) => {
 
               <TextField
                 className={styles.input}
-                id="trailer"
-                name="trailer"
-                label="Trailer"
-                variant="outlined"
-                type="text"
-                size="small"
+                id='trailer'
+                name='trailer'
+                label='Trailer'
+                variant='outlined'
+                type='text'
+                size='small'
                 value={formik.values.trailer}
                 onChange={formik.handleChange}
                 InputLabelProps={{
@@ -197,28 +194,28 @@ const MovieForm = (props) => {
               />
 
               <Box className={styles.datePicker}>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                  <KeyboardDatePicker
+                <LocalizationProvider utils={DateFnsUtils}>
+                  <DatePicker
                     defaultValue={new Date()}
                     disableToolbar
                     autoOk
                     animateYearScrolling
-                    variant="inline"
-                    inputVariant="outlined"
-                    size="small"
-                    invalidDateMessage="Ngày không đúng định dạng"
-                    maxDateMessage="Ngày chọn không được sau ngày 01/01/2100"
-                    minDateMessage="Ngày chọn không được trước ngày 01/01/1900"
-                    format="dd/MM/yyyy"
-                    id="date"
-                    label="Ngày khởi chiếu"
+                    variant='inline'
+                    inputVariant='outlined'
+                    size='small'
+                    invalidDateMessage='Ngày không đúng định dạng'
+                    maxDateMessage='Ngày chọn không được sau ngày 01/01/2100'
+                    minDateMessage='Ngày chọn không được trước ngày 01/01/1900'
+                    format='dd/MM/yyyy'
+                    id='date'
+                    label='Ngày khởi chiếu'
                     value={formik.values.ngayKhoiChieu}
                     onChange={(value) =>
-                      formik.setFieldValue("ngayKhoiChieu", value)
+                      formik.setFieldValue('ngayKhoiChieu', value)
                     }
-                    style={{ width: "100%" }}
+                    style={{ width: '100%' }}
                   />
-                </MuiPickersUtilsProvider>
+                </LocalizationProvider>
                 {formik.errors.ngayKhoiChieu ? (
                   <FormHelperText>{formik.errors.ngayKhoiChieu}</FormHelperText>
                 ) : null}
@@ -226,11 +223,11 @@ const MovieForm = (props) => {
 
               <TextField
                 className={styles.input}
-                id="danhGia"
-                name="danhGia"
-                label="Đánh giá"
-                variant="outlined"
-                type="number"
+                id='danhGia'
+                name='danhGia'
+                label='Đánh giá'
+                variant='outlined'
+                type='number'
                 value={formik.values.danhGia}
                 onChange={formik.handleChange}
                 InputProps={{
@@ -239,7 +236,7 @@ const MovieForm = (props) => {
                     min: 0,
                   },
                 }}
-                size="small"
+                size='small'
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -252,13 +249,13 @@ const MovieForm = (props) => {
           </Grid>
           <Grid item xs={12} md={4}>
             <TextField
-              id="moTa"
-              name="moTa"
-              label="Mô tả"
+              id='moTa'
+              name='moTa'
+              label='Mô tả'
               multiline
               classes={{ root: `${styles.input} ${styles.desc}` }}
               rows={22}
-              variant="outlined"
+              variant='outlined'
               value={formik.values.moTa}
               onChange={formik.handleChange}
               InputLabelProps={{
@@ -275,15 +272,15 @@ const MovieForm = (props) => {
             <ImageUploader
               className={styles.uploader}
               {...props}
-              buttonText="Tải poster phim"
-              label="Dung lượng file tối đa: 1MB"
-              fileSizeError="Dung lượng file quá lớn"
-              fileTypeError="Định dạng file không được hỗ trợ"
+              buttonText='Tải poster phim'
+              label='Dung lượng file tối đa: 1MB'
+              fileSizeError='Dung lượng file quá lớn'
+              fileTypeError='Định dạng file không được hỗ trợ'
               withIcon={true}
               withPreview
               singleImage
               onChange={(image) => onDrop(image)}
-              imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+              imgExtension={['.jpg', '.gif', '.png', '.gif']}
               maxFileSize={1024000}
             />
           </Grid>
@@ -291,25 +288,25 @@ const MovieForm = (props) => {
       </Box>
 
       <Button
-        variant="contained"
-        color="primary"
+        variant='contained'
+        color='primary'
         className={styles.button}
-        type="submit"
+        type='submit'
       >
-        {isEdited ? "Cập nhật" : "Thêm mới"}
+        {isEdited ? 'Cập nhật' : 'Thêm mới'}
       </Button>
       {isEdited ? (
         <Button
-          variant="contained"
-          color="primary"
+          variant='contained'
+          color='primary'
           className={styles.button}
-          style={{ marginLeft: "5px" }}
+          style={{ marginLeft: '5px' }}
           onClick={handleReset}
         >
           Reset
         </Button>
       ) : (
-        ""
+        ''
       )}
     </form>
   );

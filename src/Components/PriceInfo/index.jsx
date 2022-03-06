@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Typography, Grid, TextField, Button } from "@material-ui/core";
+import { Box, Typography, Grid, TextField, Button } from "@mui/material";
 import useStyles from "./style";
 import { getAccountInfo } from "../../Containers/AuthPage/modules/action";
 import * as ActionType from "./../../Containers/HomeTemplate/BookingPage/modules/constants";
 import { actBookTicketApi } from "../../Containers/HomeTemplate/BookingPage/modules/action";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
 
-import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogTitle from "@mui/material/DialogTitle";
 import { resetChosenSeats } from "../Seat/modules/action";
 import Table from "../DataTable";
 

@@ -9,7 +9,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
-} from "@material-ui/core";
+} from "@mui/material";
 import Loader from "./../Loader";
 import useStyles from "./style";
 import { useDispatch, useSelector } from "react-redux";

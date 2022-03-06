@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -133,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
     },
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       marginRight: 0,
     },
   },

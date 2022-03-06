@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
       opacity: 1.0,
     },
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       opacity: 1.0,
     },
   },

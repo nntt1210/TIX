@@ -3,7 +3,7 @@ import CinemaItem from "../Components/CinemaItem";
 import ImgWrapper from "../Components/ImgWrapper";
 import MovieAge from "../Components/MovieAge";
 import LogoWrapper from "../Components/LogoWrapper";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import classNames from "classnames";
 
 export const renderCinemaTabs = (listCinema = [], width) => {

@@ -1,11 +1,11 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       display: "none",
     },
   },
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
       color: theme.color.gray.main,
     },
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       display: "none",
     },
   },
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     lineClamp: 2,
     boxOrient: "vertical",
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       width: "100%",
       whiteSpace: "pre-wrap",
     },

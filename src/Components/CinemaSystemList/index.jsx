@@ -5,7 +5,7 @@ import {
   GET_ID_CINEMA_SYSTEM,
   GET_ID_CINEMA,
 } from "../../redux/actions/actionType";
-import { ListItem } from "@material-ui/core";
+import { ListItem } from "@mui/material";
 import Show from "../Show";
 import CinemaSystem from "../CinemaSystem";
 import useStyles from "./style";

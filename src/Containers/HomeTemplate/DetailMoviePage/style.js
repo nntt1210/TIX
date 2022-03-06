@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   detailWrapper: {
     boxShadow: "0 0 15px hsla(0, 0%, 100%, 0.3)",
     display: "grid",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       display: "block",
     },
     gridTemplateRows: "minmax(auto, 90px) 1fr",
@@ -144,7 +144,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: theme.spacing(5),
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       marginTop: 0,
       padding: 0,
     },
@@ -157,7 +157,7 @@ const useStyles = makeStyles((theme) => ({
     border: `1.5px solid ${theme.color.gray.light}`,
     borderRadius: theme.shape.borderRadius,
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       height: "100%",
     },
   },
@@ -191,14 +191,14 @@ const useStyles = makeStyles((theme) => ({
   },
 
   largeScreen: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       display: "none",
     },
   },
 
   smallScreen: {
     display: "none",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       display: "block",
     },
   },

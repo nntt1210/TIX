@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { IconButton, MenuList, MenuItem, Drawer, Box } from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
+import { IconButton, MenuList, MenuItem, Drawer, Box } from "@mui/material";
+import { Menu } from "@mui/icons-material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { REMOVE_CREDENTIALS } from "./../../Containers/AdminTemplate/modules/constants";
@@ -53,27 +53,25 @@ const CollapseMenu = ({ links }) => {
     setState({ [anchor]: open });
   };
 
-  return (
-    <>
-      <IconButton
-        edge="end"
-        aria-label="menu"
-        className={styles.button}
-        style={{ outline: "none" }}
-        onClick={toggle("right", true)}
-      >
-        <Menu />
-      </IconButton>
-      <Drawer
-        anchor="right"
-        open={state.right}
-        onOpen={toggle("right", true)}
-        onClose={toggle("right", false)}
-      >
-        {createMenu("right")}
-      </Drawer>
-    </>
-  );
+  return <>
+    <IconButton
+      edge="end"
+      aria-label="menu"
+      className={styles.button}
+      style={{ outline: "none" }}
+      onClick={toggle("right", true)}
+      size="large">
+      <Menu />
+    </IconButton>
+    <Drawer
+      anchor="right"
+      open={state.right}
+      onOpen={toggle("right", true)}
+      onClose={toggle("right", false)}
+    >
+      {createMenu("right")}
+    </Drawer>
+  </>;
 };
 
 CollapseMenu.propTypes = {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { IconButton, Typography } from "@material-ui/core";
-import WeekendIcon from "@material-ui/icons/Weekend";
+import { IconButton, Typography } from "@mui/material";
+import WeekendIcon from "@mui/icons-material/Weekend";
 import useStyles from "./style";
 import { actChooseSeat } from "./modules/action";
 // import { CHOOSE_SEAT } from "../../redux/actions/actionType";
@@ -23,7 +23,7 @@ const Seat = (props) => {
       className={styles.root}
       disabled={reserved}
       onClick={() => handleClick()}
-    >
+      size="large">
       <WeekendIcon
         fontSize="large"
         className={

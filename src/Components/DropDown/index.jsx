@@ -1,4 +1,4 @@
-import { FormControl, MenuItem, Select, InputLabel } from "@material-ui/core";
+import { FormControl, MenuItem, Select, InputLabel } from "@mui/material";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import React from "react";

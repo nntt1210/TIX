@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import Search from "../SearchMovie";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import Table from "../DataTable";
-import IconButton from "@material-ui/core/IconButton";
-import CreateIcon from "@material-ui/icons/Create";
-import DeleteIcon from "@material-ui/icons/Delete";
+import IconButton from "@mui/material/IconButton";
+import CreateIcon from "@mui/icons-material/Create";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { getFullDate } from "../../Helpers/time-manager";
 import useStyles from "./style";
 import { actDeleteMovie } from "../../Containers/AdminTemplate/modules/action";
@@ -60,7 +60,7 @@ const MovieTable = (props) => {
       <IconButton
         onClick={() => handleEdit(movie)}
         className={styles.iconButton}
-      >
+        size="large">
         <CreateIcon color="primary" />
       </IconButton>
     ),
@@ -68,7 +68,7 @@ const MovieTable = (props) => {
       <IconButton
         onClick={() => handleDelete(movie.maPhim)}
         className={styles.iconButton}
-      >
+        size="large">
         <DeleteIcon color="error" />
       </IconButton>
     ),

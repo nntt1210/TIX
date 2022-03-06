@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   item: {
@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     opacity: 0.7,
     transition: "all 0.5s",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       opacity: 1,
     },
     "&.active": {

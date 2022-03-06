@@ -1,5 +1,6 @@
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { Menu } from "@material-ui/core";
+import makeStyles from '@mui/styles/makeStyles';
+import withStyles from '@mui/styles/withStyles';
+import { Menu } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
     "& span": {
       paddingRight: "5px",
     },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       display: "none",
     },
   },
@@ -100,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
     right: "20px",
     transform: "translateY(-50%)",
     display: "none",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       display: "initial",
     },
   },
@@ -161,7 +162,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#000",
   },
   icon: {
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down('xl')]: {
       margin: theme.spacing(0.5, 0),
     },
   },

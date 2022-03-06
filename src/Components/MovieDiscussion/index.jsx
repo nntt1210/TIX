@@ -1,4 +1,4 @@
-import { Avatar, Box, Icon, Typography, Button } from "@material-ui/core";
+import { Avatar, Box, Icon, Typography, Button } from "@mui/material";
 import classNames from "classnames";
 import React from "react";
 // import useContainerStyles from "../MyContainer/style";

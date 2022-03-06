@@ -11,7 +11,7 @@ import {
 } from "./modules/action";
 import useStyles from "./style";
 import useContainerStyles from "./../MyContainer/style";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 
 export default function ShowTime() {
   const width = window.innerWidth;

@@ -7,7 +7,7 @@ import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { getCurrentWebPage } from "../../redux/actions/pageAction";
 import { useEffect } from "react";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 import { getAccountInfo } from "../../Containers/AuthPage/modules/action";
 // import { getAccountInfo } from "../../redux/actions/userAction";
 

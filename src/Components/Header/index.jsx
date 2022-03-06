@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, MenuItem, Link, Avatar } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import { Box, MenuItem, Link, Avatar } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { NavLink } from "react-router-dom";
 // import { Link } from "react-scroll";
 import CollapseMenu from "./../CollapseMenu";
@@ -32,7 +32,7 @@ export default function Header() {
           className={styles.link}
           key={i}
           variant="subtitle2"
-        >
+          underline="hover">
           {links[i].title}
         </Link>
       );

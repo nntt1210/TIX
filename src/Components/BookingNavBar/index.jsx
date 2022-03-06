@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, AppBar, Toolbar, useTheme, Typography } from "@material-ui/core";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import { Box, AppBar, Toolbar, useTheme, Typography } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 // import MovieInfo from "../MovieInfo";
 import CinemaInfo from "../CinemaInfo";
 import Tag from "../Tag";
