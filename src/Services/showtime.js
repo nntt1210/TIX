@@ -1,7 +1,7 @@
-import api from "./../Api";
+import api from './../Api';
 class ShowTimeService {
   fetchAllCinemaShowTimes() {
-    return api.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP03`);
+    return api.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP09`);
   }
   fetchMovieShowTimes(movieId) {
     return api.get(`/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieId}`);

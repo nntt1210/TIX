@@ -1,4 +1,4 @@
-import api from "./../Api";
+import api from './../Api';
 
 class CinemaService {
   fetchCinemaSystemInfo(id) {
@@ -14,7 +14,7 @@ class CinemaService {
   }
   fetchCinemaTime(systemId) {
     return api.get(
-      `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${systemId}&maNhom=GP03`
+      `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${systemId}&maNhom=GP09`
     );
   }
 }

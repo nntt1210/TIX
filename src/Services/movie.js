@@ -1,13 +1,13 @@
-import api from "./../Api";
+import api from './../Api';
 class MovieService {
   fetchMovies(keyWord) {
     const url = keyWord
-      ? `/QuanLyPhim/LayDanhSachPhim?maNhom=GP03&tenPhim=${keyWord}`
-      : `/QuanLyPhim/LayDanhSachPhim?maNhom=GP03`;
+      ? `/QuanLyPhim/LayDanhSachPhim?maNhom=GP09&tenPhim=${keyWord}`
+      : `/QuanLyPhim/LayDanhSachPhim?maNhom=GP09`;
     return api.get(url);
   }
   fetchAllMovie() {
-    return api.get("/QuanLyPhim/LayDanhSachPhim?maNhom=GP03");
+    return api.get('/QuanLyPhim/LayDanhSachPhim?maNhom=GP09');
   }
   fetchMovieShowTimes(movieId) {
     return api.get(`/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieId}`);

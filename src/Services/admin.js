@@ -1,16 +1,16 @@
-import api from "./../Api";
+import api from './../Api';
 class AdminService {
   fetchAccounts(keyWord) {
     const url = keyWord
-      ? `/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP03&tuKhoa=${keyWord}`
-      : `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP03`;
+      ? `/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP09&tuKhoa=${keyWord}`
+      : `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP09`;
     return api.get(url);
   }
   fetchAccountTypes() {
-    return api.get("/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung");
+    return api.get('/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung');
   }
   addUser(data, token) {
-    return api.post("/QuanLyNguoiDung/ThemNguoiDung", data, {
+    return api.post('/QuanLyNguoiDung/ThemNguoiDung', data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -40,7 +40,7 @@ class AdminService {
     // });
   }
   editUser(data, token) {
-    return api.put("/QuanLyNguoiDung/CapNhatThongTinNguoiDung", data, {
+    return api.put('/QuanLyNguoiDung/CapNhatThongTinNguoiDung', data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -55,7 +55,7 @@ class AdminService {
     // });
   }
   editMovie(data, token) {
-    return api.post("/QuanLyPhim/CapNhatPhim", data, {
+    return api.post('/QuanLyPhim/CapNhatPhim', data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -71,7 +71,7 @@ class AdminService {
   }
 
   addMovie(data, token) {
-    return api.post("/QuanLyPhim/ThemPhim", data, {
+    return api.post('/QuanLyPhim/ThemPhim', data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -103,7 +103,7 @@ class AdminService {
   }
 
   upLoadPoster(data) {
-    return api.post("/QuanLyPhim/UploadHinhAnhPhim", data);
+    return api.post('/QuanLyPhim/UploadHinhAnhPhim', data);
     // return Axios({
     //   method: "POST",
     //   url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/UploadHinhAnhPhim`,
@@ -112,7 +112,7 @@ class AdminService {
   }
 
   addShowTime(data, token) {
-    return api.post("/QuanLyDatVe/TaoLichChieu", data, {
+    return api.post('/QuanLyDatVe/TaoLichChieu', data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

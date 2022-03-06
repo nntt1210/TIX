@@ -1,82 +1,72 @@
 import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.color.black.light,
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    color: theme.color.white.main,
-    fontSize: "80%",
-  },
-  mainMaxWidth: {
-    margin: "0 auto",
-    maxWidth: "940px",
-  },
-  colFirst: {
-    "& a": {
-      color: theme.color.gray.main,
-      display: "block",
-      "&:hover": {
-        color: theme.color.white.main,
-        textDecoration: "none",
-      },
+  footer: {
+    background: theme.color.black.light,
+    paddingTop: theme.spacing(3.75),
+    paddingBottom: theme.spacing(3.75),
+    paddingLeft: theme.spacing(1.25),
+    paddingRight: theme.spacing(1.25),
+    [theme.breakpoints.down('md')]: {
+      paddingTop: theme.spacing(3.125),
+      paddingBottom: theme.spacing(3.125),
+    },
+    '& a': {
+      color: theme.color.gray.light,
     },
   },
-  smallIcon: {
-    margin: "10px 0",
+  footerList: {
+    '& a': {
+      fontSize: '0.75rem',
+    },
+    margin: '1.875rem 0',
     padding: 0,
-    "& img": {
-      borderRadius: "50%",
-      height: "30px",
-      width: "30px",
-      marginRight: "25px",
-      marginBottom: "5px",
-      "&:hover": {
-        opacity: 0.7,
+    listStyle: 'none',
+    display: 'flex',
+    flexWrap: 'wrap',
+    borderBottom: `1px solid ${theme.color.gray.light}`,
+    '& > li': {
+      paddingLeft: 0,
+      paddingRight: '0.75rem',
+      width: '50%',
+      [theme.breakpoints.up('md')]: {
+        width: 'calc(100% / 3)',
+      },
+      [theme.breakpoints.up('lg')]: {
+        width: 'calc(100% / 4)',
       },
     },
   },
-  //   img: {
-  //     borderRadius: "50%",
-  //     height: "30px",
-  //     width: "30px",
-  //     marginRight: "25px",
-  //     "&:hover": {
-  //       opacity: 0.7,
-  //     },
-  //   },
-  colThird: {
-    textAlign: "center",
-    "& img": {
-      height: "100%",
-      width: "100%",
+  footerBottom: {
+    '& a': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-  },
-  hrFooter: {
-    borderTop: `1px solid ${theme.color.gray.main}`,
-  },
-  imgFooter: {
-    width: "80px",
-    height: "auto",
-  },
-  infoFooter: {
-    "&:first-child": {
-      color: theme.color.white.main,
+    '& img': {
+      width: '100%',
+      maxWidth: '5rem',
+      textAlign: 'center',
     },
-    color: theme.color.gray.main,
-    fontSize: "13px",
-    fontWeight: "normal",
-    lineHeight: "1.8",
-  },
-  imgBoCo: {
-    width: "130px",
-  },
-  brandImg: {
-    width: "fit-content",
-    height: "fit-content",
-  },
-  logoWrapper: {
-    display: "flex",
+    '& span': {
+      display: 'block',
+      color: theme.color.gray.light,
+      fontSize: '0.75rem',
+      marginBottom: '0.25rem',
+
+      '&:first-child': {
+        color: theme.color.white.main,
+      },
+
+      '& a': {
+        display: 'inline',
+        color: theme.color.red.main,
+        fontSize: '0.75rem',
+      },
+    },
+    footerBCT: {
+      maxWidth: '100%',
+    },
   },
 }));
 export default useStyles;
