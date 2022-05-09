@@ -1,18 +1,20 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Box, Typography } from "@mui/material";
-import useStyles from "./style";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import ProfileCard from "./../ProfileCard";
+import { Box, Typography } from '@mui/material';
 
-const PersonalInfo = (props) => {
+import ProfileCard from './ProfileCard';
+import useStyles from './style';
+
+const PersonalInfo = () => {
   const styles = useStyles();
+  // get account's info
   const account = useSelector((state) => state.userLoginReducer.info);
 
   return (
     <Box>
       <Box className={styles.content}>
-        <Typography className={styles.title} component="h1" variant="h5">
+        <Typography className={styles.title} component='h1' variant='h5'>
           Thông tin cá nhân
         </Typography>
 

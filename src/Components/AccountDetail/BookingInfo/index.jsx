@@ -1,32 +1,36 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Box, Typography } from "@mui/material";
-import Table from "../DataTable";
-import { getFullDate, getTime } from "../../Helpers/time-manager";
-import { flatArray } from "../../Helpers/array-manager";
-import useStyles from "./style";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-const BookingInfo = (props) => {
-  const info = useSelector(
+import { Box, Typography } from '@mui/material';
+
+import Table from '../../DataTable';
+import useStyles from './style';
+import { getFullDate, getTime } from '../../../Helpers/time-manager';
+import { flatArray } from '../../../Helpers/array-manager';
+
+const BookingInfo = () => {
+  // get user's booking info
+  const bookingInfo = useSelector(
     (state) => state.userLoginReducer.info.thongTinDatVe
   );
   const styles = useStyles();
 
   let headers = [
-    "Ngày đặt",
-    "Mã vé",
-    "Tên phim",
-    "Giá vé (VND)",
-    "Thời lượng (phút)",
-    "Cụm rạp",
-    "Tên rạp",
-    "Số ghế",
+    'Ngày đặt',
+    'Mã vé',
+    'Tên phim',
+    'Giá vé (VND)',
+    'Thời lượng (phút)',
+    'Cụm rạp',
+    'Tên rạp',
+    'Số ghế',
   ];
 
   let data = [];
 
-  if (info) {
-    data = info.map((ticket) =>
+  // return list of booking seats for each ticket
+  if (bookingInfo) {
+    data = bookingInfo.map((ticket) =>
       ticket.danhSachGhe.map((seat) => ({
         date: `${getFullDate(ticket.ngayDat)} ${getTime(ticket.ngayDat)}`,
         ticketId: ticket.maVe,
@@ -45,7 +49,7 @@ const BookingInfo = (props) => {
   return (
     <>
       <Box className={styles.info}>
-        <Typography className={styles.title} component="h1" variant="h5">
+        <Typography className={styles.title} component='h1' variant='h5'>
           Thông tin đặt vé
         </Typography>
 
@@ -53,7 +57,7 @@ const BookingInfo = (props) => {
           <Table
             headers={headers}
             rows={data}
-            maxWidth={"100%"}
+            maxWidth={'100%'}
             maxHeight={500}
           />
         </Box>

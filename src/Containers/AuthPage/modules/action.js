@@ -1,7 +1,8 @@
-import * as ActionType from "./constants";
-// import api from "./../../../Api";
-import UserService from "../../../Services/user";
+import * as ActionType from './constants';
+import UserService from '../../../Services/user';
+
 const userService = new UserService();
+
 export const actSignInApi = (user) => {
   return (dispatch) => {
     dispatch(actSignInRequest());
@@ -9,7 +10,7 @@ export const actSignInApi = (user) => {
       .signIn(user)
       .then((result) => {
         dispatch(actSignInSuccess(result.data));
-        localStorage.setItem("userLogin", JSON.stringify(result.data));
+        localStorage.setItem('userLogin', JSON.stringify(result.data));
       })
       .catch((err) => {
         dispatch(actSignInFailed(err));

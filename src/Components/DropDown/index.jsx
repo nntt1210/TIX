@@ -1,8 +1,8 @@
-import { FormControl, MenuItem, Select, InputLabel } from "@mui/material";
-import { useDispatch } from "react-redux";
-import PropTypes from "prop-types";
-import React from "react";
-import useStyles from "./style";
+import { FormControl, MenuItem, Select, InputLabel } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import React from 'react';
+import useStyles from './style';
 
 const DropDown = ({
   list,
@@ -36,10 +36,10 @@ const DropDown = ({
   };
 
   return (
-    <FormControl variant="outlined" size="small" className={styles.formControl}>
-      <InputLabel id="select-label">{label}</InputLabel>
+    <FormControl variant='outlined' size='small' className={styles.formControl}>
+      <InputLabel id='select-label'>{label}</InputLabel>
       <Select
-        defaultValue={""}
+        defaultValue={''}
         value={state}
         classes={{
           select: styles.select,
@@ -49,7 +49,7 @@ const DropDown = ({
         onChange={handleChange}
       >
         {placeHolder && !list.length && (
-          <MenuItem value="" classes={{ root: styles.menuItem }}>
+          <MenuItem value='' classes={{ root: styles.menuItem }}>
             <em>{placeHolder}</em>
           </MenuItem>
         )}
@@ -67,10 +67,10 @@ DropDown.propTypes = {
 };
 
 DropDown.defaultProps = {
-  list: ["Item1", "Item2", "Item3"],
-  label: "Label",
-  dispatchType: "",
-  placeHolder: "Vui lòng chọn",
+  list: ['Item1', 'Item2', 'Item3'],
+  label: 'Label',
+  dispatchType: '',
+  placeHolder: 'Vui lòng chọn',
 };
 
 export default DropDown;

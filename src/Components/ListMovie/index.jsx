@@ -1,14 +1,16 @@
-import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { actListMovieApi } from "./modules/action";
-import Slider from "react-slick";
-import MovieItem from "../MovieItem";
-import { Box } from "@mui/material";
-import useStyles from "./style";
-import useContainerStyles from "./../MyContainer/style";
+import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Slider from 'react-slick';
 
-export default function ListMovie(props) {
+import { Box } from '@mui/material';
+
+import MovieItem from '../MovieItem';
+import useStyles from './style';
+import useContainerStyles from './../MyContainer/style';
+import { actListMovieApi } from './modules/action';
+
+export default function ListMovie() {
   const settings = {
     dots: true,
     infinite: true,
@@ -21,7 +23,7 @@ export default function ListMovie(props) {
   const styles = useStyles();
   const containerStyles = useContainerStyles();
   useEffect(() => {
-    if (listMovie.length === 0) dispatch(actListMovieApi("GP03"));
+    if (listMovie.length === 0) dispatch(actListMovieApi('GP04'));
   }, [dispatch, listMovie.length]);
   const renderSlide = (currentIndex, movie) => {
     var items = movie
@@ -55,8 +57,8 @@ export default function ListMovie(props) {
         return (
           <Box
             key={index}
-            className="row d-flex"
-            style={{ margin: "0 !important" }}
+            className='row d-flex'
+            style={{ margin: '0 !important' }}
           >
             {item}
           </Box>
@@ -66,14 +68,14 @@ export default function ListMovie(props) {
   };
 
   return (
-    <Box id="movieList" className={styles.root}>
+    <Box id='movieList' className={styles.root}>
       <Box className={containerStyles.root}>
-        <Box className="tab-content" id="myTabContent">
+        <Box className='tab-content' id='myTabContent'>
           <Box
-            className="tab-pane fade show active"
-            id="nowShowingFilms"
-            role="tabpanel"
-            aria-labelledby="home-tab"
+            className='tab-pane fade show active'
+            id='nowShowingFilms'
+            role='tabpanel'
+            aria-labelledby='home-tab'
           >
             <Box>
               <Slider {...settings}>{renderMovies(listMovie)}</Slider>

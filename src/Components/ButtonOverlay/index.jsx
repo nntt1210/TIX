@@ -1,14 +1,17 @@
-import React from "react";
-import useStyles from "./style";
-import ButtonTrailer from "./../ButtonTrailer";
-import ButtonBuy from "./../ButtonBuy";
-import { Box } from "@mui/material";
+import React from 'react';
+
+import PropTypes from 'prop-types';
+import { Box } from '@mui/material';
+
+import ButtonTrailer from './../ButtonTrailer';
+import ButtonBuy from './../ButtonBuy';
+
+import useStyles from './style';
 
 export default function ButtonOverlay(props) {
   const styles = useStyles();
   const { trailer, buy } = props;
 
-  // console.log(trailer, buy);
   if (trailer != null)
     return (
       <Box className={`${styles.overlay} overlay`}>
@@ -17,9 +20,14 @@ export default function ButtonOverlay(props) {
     );
   else if (buy != null)
     return (
-      <Box className={`${styles.overlay} overlay`} width="100%" height="100%">
+      <Box className={`${styles.overlay} overlay`} width='100%' height='100%'>
         <ButtonBuy buy={buy} />
       </Box>
     );
-  else return <Box id="overlay" className={styles.overlay}></Box>;
+  else return <Box id='overlay' className={styles.overlay}></Box>;
 }
+
+ButtonOverlay.propTypes = {
+  trailer: PropTypes.string,
+  buy: PropTypes.number,
+};
