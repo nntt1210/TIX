@@ -1,10 +1,13 @@
-import ButtonTime from "../Components/ButtonTime";
-import CinemaItem from "../Components/CinemaItem";
-import ImgWrapper from "../Components/ImgWrapper";
-import MovieAge from "../Components/MovieAge";
-import LogoWrapper from "../Components/LogoWrapper";
-import { Box } from "@mui/material";
-import classNames from "classnames";
+import React from 'react';
+
+import { Box } from '@mui/material';
+import classNames from 'classnames';
+
+import ButtonTime from '../Components/ButtonTime';
+import CinemaItem from '../Components/CinemaItem';
+import ImgWrapper from '../Components/ImgWrapper';
+import MovieAge from '../Components/MovieAge';
+import LogoWrapper from '../Components/LogoWrapper';
 
 export const renderCinemaTabs = (listCinema = [], width) => {
   if (width >= 768) {
@@ -16,7 +19,7 @@ export const renderCinemaTabs = (listCinema = [], width) => {
             src={item.logo}
             alt={item.maHeThongRap}
             active={true}
-            target={"#" + item.maHeThongRap}
+            target={'#' + item.maHeThongRap}
           ></LogoWrapper>
         );
       } else {
@@ -26,7 +29,7 @@ export const renderCinemaTabs = (listCinema = [], width) => {
             src={item.logo}
             alt={item.maHeThongRap}
             active={false}
-            target={"#" + item.maHeThongRap}
+            target={'#' + item.maHeThongRap}
           ></LogoWrapper>
         );
       }
@@ -35,13 +38,13 @@ export const renderCinemaTabs = (listCinema = [], width) => {
 };
 
 export const renderCinemaName = (cinema) => {
-  let index = cinema.indexOf("-");
+  let index = cinema.indexOf('-');
   cinema = cinema.substr(0, index);
   return cinema;
 };
 
 export const renderCinemaAddress = (cinema) => {
-  let index = cinema.indexOf("-");
+  let index = cinema.indexOf('-');
   cinema = cinema.substr(index + 2);
   return cinema;
 };
@@ -56,7 +59,7 @@ export const renderCinema = (width, arr, id) => {
               key={index}
               system={id}
               id={rap.maCumRap}
-              target={"#" + rap.maCumRap}
+              target={'#' + rap.maCumRap}
               name={rap.tenCumRap}
               address={rap.diaChi}
               active={true}
@@ -68,7 +71,7 @@ export const renderCinema = (width, arr, id) => {
               key={index}
               system={id}
               id={rap.maCumRap}
-              target={"#" + rap.maCumRap}
+              target={'#' + rap.maCumRap}
               name={rap.tenCumRap}
               address={rap.diaChi}
               active={false}
@@ -83,7 +86,7 @@ export const renderCinema = (width, arr, id) => {
             key={index}
             system={id}
             id={rap.maCumRap}
-            target={"#" + rap.maCumRap}
+            target={'#' + rap.maCumRap}
             name={rap.tenCumRap}
             address={rap.diaChi}
             active={false}
@@ -102,7 +105,7 @@ export const renderSystemCinemas = (width, listShowTime = [], styles) => {
         return (
           <Box
             key={index}
-            className="tab-pane fade show active"
+            className='tab-pane fade show active'
             id={item.maHeThongRap}
           >
             <Box className={`nav nav-tabs ${styles.listMovies}`}>
@@ -112,7 +115,7 @@ export const renderSystemCinemas = (width, listShowTime = [], styles) => {
         );
       } else {
         return (
-          <Box key={index} className="tab-pane fade" id={item.maHeThongRap}>
+          <Box key={index} className='tab-pane fade' id={item.maHeThongRap}>
             <Box className={`nav nav-tabs ${styles.listMovies}`}>
               {renderCinema(width, item.lstCumRap, item.maHeThongRap)}
             </Box>
@@ -124,11 +127,11 @@ export const renderSystemCinemas = (width, listShowTime = [], styles) => {
 };
 
 export const renderDataTarget = (maCumRap, maPhim) => {
-  return "#" + maCumRap + "_" + maPhim;
+  return '#' + maCumRap + '_' + maPhim;
 };
 
 export const renderID = (maCumRap, maPhim) => {
-  return maCumRap + "_" + maPhim;
+  return maCumRap + '_' + maPhim;
 };
 
 export const isValid = (ngayChieuGioChieu) => {
@@ -146,7 +149,7 @@ export const isValid = (ngayChieuGioChieu) => {
 export const renderTime = (ngayChieuGioChieu) => {
   let date = new Date();
   date = Date.parse(ngayChieuGioChieu);
-  return date.getHours() + ":" + date.getMinutes();
+  return date.getHours() + ':' + date.getMinutes();
 };
 
 export const renderMovieTimes = (arr) => {
@@ -197,9 +200,9 @@ export const renderDetailCinemaMovies = (arr, maCumRap, styles) => {
         <Box className={styles.wrapperCollapse} key={index}>
           <Box
             className={styles.mainCollapse}
-            data-toggle="collapse"
+            data-toggle='collapse'
             data-target={renderDataTarget(maCumRap, item.maPhim)}
-            aria-expanded="true"
+            aria-expanded='true'
           >
             {/* <img
                 className="theater__img"
@@ -216,12 +219,12 @@ export const renderDetailCinemaMovies = (arr, maCumRap, styles) => {
               </span>
             </Box>
           </Box>
-          <Box className="collapse show" id={renderID(maCumRap, item.maPhim)}>
-            <Box className="pt-3 row">
-              <Box className={classNames("col-12", styles.digital)}>
+          <Box className='collapse show' id={renderID(maCumRap, item.maPhim)}>
+            <Box className='pt-3 row'>
+              <Box className={classNames('col-12', styles.digital)}>
                 2D Digital
               </Box>
-              <Box className="col-12">
+              <Box className='col-12'>
                 {renderMovieTimes(item.lstLichChieuTheoPhim)}
               </Box>
             </Box>
@@ -230,7 +233,7 @@ export const renderDetailCinemaMovies = (arr, maCumRap, styles) => {
       );
     } else if (index === arr.length - 1 && !flag) {
       return (
-        <Box key={index} className="alert alert-danger">
+        <Box key={index} className='alert alert-danger'>
           Cụm rạp này hôm nay không có phim
         </Box>
       );
@@ -243,7 +246,7 @@ export const renderDetailTimes = (arr = [], active, styles) => {
     if (index === 0 && active) {
       return (
         <Box
-          className="tab-pane fade active show"
+          className='tab-pane fade active show'
           id={item.maCumRap}
           key={index}
         >
@@ -252,7 +255,7 @@ export const renderDetailTimes = (arr = [], active, styles) => {
       );
     } else {
       return (
-        <Box className="tab-pane fade" id={item.maCumRap} key={index}>
+        <Box className='tab-pane fade' id={item.maCumRap} key={index}>
           {renderDetailCinemaMovies(item.danhSachPhim, item.maCumRap, styles)}
         </Box>
       );
@@ -274,5 +277,5 @@ export const getCinemaSystemId = (data, systemName) => {
       .filter((cinemaSystem) => cinemaSystem.tenHeThongRap === systemName)
       .map((cinemaSystem) => cinemaSystem.maHeThongRap);
   }
-  return "";
+  return '';
 };

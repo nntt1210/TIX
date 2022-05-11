@@ -1,6 +1,9 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import Header from "./../../Components/Header/index";
+import React from 'react';
+import { Route } from 'react-router-dom';
+
+import PropTypes from 'prop-types';
+
+import Header from './../../Components/Header/index';
 
 function LayoutHome(props) {
   return (
@@ -11,6 +14,7 @@ function LayoutHome(props) {
   );
 }
 
+// eslint-disable-next-line react/prop-types
 export default function HomeTemplate({ Component, ...props }) {
   return (
     <Route
@@ -23,3 +27,6 @@ export default function HomeTemplate({ Component, ...props }) {
     />
   );
 }
+LayoutHome.propTypes = {
+  children: PropTypes.object,
+};
