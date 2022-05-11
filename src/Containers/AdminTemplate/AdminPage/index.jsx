@@ -15,11 +15,11 @@ import PropTypes from 'prop-types';
 // import CollapseMenu from "./../../Components/CollapseMenu";
 // import BackToTop from "../../components/BackToTop";
 
-import Tag from '../../../Components/Tag';
-import UserManagement from '../../../Components/UserManagement';
-import MovieManagement from '../../../Components/MovieManagement';
-import ShowTimeManagement from '../../../Components/ShowTimeManagement';
-import PersonalInfo from '../../../Components/PersonalInfo';
+import Tag from '../../../components/Tag';
+import UserManagement from '../../../components/UserManagement';
+import MovieManagement from '../../../components/MovieManagement';
+import ShowTimeManagement from '../../../components/ShowTimeManagement';
+import PersonalInfo from '../../../components/PersonalInfo';
 import useStyles from './style';
 import { actGetAccountsTypeApi } from '../modules/action';
 import * as ActionType from '../modules/constants';

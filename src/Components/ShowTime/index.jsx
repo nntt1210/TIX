@@ -13,7 +13,7 @@ import {
   renderCinemaTabs,
   renderShowTimes,
   renderSystemCinemas,
-} from '../../Helpers/cinema-manager';
+} from '../../helpers/cinema-manager';
 
 export default function ShowTime() {
   const width = window.innerWidth;

@@ -8,7 +8,7 @@ import { Container } from '@mui/material';
 import PersonalInfo from '../PersonalInfo';
 import BookingInfo from './BookingInfo';
 import useStyles from './style';
-import { getAccountInfo } from '../../Containers/AuthPage/modules/action';
+import { getAccountInfo } from '../../containers/AuthPage/modules/action';
 
 const AccountDetail = () => {
   const styles = useStyles();

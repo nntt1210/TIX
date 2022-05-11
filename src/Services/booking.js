@@ -1,4 +1,4 @@
-import api from "./../Api";
+import api from '../api';
 class BookingService {
   fetchSeatList(idShowtime) {
     return api.get(`/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${idShowtime}`);

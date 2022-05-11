@@ -13,13 +13,13 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './Redux/Reducers';
+import rootReducer from './Redux/reducers';
 
 import { ThemeProvider, StyledEngineProvider } from '@mui/material';
 import { BrowserRouter } from 'react-router-dom';
 
 import thunk from 'redux-thunk';
-import theme from './Theme';
+import theme from './theme';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

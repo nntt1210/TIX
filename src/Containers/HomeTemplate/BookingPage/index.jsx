@@ -5,10 +5,10 @@ import { Redirect } from 'react-router-dom';
 import { Box, Container, Grid } from '@mui/material';
 import PropTypes from 'prop-types';
 
-import BookingNavBar from '../../../Components/BookingNavBar';
-import PriceInfo from '../../../Components/PriceInfo';
-import SeatPlan from '../../../Components/SeatPlan';
-import Loader from '../../../Components/Loader';
+import BookingNavBar from '../../../components/BookingNavBar';
+import PriceInfo from '../../../components/PriceInfo';
+import SeatPlan from '../../../components/SeatPlan';
+import Loader from '../../../components/Loader';
 // import BackToTop from "../../components/BackToTop";
 // import { getCurrentWebPage } from "../../redux/actions/pageAction";
 // import { getSeatList } from "../../redux/actions/bookingAction";

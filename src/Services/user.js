@@ -1,4 +1,4 @@
-import api from "./../Api";
+import api from '../api';
 // import * as yup from "yup";
 
 // export const signUpSchema = yup.object().shape({
@@ -25,7 +25,7 @@ class UserService {
     });
   }
   editAccountInfo(data, token) {
-    return api.put("/QuanLyNguoiDung/CapNhatThongTinNguoiDung", data, {
+    return api.put('/QuanLyNguoiDung/CapNhatThongTinNguoiDung', data, {
       Authorization: `Bearer ${token}`,
     });
   }

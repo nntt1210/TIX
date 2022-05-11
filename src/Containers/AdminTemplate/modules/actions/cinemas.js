@@ -1,5 +1,5 @@
-import { cinemaService } from "./../../../../Services";
-import * as ActionType from "./../constants";
+import { cinemaService } from '../../../../services';
+import * as ActionType from './../constants';
 
 export const actGetCinemaListApi = (id) => {
   return (dispatch) => {

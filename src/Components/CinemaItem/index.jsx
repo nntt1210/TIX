@@ -9,7 +9,7 @@ import useStyles from './style';
 import {
   renderCinemaAddress,
   renderCinemaName,
-} from '../../Helpers/cinema-manager';
+} from '../../helpers/cinema-manager';
 
 export default function CinemaItem(props) {
   const { target, name, address, active, system, collapse } = props;

@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { IconButton, MenuList, MenuItem, Drawer, Box } from "@mui/material";
-import { Menu } from "@mui/icons-material";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { REMOVE_CREDENTIALS } from "./../../Containers/AdminTemplate/modules/constants";
-import useStyles from "./style";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { IconButton, MenuList, MenuItem, Drawer, Box } from '@mui/material';
+import { Menu } from '@mui/icons-material';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { REMOVE_CREDENTIALS } from './../../containers/AdminTemplate/modules/constants';
+import useStyles from './style';
 
 const CollapseMenu = ({ links }) => {
   const [state, setState] = useState({ right: false });
@@ -14,12 +14,12 @@ const CollapseMenu = ({ links }) => {
   const dispatch = new useDispatch();
 
   const handleClick = (title) => {
-    if (title === "Đăng xuất") {
+    if (title === 'Đăng xuất') {
       dispatch({
         type: REMOVE_CREDENTIALS,
-        payload: "",
+        payload: '',
       });
-      localStorage.removeItem("userLogin");
+      localStorage.removeItem('userLogin');
     }
   };
 
@@ -27,7 +27,7 @@ const CollapseMenu = ({ links }) => {
     return (
       <Box
         className={styles.list}
-        role="presentation"
+        role='presentation'
         onClick={toggle(anchor, false)}
         onKeyDown={toggle(anchor, false)}
       >
@@ -53,25 +53,28 @@ const CollapseMenu = ({ links }) => {
     setState({ [anchor]: open });
   };
 
-  return <>
-    <IconButton
-      edge="end"
-      aria-label="menu"
-      className={styles.button}
-      style={{ outline: "none" }}
-      onClick={toggle("right", true)}
-      size="large">
-      <Menu />
-    </IconButton>
-    <Drawer
-      anchor="right"
-      open={state.right}
-      onOpen={toggle("right", true)}
-      onClose={toggle("right", false)}
-    >
-      {createMenu("right")}
-    </Drawer>
-  </>;
+  return (
+    <>
+      <IconButton
+        edge='end'
+        aria-label='menu'
+        className={styles.button}
+        style={{ outline: 'none' }}
+        onClick={toggle('right', true)}
+        size='large'
+      >
+        <Menu />
+      </IconButton>
+      <Drawer
+        anchor='right'
+        open={state.right}
+        onOpen={toggle('right', true)}
+        onClose={toggle('right', false)}
+      >
+        {createMenu('right')}
+      </Drawer>
+    </>
+  );
 };
 
 CollapseMenu.propTypes = {
@@ -80,10 +83,10 @@ CollapseMenu.propTypes = {
 
 CollapseMenu.defaultProps = {
   links: [
-    { title: "Menu1", path: "#", target: "_self" },
-    { title: "Menu2", path: "#", target: "_self" },
-    { title: "Menu3", path: "#", target: "_self" },
-    { title: "Menu4", path: "#", target: "_self" },
+    { title: 'Menu1', path: '#', target: '_self' },
+    { title: 'Menu2', path: '#', target: '_self' },
+    { title: 'Menu3', path: '#', target: '_self' },
+    { title: 'Menu4', path: '#', target: '_self' },
   ],
 };
 

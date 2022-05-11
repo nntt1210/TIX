@@ -1,5 +1,5 @@
-import { movieService } from "./../../../../Services";
-import * as ActionType from "./../constants";
+import { movieService } from '../../../../services';
+import * as ActionType from './../constants';
 
 export const actGetMovieListApi = (pageNumber = 1, itemsPerPage = 12) => {
   return (dispatch) => {

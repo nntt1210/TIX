@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { routesHome } from './Routes';
-import HomeTemplate from './Containers/HomeTemplate';
-import PageNotFound from './Containers/PageNotFound';
-import BookingPage from './Containers/HomeTemplate/BookingPage';
-import SignInPage from './Containers/AuthPage/SignInPage/index';
-import SignUpPage from './Containers/AuthPage/SignUpPage/index';
-import Admin from './Containers/AdminTemplate/AdminPage';
+import { routesHome } from './routes';
+import HomeTemplate from './containers/HomeTemplate';
+import PageNotFound from './containers/PageNotFound';
+import BookingPage from './containers/HomeTemplate/BookingPage';
+import SignInPage from './containers/AuthPage/SignInPage/index';
+import SignUpPage from './containers/AuthPage/SignUpPage/index';
+import Admin from './containers/AdminTemplate/AdminPage';
 
 export default function App() {
   const showLayoutHome = (routes) => {

@@ -1,4 +1,4 @@
-import { bookingService } from '../../../../Services';
+import { bookingService } from '../../../../services';
 import * as ActionType from './constants';
 
 export const actGetSeatListApi = (idShowTime) => {

@@ -1,7 +1,7 @@
-import * as ActionType from "./../constants";
-import { showTimeService } from "../../../../Services";
-import { getCinemaSystems } from "../../../../Helpers/schedule-cinema-manager";
-import { getSystems } from "../../../../Helpers/movie-detail-manager";
+import * as ActionType from './../constants';
+import { showTimeService } from '../../../../services';
+import { getCinemaSystems } from '../../../../helpers/schedule-cinema-manager';
+import { getSystems } from '../../../../helpers/movie-detail-manager';
 
 export const actGetAllCinemaShowTimesApi = () => {
   return (dispatch) => {

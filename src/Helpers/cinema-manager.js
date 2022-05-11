@@ -3,11 +3,11 @@ import React from 'react';
 import { Box } from '@mui/material';
 import classNames from 'classnames';
 
-import ButtonTime from '../Components/ButtonTime';
-import CinemaItem from '../Components/CinemaItem';
-import ImgWrapper from '../Components/ImgWrapper';
-import MovieAge from '../Components/MovieAge';
-import LogoWrapper from '../Components/LogoWrapper';
+import ButtonTime from '../components/ButtonTime';
+import CinemaItem from '../components/CinemaItem';
+import ImgWrapper from '../components/ImgWrapper';
+import MovieAge from '../components/MovieAge';
+import LogoWrapper from '../components/LogoWrapper';
 
 export const renderCinemaTabs = (listCinema = [], width) => {
   if (width >= 768) {

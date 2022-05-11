@@ -1,34 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import DropDown from '../../Components/DropDown';
+
 import { Grid, Box, Collapse, FormControlLabel, Checkbox } from '@mui/material';
-import { getFullDate, getTime } from '../../Helpers/time-manager';
-// import {
-//   getCinemaSystemInfo,
-//   getCinemaInfo,
-// } from "../../redux/actions/cinemaAction";
-// import { getMovies } from "../../redux/actions/movieAction";
-// import { getAllCinemaShowTimes } from "../../redux/actions/showTimeAction";
-// import {
-//   GET_SELECTED_CINEMA_SYSTEM,
-//   GET_ID_CINEMA,
-//   GET_SELECTED_MOVIE,
-// } from "../../redux/actions/actionType";
-// import { getCinemaSystemId } from "../../helpers/search-manager";
-import { getShowTimeInfo } from '../../Helpers/schedule-cinema-manager';
+import { getFullDate, getTime } from '../../helpers/time-manager';
+import { getShowTimeInfo } from '../../helpers/schedule-cinema-manager';
+import DropDown from '../../components/DropDown';
 import Table from '../DataTable';
 import useStyles from './style';
-import { actGetMoviesApi } from '../../Containers/AdminTemplate/modules/actions/movies';
-// import {
-//   actGetAllCinemaShowTimesApi,
-//   actGetCinemaSystemId,
-// } from "../../Containers/AdminTemplate/modules/actions/showtimes";
-import * as ActionType from './../../Containers/AdminTemplate/modules/constants';
+import { actGetMoviesApi } from '../../containers/AdminTemplate/modules/actions/movies';
+
+import * as ActionType from './../../containers/AdminTemplate/modules/constants';
 import {
   getCinemaInfo,
   getCinemaSystemInfo,
-} from '../../Containers/AdminTemplate/modules/actions/cinemas';
-import { getCinemaSystemId } from '../../Helpers/cinema-manager';
+} from '../../containers/AdminTemplate/modules/actions/cinemas';
+import { getCinemaSystemId } from '../../helpers/cinema-manager';
 import { actGetSystemShowTimeApi } from '../ShowTime/modules/action';
 
 const ShowTimeTable = () => {

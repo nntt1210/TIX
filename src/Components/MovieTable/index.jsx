@@ -8,10 +8,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import Table from '../DataTable';
 import useStyles from './style';
-import { getFullDate } from '../../Helpers/time-manager';
-import { actDeleteMovie } from '../../Containers/AdminTemplate/modules/action';
-import { actGetMoviesApi } from '../../Containers/AdminTemplate/modules/actions/movies';
-import * as ActionType from './../../Containers/AdminTemplate/modules/constants';
+import { getFullDate } from '../../helpers/time-manager';
+import { actDeleteMovie } from '../../containers/AdminTemplate/modules/action';
+import { actGetMoviesApi } from '../../containers/AdminTemplate/modules/actions/movies';
+import * as ActionType from './../../containers/AdminTemplate/modules/constants';
 
 const MovieTable = () => {
   const dispatch = useDispatch();

@@ -13,15 +13,15 @@ import { LocalizationProvider, DatePicker } from '@mui/lab';
 import ImageUploader from 'react-images-upload';
 import useStyles from './style';
 // import { addMovie, editMovie } from "../../redux/actions/adminAction";
-import { getFullDate } from '../../Helpers/time-manager';
+import { getFullDate } from '../../helpers/time-manager';
 // import { GET_POSTER } from "../../redux/actions/actionType";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
   actEditMovie,
   actAddMovie,
-} from '../../Containers/AdminTemplate/modules/action';
-import * as ActionType from './../../Containers/AdminTemplate/modules/constants';
+} from '../../containers/AdminTemplate/modules/action';
+import * as ActionType from './../../containers/AdminTemplate/modules/constants';
 
 const MovieForm = (props) => {
   const styles = useStyles();

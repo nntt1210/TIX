@@ -16,7 +16,7 @@ import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
 
 import useStyles from './style';
-import UserService from './../../../Services/user';
+import UserService from './../../../services/user';
 
 function Copyright() {
   return (

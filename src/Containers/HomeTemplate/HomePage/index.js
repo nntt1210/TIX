@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import Carousel from '../../../Components/Carousel';
-import BookTicket from '../../../Components/BookTicket';
-import ListMovie from '../../../Components/ListMovie';
-import Loader from '../../../Components/Loader';
-import MovieTrailer from '../../../Components/MovieTrailer';
-import ShowTime from './../../../Components/ShowTime';
-import Footer from '../../../Components/Footer';
+import Carousel from '../../../components/Carousel';
+import BookTicket from '../../../components/BookTicket';
+import ListMovie from '../../../components/ListMovie';
+import Loader from '../../../components/Loader';
+import MovieTrailer from '../../../components/MovieTrailer';
+import ShowTime from './../../../components/ShowTime';
+import Footer from '../../../components/Footer';
 
 export default function HomePage() {
   const trailer = useSelector((state) => state.buttonTrailerReducer.data);

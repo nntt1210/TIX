@@ -1,33 +1,33 @@
-import HomePage from "./../Containers/HomeTemplate/HomePage";
-import DetailMoviePage from "./../Containers/HomeTemplate/DetailMoviePage";
+import HomePage from '../containers/HomeTemplate/HomePage';
+import DetailMoviePage from '../containers/HomeTemplate/DetailMoviePage';
 // import BookingPage from "./../Containers/HomeTemplate/BookingPage";
 
-import AccountDetail from "../Components/AccountDetail";
-import Admin from "../Containers/AdminTemplate/AdminPage";
-import UserManagement from "../Components/UserManagement";
-import MovieManagement from "../Components/MovieManagement";
-import ShowTimeManagement from "../Components/ShowTimeManagement";
-import PersonalInfo from "../Components/PersonalInfo";
+import AccountDetail from '../components/AccountDetail';
+import Admin from '../containers/AdminTemplate/AdminPage';
+import UserManagement from '../components/UserManagement';
+import MovieManagement from '../components/MovieManagement';
+import ShowTimeManagement from '../components/ShowTimeManagement';
+import PersonalInfo from '../components/PersonalInfo';
 
 const routesHome = [
   {
     exact: true,
-    path: "/",
+    path: '/',
     component: HomePage,
   },
   {
     exact: false,
-    path: "/home",
+    path: '/home',
     component: HomePage,
   },
   {
     exact: false,
-    path: "/phim/:id",
+    path: '/phim/:id',
     component: DetailMoviePage,
   },
   {
     exact: false,
-    path: "/account-detail",
+    path: '/account-detail',
     component: AccountDetail,
   },
 ];
@@ -35,27 +35,27 @@ const routesHome = [
 const routesAdmin = [
   {
     exact: false,
-    path: "/admin",
+    path: '/admin',
     component: Admin,
   },
   {
     exact: true,
-    path: "/user-management",
+    path: '/user-management',
     component: UserManagement,
   },
   {
     exact: true,
-    path: "/movie-management",
+    path: '/movie-management',
     component: MovieManagement,
   },
   {
     exact: true,
-    path: "/showtime-management",
+    path: '/showtime-management',
     component: ShowTimeManagement,
   },
   {
     exact: false,
-    path: "/personal-info",
+    path: '/personal-info',
     component: PersonalInfo,
   },
 ];

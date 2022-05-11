@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Box } from '@mui/material';
 
-import CinemaCollapse from '../Components/CinemaCollapse';
-import LogoWrapper from '../Components/LogoWrapper';
-import LogoWrapperCollapse from '../Components/LogoWrapperCollapse';
+import CinemaCollapse from '../components/CinemaCollapse';
+import LogoWrapper from '../components/LogoWrapper';
+import LogoWrapperCollapse from '../components/LogoWrapperCollapse';
 
 export const renderCinemaTabs = (listCinema) => {
   return listCinema.map((item, index) => {

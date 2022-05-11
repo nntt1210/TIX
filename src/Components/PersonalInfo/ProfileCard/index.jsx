@@ -19,7 +19,7 @@ import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 
 import useStyles from './style';
-import { actEditUser } from './../../../Containers/AdminTemplate/modules/actions/accounts';
+import { actEditUser } from './../../../containers/AdminTemplate/modules/actions/accounts';
 
 const ProfileCard = (props) => {
   const styles = useStyles();

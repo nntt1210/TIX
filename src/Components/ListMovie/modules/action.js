@@ -1,5 +1,5 @@
-import * as ActionType from "./constants";
-import api from "./../../../Api";
+import * as ActionType from './constants';
+import api from './../../../api';
 
 export const actListMovieApi = (groupID) => {
   return (dispatch) => {

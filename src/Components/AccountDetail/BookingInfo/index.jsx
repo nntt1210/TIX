@@ -5,8 +5,8 @@ import { Box, Typography } from '@mui/material';
 
 import Table from '../../DataTable';
 import useStyles from './style';
-import { getFullDate, getTime } from '../../../Helpers/time-manager';
-import { flatArray } from '../../../Helpers/array-manager';
+import { getFullDate, getTime } from '../../../helpers/time-manager';
+import { flatArray } from '../../../helpers/array-manager';
 
 const BookingInfo = () => {
   // get user's booking info

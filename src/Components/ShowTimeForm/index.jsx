@@ -20,15 +20,15 @@ import useStyles from './style';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { getAddCinemaInfo } from '../../Containers/AdminTemplate/modules/actions/cinemas';
+import { getAddCinemaInfo } from '../../containers/AdminTemplate/modules/actions/cinemas';
 import {
   getCinemaNumberId,
   getCinemaNumbers,
   getCinemaSystemId,
   getMovieId,
-} from '../../Helpers/show-time-manager';
-import { getFullDateTime } from '../../Helpers/time-manager';
-import { actAddShowTime } from '../../Containers/AdminTemplate/modules/action';
+} from '../../helpers/show-time-manager';
+import { getFullDateTime } from '../../helpers/time-manager';
+import { actAddShowTime } from '../../containers/AdminTemplate/modules/action';
 
 const ShowTimeForm = () => {
   const styles = useStyles();

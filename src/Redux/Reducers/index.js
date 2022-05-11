@@ -1,18 +1,18 @@
-import { combineReducers } from "redux";
-import listMovieReducer from "./../../Components/ListMovie/modules/reducer";
-import showTimeReducer from "./../../Components/ShowTime/modules/reducer";
-import detailMovieReducer from "./../../Containers/HomeTemplate/DetailMoviePage/modules/reducer";
-import buttonTrailerReducer from "./../../Components/ButtonTrailer/modules/reducer";
-import chosenSeatReducer from "./../../Components/Seat/modules/reducer";
-import bookingReducer from "./../../Containers/HomeTemplate/BookingPage/modules/reducer";
-import userLoginReducer from "./../../Containers/AuthPage/modules/reducer";
-import accountsReducer from "./../../Containers/AdminTemplate/modules/reducers/accounts";
-import accountsTypeReducer from "./../../Containers/AdminTemplate/modules/reducers/accountsType";
-import moviesReducer from "./../../Containers/AdminTemplate/modules/reducers/movies";
-import cinemasReducer from "./../../Containers/AdminTemplate/modules/reducers/cinemas";
-import cinemaSystemReducer from "./../../Containers/AdminTemplate/modules/reducers/cinemaSystem";
-import userAccountReducer from "./../../Containers/AdminTemplate/modules/reducers/userAccount";
-import bookingBoxReducer from "./../../Components/BookTicket/modules/reducer";
+import { combineReducers } from 'redux';
+import listMovieReducer from '../../components/ListMovie/modules/reducer';
+import showTimeReducer from '../../components/ShowTime/modules/reducer';
+import detailMovieReducer from '../../containers/HomeTemplate/DetailMoviePage/modules/reducer';
+import buttonTrailerReducer from '../../components/ButtonTrailer/modules/reducer';
+import chosenSeatReducer from '../../components/Seat/modules/reducer';
+import bookingReducer from '../../containers/HomeTemplate/BookingPage/modules/reducer';
+import userLoginReducer from '../../containers/AuthPage/modules/reducer';
+import accountsReducer from '../../containers/AdminTemplate/modules/reducers/accounts';
+import accountsTypeReducer from '../../containers/AdminTemplate/modules/reducers/accountsType';
+import moviesReducer from '../../containers/AdminTemplate/modules/reducers/movies';
+import cinemasReducer from '../../containers/AdminTemplate/modules/reducers/cinemas';
+import cinemaSystemReducer from '../../containers/AdminTemplate/modules/reducers/cinemaSystem';
+import userAccountReducer from '../../containers/AdminTemplate/modules/reducers/userAccount';
+import bookingBoxReducer from '../../components/BookTicket/modules/reducer';
 const rootReducer = combineReducers({
   listMovieReducer,
   showTimeReducer,

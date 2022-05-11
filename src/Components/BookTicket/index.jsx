@@ -9,14 +9,14 @@ import DropDown from '../DropDown';
 
 import * as ActionType from './modules/constants';
 
-import { actGetMovieShowTimesApi } from '../../Containers/AdminTemplate/modules/actions/showtimes';
+import { actGetMovieShowTimesApi } from '../../containers/AdminTemplate/modules/actions/showtimes';
 import {
   getCinemas,
   getMovieId,
   getSelectedShowTimeId,
   getShowTimeDates,
   getShowTimes,
-} from '../../Helpers/book-ticket-manager';
+} from '../../helpers/book-ticket-manager';
 
 const BookTicket = () => {
   const styles = useStyle();

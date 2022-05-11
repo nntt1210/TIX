@@ -5,23 +5,23 @@ import { Box, Tabs, Tab } from '@mui/material';
 import PropTypes from 'prop-types';
 // import classNames from "classnames";
 
-import DayList from '../../../Components/DayList';
-import Loader from '../../../Components/Loader';
-import MovieBackground from '../../../Components/MovieBackground';
-import MovieDetails from '../../../Components/MovieDetails';
-import MovieDiscussion from '../../../Components/MovieDiscussion';
-import MovieInfo from '../../../Components/MovieInfo';
-import MovieTrailer from '../../../Components/MovieTrailer';
+import DayList from '../../../components/DayList';
+import Loader from '../../../components/Loader';
+import MovieBackground from '../../../components/MovieBackground';
+import MovieDetails from '../../../components/MovieDetails';
+import MovieDiscussion from '../../../components/MovieDiscussion';
+import MovieInfo from '../../../components/MovieInfo';
+import MovieTrailer from '../../../components/MovieTrailer';
 
 import {
   actGetSystemCinemaApi,
   actGetSystemShowTimeApi,
-} from '../../../Components/ShowTime/modules/action';
+} from '../../../components/ShowTime/modules/action';
 import {
   renderCinemaContent,
   renderCinemaTabs,
   renderCollapseCinemaTabs,
-} from '../../../Helpers/detail-movie-manager';
+} from '../../../helpers/detail-movie-manager';
 import { actDetailMovieApi } from './modules/action';
 
 import useStyles from './style';

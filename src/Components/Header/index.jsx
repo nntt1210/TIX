@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import CollapseMenu from './../CollapseMenu';
 import Tag from './../Tag';
 import useStyles, { CssMenu } from './style';
-import { REMOVE_CREDENTIALS } from './../../Containers/AdminTemplate/modules/constants';
+import { REMOVE_CREDENTIALS } from './../../containers/AdminTemplate/modules/constants';
 
 export default function Header() {
   const theme = useTheme();

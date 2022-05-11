@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Box,
   Typography,
@@ -9,18 +9,18 @@ import {
   InputLabel,
   Select,
   MenuItem,
-} from "@mui/material";
-import Loader from "./../Loader";
-import useStyles from "./style";
-import { useDispatch, useSelector } from "react-redux";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+} from '@mui/material';
+import Loader from './../Loader';
+import useStyles from './style';
+import { useDispatch, useSelector } from 'react-redux';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import {
   actEditUser,
   actAddUser,
-} from "./../../Containers/AdminTemplate/modules/action";
+} from './../../containers/AdminTemplate/modules/action';
 
-import * as ActionType from "./../../Containers/AdminTemplate/modules/constants";
+import * as ActionType from './../../containers/AdminTemplate/modules/constants';
 
 export default function UserForm() {
   const styles = useStyles();
@@ -60,21 +60,21 @@ export default function UserForm() {
       matKhau: editedAccount.matKhau,
       email: editedAccount.email,
       soDt: editedAccount.soDt,
-      maNhom: "GP00",
+      maNhom: 'GP00',
       maLoaiNguoiDung: editedAccount.maLoaiNguoiDung,
       hoTen: editedAccount.hoTen,
     },
     validationSchema: Yup.object({
-      taiKhoan: Yup.string().required("Vui lòng nhập tên tài khoản"),
-      hoTen: Yup.string().required("Vui lòng nhập họ và tên"),
-      matKhau: Yup.string().required("Vui lòng không bỏ trống mật khẩu"),
-      maLoaiNguoiDung: Yup.string().required("Vui lòng chọn loại người dùng"),
+      taiKhoan: Yup.string().required('Vui lòng nhập tên tài khoản'),
+      hoTen: Yup.string().required('Vui lòng nhập họ và tên'),
+      matKhau: Yup.string().required('Vui lòng không bỏ trống mật khẩu'),
+      maLoaiNguoiDung: Yup.string().required('Vui lòng chọn loại người dùng'),
       email: Yup.string()
-        .email("Email không hợp lệ")
-        .required("Vui lòng nhập email"),
+        .email('Email không hợp lệ')
+        .required('Vui lòng nhập email'),
       soDt: Yup.string()
-        .required("Vui lòng nhập số điện thoại")
-        .matches(/^[0-9]*$/, "Số điện thoại không hợp lệ"),
+        .required('Vui lòng nhập số điện thoại')
+        .matches(/^[0-9]*$/, 'Số điện thoại không hợp lệ'),
     }),
     onSubmit: (values) => {
       isEdited
@@ -85,21 +85,21 @@ export default function UserForm() {
   if (loading) return <Loader />;
   else
     return (
-      <form autoComplete="off" onSubmit={formik.handleSubmit}>
+      <form autoComplete='off' onSubmit={formik.handleSubmit}>
         <Box className={styles.content}>
-          <Typography className={styles.title} component="h1" variant="h5">
+          <Typography className={styles.title} component='h1' variant='h5'>
             Quản lý người dùng
           </Typography>
 
           <Box className={styles.info}>
             <TextField
               className={styles.input}
-              id="taiKhoan"
-              name="taiKhoan"
-              label="Tên tài khoản"
+              id='taiKhoan'
+              name='taiKhoan'
+              label='Tên tài khoản'
               // // variant="outlined"
-              type="text"
-              size="small"
+              type='text'
+              size='small'
               disabled={isEdited}
               value={formik.values.taiKhoan}
               onChange={formik.handleChange}
@@ -114,12 +114,12 @@ export default function UserForm() {
 
             <TextField
               className={styles.input}
-              id="hoTen"
-              name="hoTen"
-              label="Họ và tên"
+              id='hoTen'
+              name='hoTen'
+              label='Họ và tên'
               // variant="outlined"
-              type="text"
-              size="small"
+              type='text'
+              size='small'
               value={formik.values.hoTen}
               onChange={formik.handleChange}
               // InputLabelProps={{
@@ -133,21 +133,21 @@ export default function UserForm() {
 
             <FormControl
               // variant="outlined"
-              size="small"
+              size='small'
               className={styles.dropDown}
             >
               <InputLabel className={styles.userType}>
                 Loại người dùng
               </InputLabel>
               <Select
-                id="maLoaiNguoiDung"
-                name="maLoaiNguoiDung"
+                id='maLoaiNguoiDung'
+                name='maLoaiNguoiDung'
                 value={formik.values.maLoaiNguoiDung}
                 classes={{
                   select: styles.select,
                   icon: styles.icon,
                 }}
-                label="Loại người dùng"
+                label='Loại người dùng'
                 onChange={formik.handleChange}
               >
                 {accountTypes
@@ -170,12 +170,12 @@ export default function UserForm() {
 
             <TextField
               className={styles.input}
-              id="matKhau"
-              name="matKhau"
-              label="Mật khẩu"
+              id='matKhau'
+              name='matKhau'
+              label='Mật khẩu'
               // variant="outlined"
-              type="password"
-              size="small"
+              type='password'
+              size='small'
               value={formik.values.matKhau}
               onChange={formik.handleChange}
               // InputLabelProps={{
@@ -189,12 +189,12 @@ export default function UserForm() {
 
             <TextField
               className={styles.input}
-              id="email"
-              name="email"
-              label="Email"
+              id='email'
+              name='email'
+              label='Email'
               // variant="outlined"
-              type="email"
-              size="small"
+              type='email'
+              size='small'
               value={formik.values.email}
               onChange={formik.handleChange}
               // InputLabelProps={{
@@ -208,12 +208,12 @@ export default function UserForm() {
 
             <TextField
               className={styles.input}
-              id="soDt"
-              name="soDt"
-              label="Số điện thoại"
+              id='soDt'
+              name='soDt'
+              label='Số điện thoại'
               // variant="outlined"
-              type="text"
-              size="small"
+              type='text'
+              size='small'
               value={formik.values.soDt}
               onChange={formik.handleChange}
               // InputLabelProps={{
@@ -228,26 +228,26 @@ export default function UserForm() {
         </Box>
 
         <Button
-          variant="contained"
+          variant='contained'
           className={styles.button}
-          type="submit"
+          type='submit'
           // type="button"
         >
-          {isEdited ? "Cập nhật" : "Thêm mới"}
+          {isEdited ? 'Cập nhật' : 'Thêm mới'}
         </Button>
         {isEdited ? (
           <Button
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             className={styles.button}
-            style={{ marginLeft: "10px" }}
-            type="button"
+            style={{ marginLeft: '10px' }}
+            type='button'
             onClick={() => reset()}
           >
             Reset
           </Button>
         ) : (
-          ""
+          ''
         )}
       </form>
     );

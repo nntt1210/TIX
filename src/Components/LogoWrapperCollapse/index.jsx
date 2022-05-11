@@ -4,7 +4,7 @@ import { Avatar, Box } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import useStyles from './style';
-import { renderShowList } from '../../Helpers/detail-movie-manager';
+import { renderShowList } from '../../helpers/detail-movie-manager';
 
 export default function LogoWrapperCollapse(props) {
   const styles = useStyles();

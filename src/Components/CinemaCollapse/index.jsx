@@ -10,7 +10,7 @@ import useStyles from './style';
 import {
   renderCinemaAddress,
   renderCinemaName,
-} from '../../Helpers/cinema-manager';
+} from '../../helpers/cinema-manager';
 
 export default function CinemaCollapse(props) {
   const { maHeThongRap, maCumRap, tenCumRap, list } = props;

@@ -1,4 +1,4 @@
-import api from './../Api';
+import api from '../api';
 class MovieService {
   fetchMovies(keyWord) {
     const url = keyWord

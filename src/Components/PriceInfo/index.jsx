@@ -11,9 +11,9 @@ import PropTypes from 'prop-types';
 
 import Table from '../DataTable';
 import useStyles from './style';
-import { getAccountInfo } from '../../Containers/AuthPage/modules/action';
-import * as ActionType from './../../Containers/HomeTemplate/BookingPage/modules/constants';
-import { actBookTicketApi } from '../../Containers/HomeTemplate/BookingPage/modules/action';
+import { getAccountInfo } from '../../containers/AuthPage/modules/action';
+import * as ActionType from './../../containers/HomeTemplate/BookingPage/modules/constants';
+import { actBookTicketApi } from '../../containers/HomeTemplate/BookingPage/modules/action';
 import { resetChosenSeats } from '../Seat/modules/action';
 
 const PriceInfo = ({ info }) => {

@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
-import Header from './../../Components/Header/index';
+import Header from './../../components/Header';
 
 function LayoutHome(props) {
   return (

@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 // import Search from "../../components/Search";
-import { Box } from "@mui/material";
-import Table from "../DataTable";
-import IconButton from "@mui/material/IconButton";
-import CreateIcon from "@mui/icons-material/Create";
-import DeleteIcon from "@mui/icons-material/Delete";
-import useStyles from "./style";
+import { Box } from '@mui/material';
+import Table from '../DataTable';
+import IconButton from '@mui/material/IconButton';
+import CreateIcon from '@mui/icons-material/Create';
+import DeleteIcon from '@mui/icons-material/Delete';
+import useStyles from './style';
 // import {
 //   GET_EDIT_STATUS,
 //   GET_EDITED_ACCOUNT,
 //   GET_KEYWORD_ACCOUNT,
 // } from "../../redux/actions/actionType";
 
-import * as ActionType from "./../../Containers/AdminTemplate/modules/constants";
+import * as ActionType from './../../containers/AdminTemplate/modules/constants';
 import {
   actDeleteUser,
   actGetAccountsApi,
-} from "./../../Containers/AdminTemplate/modules/action";
+} from './../../containers/AdminTemplate/modules/action';
 
 export default function UserTable() {
   const dispatch = useDispatch();
@@ -29,13 +29,13 @@ export default function UserTable() {
   // const keyWord = useSelector((state) => state.accounts.keyWord);
 
   let headers = [
-    "Tên tài khoản",
-    "Họ và tên",
-    "Loại người dùng",
-    "Email",
-    "Số điện thoại",
-    "Chỉnh sửa",
-    "Xoá",
+    'Tên tài khoản',
+    'Họ và tên',
+    'Loại người dùng',
+    'Email',
+    'Số điện thoại',
+    'Chỉnh sửa',
+    'Xoá',
   ];
 
   useEffect(() => {
@@ -67,17 +67,19 @@ export default function UserTable() {
       <IconButton
         onClick={() => handleEdit(account)}
         className={styles.iconButton}
-        size="large">
-        <CreateIcon color="primary" />
+        size='large'
+      >
+        <CreateIcon color='primary' />
       </IconButton>
     ),
     delete: (
       <IconButton
-        type="button"
+        type='button'
         onClick={() => handleDelete(account.taiKhoan)}
         className={styles.iconButton}
-        size="large">
-        <DeleteIcon color="error" />
+        size='large'
+      >
+        <DeleteIcon color='error' />
       </IconButton>
     ),
   }));
@@ -96,7 +98,7 @@ export default function UserTable() {
         <Table
           headers={headers}
           rows={data}
-          maxWidth={"100%"}
+          maxWidth={'100%'}
           maxHeight={500}
         />
       </Box>

@@ -1,5 +1,5 @@
 import * as ActionType from './constants';
-import UserService from '../../../Services/user';
+import UserService from '../../../services/user';
 
 const userService = new UserService();
 

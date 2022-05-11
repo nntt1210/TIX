@@ -1,4 +1,4 @@
-import { adminService } from './../../../../Services';
+import { adminService } from '../../../../services';
 import * as ActionType from './../constants';
 
 export const actGetAccountsApi = (keyword) => {
