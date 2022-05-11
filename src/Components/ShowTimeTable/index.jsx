@@ -1,14 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import DropDown from "../../Components/DropDown";
-import {
-  Grid,
-  Box,
-  Collapse,
-  FormControlLabel,
-  Checkbox,
-} from "@mui/material";
-import { getFullDate, getTime } from "../../Helpers/time-manager";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import DropDown from '../../Components/DropDown';
+import { Grid, Box, Collapse, FormControlLabel, Checkbox } from '@mui/material';
+import { getFullDate, getTime } from '../../Helpers/time-manager';
 // import {
 //   getCinemaSystemInfo,
 //   getCinemaInfo,
@@ -21,23 +15,23 @@ import { getFullDate, getTime } from "../../Helpers/time-manager";
 //   GET_SELECTED_MOVIE,
 // } from "../../redux/actions/actionType";
 // import { getCinemaSystemId } from "../../helpers/search-manager";
-import { getShowTimeInfo } from "../../Helpers/schedule-cinema-manager";
-import Table from "../DataTable";
-import useStyles from "./style";
-import { actGetMoviesApi } from "../../Containers/AdminTemplate/modules/actions/movies";
+import { getShowTimeInfo } from '../../Helpers/schedule-cinema-manager';
+import Table from '../DataTable';
+import useStyles from './style';
+import { actGetMoviesApi } from '../../Containers/AdminTemplate/modules/actions/movies';
 // import {
 //   actGetAllCinemaShowTimesApi,
 //   actGetCinemaSystemId,
 // } from "../../Containers/AdminTemplate/modules/actions/showtimes";
-import * as ActionType from "./../../Containers/AdminTemplate/modules/constants";
+import * as ActionType from './../../Containers/AdminTemplate/modules/constants';
 import {
   getCinemaInfo,
   getCinemaSystemInfo,
-} from "../../Containers/AdminTemplate/modules/actions/cinemas";
-import { getCinemaSystemId } from "../../Helpers/cinema-manager";
-import { actGetSystemShowTimeApi } from "../ShowTime/modules/action";
+} from '../../Containers/AdminTemplate/modules/actions/cinemas';
+import { getCinemaSystemId } from '../../Helpers/cinema-manager';
+import { actGetSystemShowTimeApi } from '../ShowTime/modules/action';
 
-const ShowTimeTable = (props) => {
+const ShowTimeTable = () => {
   const dispatch = useDispatch();
   const styles = useStyles();
   const [search, setSearch] = useState(false);
@@ -58,11 +52,11 @@ const ShowTimeTable = (props) => {
   const movieNames = movies.map((movies) => movies.tenPhim);
 
   let headers = [
-    "Mã lịch chiếu",
-    "Tên rạp",
-    "Ngày chiếu",
-    "Giờ chiếu",
-    "Giá vé",
+    'Mã lịch chiếu',
+    'Tên rạp',
+    'Ngày chiếu',
+    'Giờ chiếu',
+    'Giá vé',
   ];
 
   useEffect(() => {
@@ -78,7 +72,7 @@ const ShowTimeTable = (props) => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(actGetSystemShowTimeApi("GP03"));
+    dispatch(actGetSystemShowTimeApi('GP03'));
   }, [dispatch]);
 
   let tableData = getShowTimeInfo(
@@ -100,41 +94,41 @@ const ShowTimeTable = (props) => {
         classes={{ root: styles.checkbox, label: styles.label }}
         control={
           <Checkbox
-            color="primary"
+            color='primary'
             checked={search}
             onChange={() => setSearch(!search)}
-            name="search"
+            name='search'
           />
         }
-        label="Tìm kiếm"
+        label='Tìm kiếm'
       />
-      <Collapse in={search} timeout="auto">
+      <Collapse in={search} timeout='auto'>
         <Grid container spacing={1}>
           <Grid item xs={12} md={4} className={styles.dropDown}>
             <DropDown
-              label="Hệ thống rạp"
+              label='Hệ thống rạp'
               state={selectedSystem}
               dispatchType={ActionType.GET_SELECTED_CINEMA_SYSTEM}
               list={cinemaSystemNames}
-              placeHolder="Vui lòng chọn hệ thống rạp"
+              placeHolder='Vui lòng chọn hệ thống rạp'
             />
           </Grid>
           <Grid item xs={12} md={4} className={styles.dropDown}>
             <DropDown
-              label="Cụm rạp"
+              label='Cụm rạp'
               state={selectedCinema}
               dispatchType={ActionType.GET_ID_CINEMA}
               list={cinemaNames}
-              placeHolder="Vui lòng chọn hệ thống rạp"
+              placeHolder='Vui lòng chọn hệ thống rạp'
             />
           </Grid>
           <Grid item xs={12} md={4} className={styles.dropDown}>
             <DropDown
-              label="Phim"
+              label='Phim'
               state={selectedMovie}
               dispatchType={ActionType.GET_SELECTED_MOVIE}
               list={movieNames}
-              placeHolder="Vui lòng chọn phim"
+              placeHolder='Vui lòng chọn phim'
             />
           </Grid>
         </Grid>
@@ -144,7 +138,7 @@ const ShowTimeTable = (props) => {
         <Table
           headers={headers}
           rows={tableData}
-          maxWidth={"100%"}
+          maxWidth={'100%'}
           maxHeight={500}
         />
       </Box>

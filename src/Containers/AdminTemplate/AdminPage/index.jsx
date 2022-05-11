@@ -1,26 +1,29 @@
-import React from "react";
-import { Link, Route, Switch, Redirect, useLocation } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
-import { Container, Box, MenuList, MenuItem, Divider } from "@mui/material";
-import MovieRoundedIcon from "@mui/icons-material/MovieRounded";
-import GroupIcon from "@mui/icons-material/Group";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
-import ScheduleIcon from "@mui/icons-material/Schedule";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import Tag from "../../../Components/Tag";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Route, Switch, Redirect, useLocation } from 'react-router-dom';
+
+import { useTheme } from '@mui/material/styles';
+import { Container, Box, MenuList, MenuItem, Divider } from '@mui/material';
+import MovieRoundedIcon from '@mui/icons-material/MovieRounded';
+import GroupIcon from '@mui/icons-material/Group';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
+import ScheduleIcon from '@mui/icons-material/Schedule';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import PropTypes from 'prop-types';
+
 // import CollapseMenu from "./../../Components/CollapseMenu";
 // import BackToTop from "../../components/BackToTop";
-import useStyles from "./style";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import UserManagement from "../../../Components/UserManagement";
-import MovieManagement from "../../../Components/MovieManagement";
-import ShowTimeManagement from "../../../Components/ShowTimeManagement";
-import PersonalInfo from "../../../Components/PersonalInfo";
-import { actGetAccountsTypeApi } from "../modules/action";
-import * as ActionType from "../modules/constants";
-import { getAccountInfo } from "../../AuthPage/modules/action";
+
+import Tag from '../../../Components/Tag';
+import UserManagement from '../../../Components/UserManagement';
+import MovieManagement from '../../../Components/MovieManagement';
+import ShowTimeManagement from '../../../Components/ShowTimeManagement';
+import PersonalInfo from '../../../Components/PersonalInfo';
+import useStyles from './style';
+import { actGetAccountsTypeApi } from '../modules/action';
+import * as ActionType from '../modules/constants';
+import { getAccountInfo } from '../../AuthPage/modules/action';
 // import routes from "./routes";
 
 const Admin = ({ match }) => {
@@ -32,24 +35,24 @@ const Admin = ({ match }) => {
   const user = useSelector((state) => state.userLoginReducer.login);
 
   const links = [
-    { title: "Trang chủ", path: "/home", target: "_blank" },
+    { title: 'Trang chủ', path: '/home', target: '_blank' },
     {
-      title: "Quản lý người dùng",
+      title: 'Quản lý người dùng',
       path: `${url}/user-management`,
-      target: "_self",
+      target: '_self',
     },
-    { title: "Quản lý phim", path: `${url}/movie-management`, target: "_self" },
+    { title: 'Quản lý phim', path: `${url}/movie-management`, target: '_self' },
     {
-      title: "Quản lý lịch chiếu",
+      title: 'Quản lý lịch chiếu',
       path: `${url}/showtime-management`,
-      target: "_self",
+      target: '_self',
     },
     {
-      title: "Thông tin cá nhân",
+      title: 'Thông tin cá nhân',
       path: `${url}/personal-info`,
-      target: "_self",
+      target: '_self',
     },
-    { title: "Đăng xuất", path: "/signin", target: "_self" },
+    { title: 'Đăng xuất', path: '/signin', target: '_self' },
   ];
 
   useEffect(() => {
@@ -69,9 +72,9 @@ const Admin = ({ match }) => {
   const handleLogout = () => {
     dispatch({
       type: ActionType.REMOVE_CREDENTIALS,
-      payload: "",
+      payload: '',
     });
-    localStorage.removeItem("userLogin");
+    localStorage.removeItem('userLogin');
     resetState();
   };
 
@@ -86,10 +89,10 @@ const Admin = ({ match }) => {
             className={styles.listItem}
           >
             <Tag
-              iconElement={<MovieRoundedIcon fontSize="large" />}
+              iconElement={<MovieRoundedIcon fontSize='large' />}
               title={links[0].title}
               color={theme.color.white.main}
-              hoverColor="none"
+              hoverColor='none'
             />
           </MenuItem>
           <Divider classes={{ root: styles.divider }} />
@@ -103,10 +106,10 @@ const Admin = ({ match }) => {
             // onClick={() => resetState()}
           >
             <Tag
-              iconElement={<GroupIcon fontSize="large" />}
+              iconElement={<GroupIcon fontSize='large' />}
               title={links[1].title}
               color={theme.color.white.main}
-              hoverColor="none"
+              hoverColor='none'
             />
           </MenuItem>
           <MenuItem
@@ -119,10 +122,10 @@ const Admin = ({ match }) => {
             // onClick={() => resetState()}
           >
             <Tag
-              iconElement={<LocalMoviesIcon fontSize="large" />}
+              iconElement={<LocalMoviesIcon fontSize='large' />}
               title={links[2].title}
               color={theme.color.white.main}
-              hoverColor="none"
+              hoverColor='none'
             />
           </MenuItem>
           <MenuItem
@@ -135,10 +138,10 @@ const Admin = ({ match }) => {
             // onClick={() => resetState()}
           >
             <Tag
-              iconElement={<ScheduleIcon fontSize="large" />}
+              iconElement={<ScheduleIcon fontSize='large' />}
               title={links[3].title}
               color={theme.color.white.main}
-              hoverColor="none"
+              hoverColor='none'
             />
           </MenuItem>
           <Divider classes={{ root: styles.divider }} />
@@ -152,10 +155,10 @@ const Admin = ({ match }) => {
             // onClick={() => resetState()}
           >
             <Tag
-              iconElement={<AccountCircleIcon fontSize="large" />}
-              title="Thông tin cá nhân"
+              iconElement={<AccountCircleIcon fontSize='large' />}
+              title='Thông tin cá nhân'
               color={theme.color.white.main}
-              hoverColor="none"
+              hoverColor='none'
             />
           </MenuItem>
           <MenuItem
@@ -166,10 +169,10 @@ const Admin = ({ match }) => {
             onClick={handleLogout}
           >
             <Tag
-              iconElement={<ExitToAppIcon fontSize="large" />}
+              iconElement={<ExitToAppIcon fontSize='large' />}
               title={links[5].title}
               color={theme.color.white.main}
-              hoverColor="none"
+              hoverColor='none'
             />
           </MenuItem>
         </MenuList>
@@ -202,6 +205,10 @@ const Admin = ({ match }) => {
       </Box>
     </Container>
   );
+};
+
+Admin.propTypes = {
+  match: PropTypes.object,
 };
 
 export default Admin;

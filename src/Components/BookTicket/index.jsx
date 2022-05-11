@@ -18,7 +18,7 @@ import {
   getShowTimes,
 } from '../../Helpers/book-ticket-manager';
 
-const BookTicket = (props) => {
+const BookTicket = () => {
   const styles = useStyle();
   const dispatch = useDispatch();
   const history = useHistory();

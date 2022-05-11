@@ -1,12 +1,16 @@
-import { Box, Typography } from "@mui/material";
+import React from 'react';
+
+import { Box, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
-import React from "react";
-import useStyles from "./style";
+import PropTypes from 'prop-types';
+
+import useStyles from './style';
 
 export default function RatingPoint(props) {
+  const { danhGia } = props;
   const styles = useStyles();
   return (
-    <Box className="col-3 d-flex flex-column align-items-center mx-auto">
+    <Box className='col-3 d-flex flex-column align-items-center mx-auto'>
       <Box className={styles.percentage}>
         <Box className={styles.circleBorder}></Box>
         <Box className={styles.pointGroup}>
@@ -18,8 +22,8 @@ export default function RatingPoint(props) {
             //   }}
           ></Box>
         </Box>
-        <Box component="span" className={styles.point}>
-          5
+        <Box component='span' className={styles.point}>
+          {danhGia}
         </Box>
       </Box>
       <Box>
@@ -30,15 +34,18 @@ export default function RatingPoint(props) {
         <img src="/img/star1.png" alt="Star" /> */}
         <Rating
           className={styles.star}
-          name="half-rating-read"
+          name='half-rating-read'
           defaultValue={2.5}
           precision={0.5}
           readOnly
         />
       </Box>
-      <Typography component="p" className={styles.rating}>
+      <Typography component='p' className={styles.rating}>
         37 lượt đánh giá
       </Typography>
     </Box>
   );
 }
+RatingPoint.propTypes = {
+  danhGia: PropTypes.number,
+};

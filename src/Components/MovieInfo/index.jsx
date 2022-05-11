@@ -1,16 +1,17 @@
-import { Box } from "@mui/material";
-import React from "react";
-// import useContainerStyles from "../MyContainer/style";
-import useStyles from "./style";
+import React from 'react';
+
+import { Box } from '@mui/material';
+import PropTypes from 'prop-types';
+
+import useStyles from './style';
 
 export default function MovieInfo(props) {
   const styles = useStyles();
-  // const containerStyles = useContainerStyles();
   const { ngayKhoiChieu, moTa } = props;
   return (
     <Box className={styles.root}>
-      <Box className="row">
-        <Box className="col-12 col-md-6">
+      <Box className='row'>
+        <Box className='col-12 col-md-6'>
           <Box className={styles.row}>
             <Box className={styles.title}>Ngày công chiếu</Box>
             <Box className={styles.content}>
@@ -38,7 +39,7 @@ export default function MovieInfo(props) {
             <Box className={styles.content}>Việt Nam</Box>
           </Box>
         </Box>
-        <Box className="col-12 col-md-6">
+        <Box className='col-12 col-md-6'>
           <Box className={styles.row}>
             <Box className={styles.title}>Nội dung</Box>
           </Box>
@@ -50,3 +51,7 @@ export default function MovieInfo(props) {
     </Box>
   );
 }
+MovieInfo.propTypes = {
+  ngayKhoiChieu: PropTypes.string,
+  moTa: PropTypes.string,
+};

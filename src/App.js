@@ -1,7 +1,8 @@
 import React from 'react';
-import HomeTemplate from './Containers/HomeTemplate';
 import { Route, Switch } from 'react-router-dom';
+
 import { routesHome } from './Routes';
+import HomeTemplate from './Containers/HomeTemplate';
 import PageNotFound from './Containers/PageNotFound';
 import BookingPage from './Containers/HomeTemplate/BookingPage';
 import SignInPage from './Containers/AuthPage/SignInPage/index';

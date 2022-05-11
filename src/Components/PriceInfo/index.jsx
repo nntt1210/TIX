@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Box, Typography, Grid, TextField, Button } from "@mui/material";
-import useStyles from "./style";
-import { getAccountInfo } from "../../Containers/AuthPage/modules/action";
-import * as ActionType from "./../../Containers/HomeTemplate/BookingPage/modules/constants";
-import { actBookTicketApi } from "../../Containers/HomeTemplate/BookingPage/modules/action";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import DialogTitle from "@mui/material/DialogTitle";
-import { resetChosenSeats } from "../Seat/modules/action";
-import Table from "../DataTable";
+import { Box, Typography, Grid, TextField, Button } from '@mui/material';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import PropTypes from 'prop-types';
+
+import Table from '../DataTable';
+import useStyles from './style';
+import { getAccountInfo } from '../../Containers/AuthPage/modules/action';
+import * as ActionType from './../../Containers/HomeTemplate/BookingPage/modules/constants';
+import { actBookTicketApi } from '../../Containers/HomeTemplate/BookingPage/modules/action';
+import { resetChosenSeats } from '../Seat/modules/action';
 
 const PriceInfo = ({ info }) => {
   const styles = useStyles();
@@ -40,13 +41,13 @@ const PriceInfo = ({ info }) => {
     dispatch(getAccountInfo(user, { taiKhoan: user.taiKhoan }));
   }, [dispatch, user]);
 
-  let headers = ["Tên phim", "Cụm rạp", "Rạp", "Suất chiếu", "Ghế", "Giá vé"];
+  let headers = ['Tên phim', 'Cụm rạp', 'Rạp', 'Suất chiếu', 'Ghế', 'Giá vé'];
 
   let data = seatList.map((seat) => ({
     tenPhim: info.tenPhim,
     cumRap: info.diaChi,
     rap: info.tenRap,
-    suatChieu: info.gioChieu + " - " + info.ngayChieu,
+    suatChieu: info.gioChieu + ' - ' + info.ngayChieu,
     ghe: seat.letter + seat.tenGhe,
     giaVe: seat.giaVe,
   }));
@@ -85,16 +86,16 @@ const PriceInfo = ({ info }) => {
     dispatch(actBookTicketApi(ticketData, user.accessToken));
     dispatch({ type: ActionType.RESET_STATE });
     dispatch(resetChosenSeats());
-    history.push("/home");
+    history.push('/home');
   };
 
-  const renderTickets = (seatList) => {
+  const renderTickets = () => {
     return (
       <Box className={styles.table}>
         <Table
           headers={headers}
           rows={data}
-          maxWidth={"100%"}
+          maxWidth={'100%'}
           maxHeight={500}
         />
       </Box>
@@ -104,30 +105,30 @@ const PriceInfo = ({ info }) => {
   return (
     <Box className={styles.root}>
       <Box className={`${styles.totalPrice} ${styles.dashedBoder}`}>
-        <Typography variant="h4" className={`${styles.price} ${styles.center}`}>
+        <Typography variant='h4' className={`${styles.price} ${styles.center}`}>
           {money(seatList)} VND
         </Typography>
       </Box>
 
       <Box className={`${styles.showTimeInfo} ${styles.dashedBoder}`}>
-        <Typography variant="subtitle1">Tên phim: {info.tenPhim}</Typography>
-        <Typography variant="body2">{`Cụm rạp: ${info.diaChi}`}</Typography>
-        <Typography variant="body2">{`Rạp: ${info.tenRap}`}</Typography>
-        <Typography variant="body2">{`Suất chiếu: ${info.gioChieu} - ${info.ngayChieu}`}</Typography>
+        <Typography variant='subtitle1'>Tên phim: {info.tenPhim}</Typography>
+        <Typography variant='body2'>{`Cụm rạp: ${info.diaChi}`}</Typography>
+        <Typography variant='body2'>{`Rạp: ${info.tenRap}`}</Typography>
+        <Typography variant='body2'>{`Suất chiếu: ${info.gioChieu} - ${info.ngayChieu}`}</Typography>
       </Box>
       <Grid container className={`${styles.seats} ${styles.dashedBoder}`}>
         <Grid item xs={7}>
           <Typography
-            variant="subtitle1"
-            color="textSecondary"
-            component="span"
+            variant='subtitle1'
+            color='textSecondary'
+            component='span'
           >
             {`Ghế: `}
           </Typography>
           <Typography
-            variant="subtitle1"
-            color="textSecondary"
-            component="span"
+            variant='subtitle1'
+            color='textSecondary'
+            component='span'
           >
             {renderChosenSeats(seatList)}
           </Typography>
@@ -142,8 +143,8 @@ const PriceInfo = ({ info }) => {
       <Box className={styles.userInfo}>
         <TextField
           className={styles.input}
-          label="Email"
-          variant="outlined"
+          label='Email'
+          variant='outlined'
           value={email}
           InputLabelProps={{
             shrink: true,
@@ -151,9 +152,9 @@ const PriceInfo = ({ info }) => {
         />
         <TextField
           className={styles.input}
-          label="Số điện thoại"
-          variant="outlined"
-          type="text"
+          label='Số điện thoại'
+          variant='outlined'
+          type='text'
           value={soDT}
           InputLabelProps={{
             shrink: true,
@@ -162,8 +163,8 @@ const PriceInfo = ({ info }) => {
       </Box>
 
       <Button
-        variant="contained"
-        color="secondary"
+        variant='contained'
+        color='secondary'
         className={styles.button}
         onClick={() => handleClickOpen()}
         disabled={ticketData.danhSachVe.length === 0}
@@ -173,16 +174,16 @@ const PriceInfo = ({ info }) => {
       <Dialog
         open={open}
         onClose={handleClose}
-        aria-labelledby="form-dialog-title"
+        aria-labelledby='form-dialog-title'
         className={styles.dialog}
       >
-        <DialogTitle id="form-dialog-title">Xác nhận thanh toán</DialogTitle>
+        <DialogTitle id='form-dialog-title'>Xác nhận thanh toán</DialogTitle>
         <DialogContent>{renderTickets(seatList)}</DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color='primary'>
             Hủy
           </Button>
-          <Button onClick={handleClick} color="primary">
+          <Button onClick={handleClick} color='primary'>
             Xác nhận
           </Button>
         </DialogActions>

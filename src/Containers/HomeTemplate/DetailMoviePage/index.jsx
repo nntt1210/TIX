@@ -1,35 +1,37 @@
-import { Box, Tabs, Tab } from "@mui/material";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { Box, Tabs, Tab } from '@mui/material';
+import PropTypes from 'prop-types';
 // import classNames from "classnames";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import DayList from "../../../Components/DayList";
-import Loader from "../../../Components/Loader";
-import MovieBackground from "../../../Components/MovieBackground";
-import MovieDetails from "../../../Components/MovieDetails";
-import MovieDiscussion from "../../../Components/MovieDiscussion";
-import MovieInfo from "../../../Components/MovieInfo";
-import MovieTrailer from "../../../Components/MovieTrailer";
+
+import DayList from '../../../Components/DayList';
+import Loader from '../../../Components/Loader';
+import MovieBackground from '../../../Components/MovieBackground';
+import MovieDetails from '../../../Components/MovieDetails';
+import MovieDiscussion from '../../../Components/MovieDiscussion';
+import MovieInfo from '../../../Components/MovieInfo';
+import MovieTrailer from '../../../Components/MovieTrailer';
 
 import {
   actGetSystemCinemaApi,
   actGetSystemShowTimeApi,
-} from "../../../Components/ShowTime/modules/action";
+} from '../../../Components/ShowTime/modules/action';
 import {
   renderCinemaContent,
   renderCinemaTabs,
   renderCollapseCinemaTabs,
-} from "../../../Helpers/detail-movie-manager";
-import { actDetailMovieApi } from "./modules/action";
+} from '../../../Helpers/detail-movie-manager';
+import { actDetailMovieApi } from './modules/action';
 
-import useStyles from "./style";
+import useStyles from './style';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
     <div
-      role="tabpanel"
+      role='tabpanel'
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
@@ -49,13 +51,13 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }
 
 export default function DetailMoviePage(props) {
   const styles = useStyles();
-  const [currentDate, setCurrentDate] = useState("01");
+  const [currentDate, setCurrentDate] = useState('01');
   // const loading = useSelector((state) => state.detailMovieReducer.loading);
   const detailMovie = useSelector(
     (state) => state.detailMovieReducer.detailMovie
@@ -71,7 +73,7 @@ export default function DetailMoviePage(props) {
   useEffect(() => {
     dispatch(actDetailMovieApi(id));
     if (listCinema.length === 0) dispatch(actGetSystemCinemaApi());
-    if (listShowTime.length === 0) dispatch(actGetSystemShowTimeApi("GP03"));
+    if (listShowTime.length === 0) dispatch(actGetSystemShowTimeApi('GP03'));
   }, [dispatch, id, listCinema.length, listShowTime.length]);
 
   const [value, setValue] = React.useState(0);
@@ -95,32 +97,32 @@ export default function DetailMoviePage(props) {
             danhGia={danhGia}
           />
         </Box>
-        <Box id="movieDetail" className={styles.detail}>
+        <Box id='movieDetail' className={styles.detail}>
           <Box className={styles.myContainer}>
             <Box>
               <Tabs
                 className={styles.nav}
                 value={value}
                 onChange={handleChange}
-                aria-label="basic tabs example"
+                aria-label='basic tabs example'
               >
-                <Tab label="Lịch chiếu" {...a11yProps(0)} />
-                <Tab label="Thông tin" {...a11yProps(1)} />
-                <Tab label="Đánh giá" {...a11yProps(2)} />
+                <Tab label='Lịch chiếu' {...a11yProps(0)} />
+                <Tab label='Thông tin' {...a11yProps(1)} />
+                <Tab label='Đánh giá' {...a11yProps(2)} />
               </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
               <Box className={styles.listTime}>
                 <Box className={styles.detailWrapper}>
-                  <Box className={`nav ${styles.listOfDay}`} role="tablist">
+                  <Box className={`nav ${styles.listOfDay}`} role='tablist'>
                     <DayList onClick={(date) => setCurrentDate(date)} />
                   </Box>
-                  <Box className={`nav ${styles.detailCinema}`} role="tablist">
+                  <Box className={`nav ${styles.detailCinema}`} role='tablist'>
                     {renderCinemaTabs(listCinema)}
                   </Box>
                   <Box
                     className={`nav ${styles.collapseDetailCinema}`}
-                    role="tablist"
+                    role='tablist'
                   >
                     {renderCollapseCinemaTabs(
                       listCinema,
@@ -153,3 +155,6 @@ export default function DetailMoviePage(props) {
     );
   } else return <Loader />;
 }
+DetailMoviePage.propTypes = {
+  match: PropTypes.object,
+};

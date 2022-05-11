@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import CarouselItem from '../CarouselItem';
+import CarouselItem from './CarouselItem';
 import useStyles from './style';
 
 export default function Carousel() {

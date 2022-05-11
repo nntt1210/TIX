@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
@@ -19,7 +20,6 @@ import PropTypes from 'prop-types';
 
 import useStyles from './style';
 import { actEditUser } from './../../../Containers/AdminTemplate/modules/actions/accounts';
-import { useDispatch, useSelector } from 'react-redux';
 
 const ProfileCard = (props) => {
   const styles = useStyles();

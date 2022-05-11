@@ -1,165 +1,165 @@
 import makeStyles from '@mui/styles/makeStyles';
 import withStyles from '@mui/styles/withStyles';
-import { Menu } from "@mui/material";
+import { Menu } from '@mui/material';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    position: "fixed",
-    top: "-1px",
+    position: 'fixed',
+    top: '-1px',
     left: 0,
-    width: "100%",
-    height: "60px",
+    width: '100%',
+    height: '60px',
     // background-color: rgba(255, 255, 255, 0.95);
-    backgroundColor: "white",
-    boxShadow: "0 0 15px rgba(0, 0, 0, 0.3)",
+    backgroundColor: 'white',
+    boxShadow: '0 0 15px rgba(0, 0, 0, 0.3)',
     zIndex: 9,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     opacity: 0.95,
-    [theme.breakpoints.up("xs")]: {
+    [theme.breakpoints.up('xs')]: {
       padding: theme.spacing(1.5, 1),
     },
-    [theme.breakpoints.up("xsm")]: {
+    [theme.breakpoints.up('xsm')]: {
       padding: theme.spacing(1.5, 2),
     },
   },
   left: {
-    position: "absolute",
-    left: "20px",
+    position: 'absolute',
+    left: '20px',
     // top: "50%",
     // transform: "translateY(-50%)",
-    "& img": {
-      width: "50px",
-      height: "50px",
+    '& img': {
+      width: '50px',
+      height: '50px',
     },
   },
   center: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    display: "flex",
-    alignItems: "center",
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    display: 'flex',
+    alignItems: 'center',
   },
   // TagUL: ULStyles,
   // TagLI: LIStyles,
   // TagLink: LinkStyles,
   link: {
     // padding: theme.spacing(0, 1),
-    padding: "10px",
-    cursor: "pointer",
+    padding: '10px',
+    cursor: 'pointer',
     color: theme.color.black.main,
-    "&:hover": {
-      textDecoration: "none",
+    '&:hover': {
+      textDecoration: 'none',
       color: theme.color.orange.main,
-      transition: "all 0.3s",
+      transition: 'all 0.3s',
     },
-    [theme.breakpoints.up("xs")]: {
-      display: "none",
+    [theme.breakpoints.up('xs')]: {
+      display: 'none',
     },
-    [theme.breakpoints.up("md")]: {
-      display: "inline",
+    [theme.breakpoints.up('md')]: {
+      display: 'inline',
     },
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   right: {
-    position: "absolute",
-    right: "20px",
-    top: "50%",
-    transform: "translateY(-50%)",
-    display: "flex",
-    alignItems: "center",
+    position: 'absolute',
+    right: '20px',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    display: 'flex',
+    alignItems: 'center',
     // @include text($color-gray-2, $fs-1, $fw-normal);
   },
   account: {
-    cursor: "pointer",
-    "& img": {
-      width: "30px",
-      height: "auto",
-      borderRadius: "25px",
-      marginRight: "5px",
+    cursor: 'pointer',
+    '& img': {
+      width: '30px',
+      height: 'auto',
+      borderRadius: '25px',
+      marginRight: '5px',
     },
-    "& span": {
-      paddingRight: "5px",
+    '& span': {
+      paddingRight: '5px',
     },
     [theme.breakpoints.down('lg')]: {
-      display: "none",
+      display: 'none',
     },
   },
   menudropdown: {
-    position: "absolute",
-    top: "50%",
-    right: "15px",
-    transform: "translate3d(0, -50%, 0)",
-    width: "25px",
+    position: 'absolute',
+    top: '50%',
+    right: '15px',
+    transform: 'translate3d(0, -50%, 0)',
+    width: '25px',
     zIndex: 1,
   },
   rightmobile: {
-    position: "absolute",
-    top: "50%",
-    right: "20px",
-    transform: "translateY(-50%)",
-    display: "none",
+    position: 'absolute',
+    top: '50%',
+    right: '20px',
+    transform: 'translateY(-50%)',
+    display: 'none',
     [theme.breakpoints.down('lg')]: {
-      display: "initial",
+      display: 'initial',
     },
   },
   sideMenu: {
-    position: "fixed",
+    position: 'fixed',
     top: 0,
     left: 0,
-    width: "100%",
-    height: "100%",
-    backgroundColor: "transparent",
-    pointerEvents: "none",
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'transparent',
+    pointerEvents: 'none',
     zIndex: 10,
-    overflow: "hidden",
-    transition: "all 0.4s",
-    "& .active": {
-      backgroundColor: "rgba(0, 0, 0, 0.8)",
-      pointerEvents: "inherit",
+    overflow: 'hidden',
+    transition: 'all 0.4s',
+    '& .active': {
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      pointerEvents: 'inherit',
       wrapMenuMobile: {
         right: 0,
       },
     },
   },
   wrapMenuMobile: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
-    right: "-70%",
-    width: "70%",
-    height: "100%",
-    background: "#fff",
-    transition: "all 0.4s",
-    overflow: "hidden",
+    right: '-70%',
+    width: '70%',
+    height: '100%',
+    background: '#fff',
+    transition: 'all 0.4s',
+    overflow: 'hidden',
   },
   wrapFirst: {
-    padding: "10px",
-    position: "relative",
-    "& img": {
-      width: "36px",
-      height: "36px",
-      borderRadius: "50%",
+    padding: '10px',
+    position: 'relative',
+    '& img': {
+      width: '36px',
+      height: '36px',
+      borderRadius: '50%',
     },
-    "& .btnAvatarMobile": {
-      marginLeft: "5px",
-      marginRight: "5px",
+    '& .btnAvatarMobile': {
+      marginLeft: '5px',
+      marginRight: '5px',
     },
-    "& .close": {
-      position: "absolute",
-      right: "20px",
-      top: "50%",
-      transform: "translateY(-50%)",
+    '& .close': {
+      position: 'absolute',
+      right: '20px',
+      top: '50%',
+      transform: 'translateY(-50%)',
     },
   },
   menu: {
-    display: "block",
-    padding: "20px",
-    position: "relative",
-    width: "calc(100% - 40px)",
-    fontSize: "18px",
-    color: "#000",
+    display: 'block',
+    padding: '20px',
+    position: 'relative',
+    width: 'calc(100% - 40px)',
+    fontSize: '18px',
+    color: '#000',
   },
   icon: {
     [theme.breakpoints.down('xl')]: {
@@ -167,38 +167,38 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   collapseMenu: {
-    position: "absolute",
-    right: "10%",
-    marginRight: "20px",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
+    position: 'absolute',
+    right: '10%',
+    marginRight: '20px',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
     },
   },
   signInUp: {
     marginLeft: theme.spacing(1),
 
-    [theme.breakpoints.up("xs")]: {
-      display: "none",
+    [theme.breakpoints.up('xs')]: {
+      display: 'none',
     },
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
     },
   },
   navLink: {
-    "&:hover": {
-      textDecoration: "none",
+    '&:hover': {
+      textDecoration: 'none',
     },
   },
 }));
 
-export const CssMenu = withStyles((theme) => ({
+export const CssMenu = withStyles(() => ({
   list: {
-    "& .MuiListItem-root": {
-      color: "black",
+    '& .MuiListItem-root': {
+      color: 'black',
     },
-    "& a": {
-      "&:hover": {
-        textDecoration: "none",
+    '& a': {
+      '&:hover': {
+        textDecoration: 'none',
       },
     },
   },

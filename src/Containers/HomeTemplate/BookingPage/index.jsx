@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router-dom";
-import { Box, Container, Grid } from "@mui/material";
-import BookingNavBar from "../../../Components/BookingNavBar";
-import PriceInfo from "../../../Components/PriceInfo";
-import SeatPlan from "../../../Components/SeatPlan";
-import Loader from "../../../Components/Loader";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
+import { Box, Container, Grid } from '@mui/material';
+import PropTypes from 'prop-types';
+
+import BookingNavBar from '../../../Components/BookingNavBar';
+import PriceInfo from '../../../Components/PriceInfo';
+import SeatPlan from '../../../Components/SeatPlan';
+import Loader from '../../../Components/Loader';
 // import BackToTop from "../../components/BackToTop";
 // import { getCurrentWebPage } from "../../redux/actions/pageAction";
 // import { getSeatList } from "../../redux/actions/bookingAction";
-import useStyles from "./style";
-import { actGetSeatListApi } from "./modules/action";
-import { Redirect } from "react-router-dom";
+import useStyles from './style';
+import { actGetSeatListApi } from './modules/action';
 
 const Booking = (props) => {
   const styles = useStyles();
@@ -70,8 +72,10 @@ const Booking = (props) => {
       );
     else return <Loader />;
   } else {
-    return <Redirect to="/signin" />;
+    return <Redirect to='/signin' />;
   }
 };
-
+Booking.propTypes = {
+  match: PropTypes.string,
+};
 export default Booking;

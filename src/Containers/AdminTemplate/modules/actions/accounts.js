@@ -1,5 +1,5 @@
-import { adminService } from "./../../../../Services";
-import * as ActionType from "./../constants";
+import { adminService } from './../../../../Services';
+import * as ActionType from './../constants';
 
 export const actGetAccountsApi = (keyword) => {
   return (dispatch) => {
@@ -36,11 +36,11 @@ const actGetAccountsFailed = (err) => {
 };
 
 export const actAddUser = (data, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .addUser(data, token)
-      .then((result) => {
-        alert("Thêm người dùng thành công");
+      .then(() => {
+        alert('Thêm người dùng thành công');
         window.location.reload(false);
       })
       .catch((err) => {
@@ -50,11 +50,11 @@ export const actAddUser = (data, token) => {
 };
 
 export const actEditUser = (data, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .editUser(data, token)
-      .then((res) => {
-        alert("Câp nhật người dùng thành công");
+      .then(() => {
+        alert('Câp nhật người dùng thành công');
         window.location.reload(false);
       })
       .catch((err) => alert(err.response.data));
@@ -62,11 +62,11 @@ export const actEditUser = (data, token) => {
 };
 
 export const actDeleteUser = (idUser, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .deleteUser(idUser, token)
       .then((res) => {
-        alert("Xoá người dùng thành công");
+        alert('Xoá người dùng thành công');
         console.log(res.data);
         window.location.reload(false);
       })

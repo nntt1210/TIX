@@ -1,74 +1,51 @@
-import { Avatar, Box } from "@mui/material";
-import React from "react";
-import useStyles from "./style";
+import React from 'react';
+
+import { Avatar, Box } from '@mui/material';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+
+import useStyles from './style';
 
 export default function LogoWrapper(props) {
   const { src, alt, active, target, detail, name } = props;
-  // console.log(src, alt, active, target, detail, name);
   const styles = useStyles();
   if (detail) {
-    if (active) {
-      return (
-        <Box
-          className={styles.logo + " active"}
-          data-toggle="tab"
-          data-target={target}
-          role="tab"
-          style={{ padding: 0 }}
-        >
-          <Box className={styles.detail}>
-            <Avatar variant="square" src={src} alt={alt} />
-            <Box component="span" className={styles.name}>
-              {name}
-            </Box>
-            {/* <Box component="span" className={styles.arrow}></Box> */}
+    return (
+      <Box
+        className={classnames(styles.logo, active && 'active')}
+        data-toggle='tab'
+        data-target={target}
+        role='tab'
+        style={{ padding: 0 }}
+      >
+        <Box className={styles.detail}>
+          <Avatar variant='square' src={src} alt={alt} />
+          <Box component='span' className={styles.name}>
+            {name}
           </Box>
         </Box>
-      );
-    } else
-      return (
-        <Box
-          className={styles.logo}
-          data-toggle="tab"
-          data-target={target}
-          role="tab"
-          style={{ padding: 0 }}
-        >
-          <Box className={styles.detail}>
-            <Avatar variant="square" src={src} alt={alt} />
-            <Box component="span" className={styles.name}>
-              {name}
-            </Box>
-            {/* <Box component="span" className={styles.arrow}></Box> */}
-          </Box>
-        </Box>
-      );
+      </Box>
+    );
   } else {
-    if (active) {
-      return (
-        <Box
-          className={styles.logo + " active"}
-          data-toggle="tab"
-          data-target={target}
-          role="tab"
-        >
-          <Box className={styles.detail} style={{ padding: 0 }}>
-            <Avatar variant="square" src={src} alt={alt} />
-          </Box>
+    return (
+      <Box
+        className={classnames(styles.logo, active && 'active')}
+        data-toggle='tab'
+        data-target={target}
+        role='tab'
+      >
+        <Box className={styles.detail} style={{ padding: 0 }}>
+          <Avatar variant='square' src={src} alt={alt} />
         </Box>
-      );
-    } else
-      return (
-        <Box
-          className={styles.logo}
-          data-toggle="tab"
-          data-target={target}
-          role="tab"
-        >
-          <Box className={styles.detail} style={{ padding: 0 }}>
-            <Avatar variant="square" src={src} alt={alt} />
-          </Box>
-        </Box>
-      );
+      </Box>
+    );
   }
 }
+LogoWrapper.propTypes = {
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  active: PropTypes.bool,
+  target: PropTypes.string,
+  detail: PropTypes.bool,
+  name: PropTypes.string,
+};

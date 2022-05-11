@@ -30,7 +30,7 @@ import {
 import { getFullDateTime } from '../../Helpers/time-manager';
 import { actAddShowTime } from '../../Containers/AdminTemplate/modules/action';
 
-const ShowTimeForm = (props) => {
+const ShowTimeForm = () => {
   const styles = useStyles();
   const dispatch = useDispatch();
 
@@ -195,6 +195,7 @@ const ShowTimeForm = (props) => {
                   )}
                   {cinemaNumbers.map((number) => (
                     <MenuItem
+                      key={number}
                       dense
                       index={number}
                       value={number}

@@ -1,30 +1,32 @@
-import React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import { Formik, Form } from "formik";
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
-import Container from "@mui/material/Container";
-import useStyles from "./style";
-import { useDispatch } from "react-redux";
-import UserService from "./../../../Services/user";
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { Formik, Form } from 'formik';
+import PropTypes from 'prop-types';
+
+import useStyles from './style';
+import UserService from './../../../Services/user';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/" underline="hover">
+    <Typography variant='body2' color='textSecondary' align='center'>
+      {'Copyright © '}
+      <Link color='inherit' href='https://material-ui.com/' underline='hover'>
         TIX
-      </Link>{" "}
+      </Link>{' '}
       {new Date().getFullYear()}
-      {"."}
+      {'.'}
     </Typography>
   );
 }
@@ -37,9 +39,9 @@ export default function SignUp(props) {
     dispatch(
       userService
         .signUp(user)
-        .then((res) => {
-          alert("Đăng kí thành công");
-          props.history.replace("signin");
+        .then(() => {
+          alert('Đăng kí thành công');
+          props.history.replace('signin');
         })
         .catch((err) => {
           alert(err.response.data);
@@ -48,57 +50,57 @@ export default function SignUp(props) {
   };
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth='xs'>
       <CssBaseline />
       <Box className={classes.paper}>
-        <Link href="/home" underline="hover">
+        <Link href='/home' underline='hover'>
           <Avatar
-            variant="square"
-            src="/img/web-logo.png"
+            variant='square'
+            src='/img/web-logo.png'
             className={classes.avatar}
           ></Avatar>
         </Link>
 
-        <Typography component="h1" variant="h5">
+        <Typography component='h1' variant='h5'>
           Đăng Ký
         </Typography>
         <Formik
           initialValues={{
-            taiKhoan: "",
-            matKhau: "",
-            email: "",
-            soDt: "",
-            maNhom: "GP00",
-            maLoaiNguoiDung: "KhachHang",
-            hoTen: "",
+            taiKhoan: '',
+            matKhau: '',
+            email: '',
+            soDt: '',
+            maNhom: 'GP00',
+            maLoaiNguoiDung: 'KhachHang',
+            hoTen: '',
           }}
           // validationSchema={signUpSchema}
           onSubmit={handleSubmit}
         >
-          {({ errors, touched, handleChange }) => (
-            <Form className={classes.form} noValidate autoComplete="off">
+          {({ handleChange }) => (
+            <Form className={classes.form} noValidate autoComplete='off'>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
-                    autoComplete="fname"
-                    name="hoTen"
-                    variant="outlined"
+                    autoComplete='fname'
+                    name='hoTen'
+                    variant='outlined'
                     required
                     fullWidth
                     // id="firstName"
-                    label="Họ tên"
+                    label='Họ tên'
                     onChange={handleChange}
                     // autoFocus
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
-                    variant="outlined"
+                    variant='outlined'
                     required
                     fullWidth
                     // id="lastName"
-                    label="Tên tài khoản"
-                    name="taiKhoan"
+                    label='Tên tài khoản'
+                    name='taiKhoan'
                     onChange={handleChange}
                     // autoComplete="lname"
                   />
@@ -106,12 +108,12 @@ export default function SignUp(props) {
 
                 <Grid item xs={12}>
                   <TextField
-                    variant="outlined"
+                    variant='outlined'
                     required
                     fullWidth
-                    name="matKhau"
-                    label="Mật khẩu"
-                    type="password"
+                    name='matKhau'
+                    label='Mật khẩu'
+                    type='password'
                     onChange={handleChange}
                     // id="password"
                     // autoComplete="current-password"
@@ -119,24 +121,24 @@ export default function SignUp(props) {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
-                    variant="outlined"
+                    variant='outlined'
                     required
                     fullWidth
                     // id="email"
-                    label="Email"
-                    name="email"
+                    label='Email'
+                    name='email'
                     onChange={handleChange}
                     // autoComplete="email"
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
-                    variant="outlined"
+                    variant='outlined'
                     required
                     fullWidth
                     // id="email"
-                    label="Số điện thoại"
-                    name="soDt"
+                    label='Số điện thoại'
+                    name='soDt'
                     onChange={handleChange}
                     // autoComplete="email"
                   />
@@ -144,24 +146,24 @@ export default function SignUp(props) {
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={
-                      <Checkbox value="allowExtraEmails" color="primary" />
+                      <Checkbox value='allowExtraEmails' color='primary' />
                     }
-                    label="Nhận thông báo từ TIX qua email"
+                    label='Nhận thông báo từ TIX qua email'
                   />
                 </Grid>
               </Grid>
               <Button
-                type="submit"
+                type='submit'
                 fullWidth
-                variant="contained"
-                color="primary"
+                variant='contained'
+                color='primary'
                 className={classes.submit}
               >
                 ĐĂNG KÝ
               </Button>
-              <Grid container justifyContent="flex-end">
+              <Grid container justifyContent='flex-end'>
                 <Grid item>
-                  <Link href="/signin" variant="body2" underline="hover">
+                  <Link href='/signin' variant='body2' underline='hover'>
                     Đã có tài khoản ? Đăng nhập ngay
                   </Link>
                 </Grid>
@@ -176,3 +178,6 @@ export default function SignUp(props) {
     </Container>
   );
 }
+SignUp.propTypes = {
+  history: PropTypes.object,
+};

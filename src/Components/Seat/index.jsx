@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
-import { IconButton, Typography } from "@mui/material";
-import WeekendIcon from "@mui/icons-material/Weekend";
-import useStyles from "./style";
-import { actChooseSeat } from "./modules/action";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { IconButton, Typography } from '@mui/material';
+import WeekendIcon from '@mui/icons-material/Weekend';
+import PropTypes from 'prop-types';
+
+import useStyles from './style';
+import { actChooseSeat } from './modules/action';
 // import { CHOOSE_SEAT } from "../../redux/actions/actionType";
 
 const Seat = (props) => {
@@ -23,9 +25,10 @@ const Seat = (props) => {
       className={styles.root}
       disabled={reserved}
       onClick={() => handleClick()}
-      size="large">
+      size='large'
+    >
       <WeekendIcon
-        fontSize="large"
+        fontSize='large'
         className={
           reserved ? styles.reserved : pick ? styles.pick : styles.seat
         }
@@ -35,15 +38,17 @@ const Seat = (props) => {
   );
 };
 
-Seat.propTypse = {
-  type: PropTypes.oneOf(["Thuong", "Vip"]),
+Seat.propTypes = {
+  seat: PropTypes.object,
+  type: PropTypes.oneOf(['Thuong', 'Vip']),
   seatNumber: PropTypes.string,
+  seatLetter: PropTypes.string,
   reserved: PropTypes.bool,
 };
 
 Seat.defaultProps = {
-  type: "Thuong",
-  seatNumber: "00",
+  type: 'Thuong',
+  seatNumber: '00',
   reserved: false,
 };
 

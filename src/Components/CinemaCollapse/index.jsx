@@ -1,13 +1,16 @@
-import { Box } from "@mui/material";
-import classNames from "classnames";
-import React from "react";
+import React from 'react';
+
+import { Box } from '@mui/material';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import CinemaShowTime from '../CinemaShowTime';
+import ImgWrapper from '../ImgWrapper';
+import useStyles from './style';
 import {
   renderCinemaAddress,
   renderCinemaName,
-} from "../../Helpers/cinema-manager";
-import CinemaShowTime from "../CinemaShowTime";
-import ImgWrapper from "../ImgWrapper";
-import useStyles from "./style";
+} from '../../Helpers/cinema-manager';
 
 export default function CinemaCollapse(props) {
   const { maHeThongRap, maCumRap, tenCumRap, list } = props;
@@ -16,7 +19,7 @@ export default function CinemaCollapse(props) {
     <Box className={styles.root}>
       <Box
         className={styles.mainCollapse}
-        data-toggle="collapse"
+        data-toggle='collapse'
         data-target={`#${maCumRap}`}
       >
         <Box className={styles.item}>
@@ -25,14 +28,14 @@ export default function CinemaCollapse(props) {
             alt={maHeThongRap}
           />
           <Box className={styles.wrapInfo}>
-            <Box component="span" className={styles.branch}>
+            <Box component='span' className={styles.branch}>
               <Box
-                component="span"
-                className={classNames(styles.name + " " + maHeThongRap)}
+                component='span'
+                className={classNames(styles.name + ' ' + maHeThongRap)}
               >
-                {renderCinemaName(tenCumRap)}{" "}
+                {renderCinemaName(tenCumRap)}{' '}
               </Box>
-              {"- "} {renderCinemaAddress(tenCumRap)}
+              {'- '} {renderCinemaAddress(tenCumRap)}
             </Box>
           </Box>
         </Box>
@@ -41,3 +44,9 @@ export default function CinemaCollapse(props) {
     </Box>
   );
 }
+CinemaCollapse.propTypes = {
+  maHeThongRap: PropTypes.number,
+  maCumRap: PropTypes.number,
+  tenCumRap: PropTypes.string,
+  list: PropTypes.array,
+};

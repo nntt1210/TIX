@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import TableFooter from "@mui/material/TableFooter";
-import TablePagination from "@mui/material/TablePagination";
-import TablePaginationArrows from "../TablePaginationArrows";
-import useStyles from "./style";
+import React, { useState } from 'react';
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TableFooter from '@mui/material/TableFooter';
+import TablePagination from '@mui/material/TablePagination';
+import TablePaginationArrows from '../TablePaginationArrows';
+import PropTypes from 'prop-types';
+
+import useStyles from './style';
 
 const DataTable = ({ headers, rows, ...props }) => {
   const [page, setPage] = useState(0);
@@ -24,9 +27,10 @@ const DataTable = ({ headers, rows, ...props }) => {
   };
 
   const renderRows = () => {
-    return (rowsPerPage > 0
-      ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-      : rows
+    return (
+      rowsPerPage > 0
+        ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        : rows
     ).map((row, index) => (
       <TableRow className={styles.row} key={index}>
         {Object.keys(row).map((key, i) => (
@@ -63,7 +67,7 @@ const DataTable = ({ headers, rows, ...props }) => {
                 selectIcon: styles.selectIcon,
               }}
               colSpan={8}
-              labelRowsPerPage="Số hàng mỗi trang"
+              labelRowsPerPage='Số hàng mỗi trang'
               rowsPerPageOptions={[10, 25, 100]}
               count={rows.length}
               rowsPerPage={rowsPerPage}
@@ -77,6 +81,11 @@ const DataTable = ({ headers, rows, ...props }) => {
       </Table>
     </TableContainer>
   );
+};
+
+DataTable.propTypes = {
+  headers: PropTypes.array,
+  rows: PropTypes.array,
 };
 
 export default DataTable;

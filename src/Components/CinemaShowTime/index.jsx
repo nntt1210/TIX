@@ -1,6 +1,9 @@
-import { Box } from "@mui/material";
-import React from "react";
-import ButtonTime from "../ButtonTime";
+import React from 'react';
+
+import { Box } from '@mui/material';
+import PropTypes from 'prop-types';
+
+import ButtonTime from '../ButtonTime';
 
 export default function CinemaShowTime(props) {
   const { id, list } = props;
@@ -38,11 +41,15 @@ export default function CinemaShowTime(props) {
     });
   };
   return (
-    <Box id={id} className="collapse">
-      <Box className="pt-3 row">
-        <Box className="col-12">2D Digital</Box>
-        <Box className="col-12"> {renderButtonTime(list)}</Box>
+    <Box id={id} className='collapse'>
+      <Box className='pt-3 row'>
+        <Box className='col-12'>2D Digital</Box>
+        <Box className='col-12'> {renderButtonTime(list)}</Box>
       </Box>
     </Box>
   );
 }
+CinemaShowTime.propTypes = {
+  id: PropTypes.number,
+  list: PropTypes.array,
+};

@@ -1,25 +1,19 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import Search from "../SearchMovie";
-import { Box } from "@mui/material";
-import Table from "../DataTable";
-import IconButton from "@mui/material/IconButton";
-import CreateIcon from "@mui/icons-material/Create";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { getFullDate } from "../../Helpers/time-manager";
-import useStyles from "./style";
-import { actDeleteMovie } from "../../Containers/AdminTemplate/modules/action";
-import { actGetMoviesApi } from "../../Containers/AdminTemplate/modules/actions/movies";
-import * as ActionType from "./../../Containers/AdminTemplate/modules/constants";
-// import { getMovies } from "../../redux/actions/movieAction";
-// import { deleteMovie } from "../../redux/actions/adminAction";
-// import {
-//   GET_EDIT_MOVIE_STATUS,
-//   GET_EDITED_MOVIE,
-//   GET_KEYWORD_MOVIE,
-// } from "../../redux/actions/actionType";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const MovieTable = (props) => {
+import { Box } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import CreateIcon from '@mui/icons-material/Create';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+import Table from '../DataTable';
+import useStyles from './style';
+import { getFullDate } from '../../Helpers/time-manager';
+import { actDeleteMovie } from '../../Containers/AdminTemplate/modules/action';
+import { actGetMoviesApi } from '../../Containers/AdminTemplate/modules/actions/movies';
+import * as ActionType from './../../Containers/AdminTemplate/modules/constants';
+
+const MovieTable = () => {
   const dispatch = useDispatch();
   const styles = useStyles();
 
@@ -27,13 +21,13 @@ const MovieTable = (props) => {
   const user = useSelector((state) => state.userLoginReducer.login);
 
   let headers = [
-    "Mã phim",
-    "Tên phim",
-    "Ngày khởi chiếu",
-    "Đánh giá",
-    "Hình ảnh",
-    "Chỉnh sửa",
-    "Xoá",
+    'Mã phim',
+    'Tên phim',
+    'Ngày khởi chiếu',
+    'Đánh giá',
+    'Hình ảnh',
+    'Chỉnh sửa',
+    'Xoá',
   ];
 
   useEffect(() => {
@@ -55,21 +49,23 @@ const MovieTable = (props) => {
     name: movie.tenPhim,
     startDate: getFullDate(movie.ngayKhoiChieu),
     score: parseFloat(movie.danhGia).toFixed(1),
-    poster: <img src={movie.hinhAnh} alt="img" className={styles.image} />,
+    poster: <img src={movie.hinhAnh} alt='img' className={styles.image} />,
     edit: (
       <IconButton
         onClick={() => handleEdit(movie)}
         className={styles.iconButton}
-        size="large">
-        <CreateIcon color="primary" />
+        size='large'
+      >
+        <CreateIcon color='primary' />
       </IconButton>
     ),
     delete: (
       <IconButton
         onClick={() => handleDelete(movie.maPhim)}
         className={styles.iconButton}
-        size="large">
-        <DeleteIcon color="error" />
+        size='large'
+      >
+        <DeleteIcon color='error' />
       </IconButton>
     ),
   }));
@@ -88,7 +84,7 @@ const MovieTable = (props) => {
         <Table
           headers={headers}
           rows={data}
-          maxWidth={"100%"}
+          maxWidth={'100%'}
           maxHeight={500}
         />
       </Box>

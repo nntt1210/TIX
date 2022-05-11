@@ -4,14 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import useStyles from './style';
 
-const DropDown = ({
-  list,
-  label,
-  state,
-  dispatchType,
-  placeHolder,
-  ...props
-}) => {
+const DropDown = ({ list, label, state, dispatchType, placeHolder }) => {
   const dispatch = useDispatch();
   const styles = useStyles();
 
@@ -64,6 +57,7 @@ DropDown.propTypes = {
   label: PropTypes.string,
   dispatchType: PropTypes.string,
   placeHolder: PropTypes.string,
+  state: PropTypes.string,
 };
 
 DropDown.defaultProps = {

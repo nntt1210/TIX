@@ -1,12 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, AppBar, Toolbar, useTheme, Typography } from "@mui/material";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-// import MovieInfo from "../MovieInfo";
-import CinemaInfo from "../CinemaInfo";
-import Tag from "../Tag";
-import useStyles from "./style";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import PropTypes from 'prop-types';
+import { Box, AppBar, Toolbar, useTheme, Typography } from '@mui/material';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import classnames from 'classnames';
+
+import CinemaInfo from '../CinemaInfo';
+import Tag from '../Tag';
+import useStyles from './style';
 
 const BookingNavBar = ({ info }) => {
   const styles = useStyles();
@@ -15,23 +17,20 @@ const BookingNavBar = ({ info }) => {
 
   return (
     <AppBar className={styles.root}>
-      <Toolbar className={`${styles.toolBar} ${styles.largeBar}`}>
-        {/* <Box className={styles.info}>
-          <MovieInfo movie={info} hasInfo />
-        </Box> */}
+      <Toolbar className={classnames(styles.toolBar, styles.largeBar)}>
         <Box className={styles.info}>
           <CinemaInfo cinema={info} hasInfo />
         </Box>
         <Typography
-          color="secondary"
-          variant="subtitle2"
+          color='secondary'
+          variant='subtitle2'
           className={styles.notification}
         >
           Vui lòng chọn ghế!
         </Typography>
         <Box>
           <Tag
-            iconElement={<AccountCircleIcon fontSize="large" />}
+            iconElement={<AccountCircleIcon fontSize='large' />}
             color={theme.color.orange.main}
             hoverColor={theme.color.orange.main}
             title={user.taiKhoan}

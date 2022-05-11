@@ -1,5 +1,5 @@
-import { adminService } from "./../../../Services";
-import * as ActionType from "./constants";
+import { adminService } from './../../../Services';
+import * as ActionType from './constants';
 
 export const actGetAccountsApi = (keyword) => {
   return (dispatch) => {
@@ -70,11 +70,11 @@ const actGetAccountsTypeFailed = (err) => {
 };
 
 export const actAddUser = (data, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .addUser(data, token)
-      .then((result) => {
-        alert("Thêm người dùng thành công");
+      .then(() => {
+        alert('Thêm người dùng thành công');
         window.location.reload(false);
       })
       .catch((err) => {
@@ -84,11 +84,11 @@ export const actAddUser = (data, token) => {
 };
 
 export const actEditUser = (data, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .editUser(data, token)
-      .then((res) => {
-        alert("Câp nhật người dùng thành công");
+      .then(() => {
+        alert('Câp nhật người dùng thành công');
         window.location.reload(false);
       })
       .catch((err) => alert(err.response.data));
@@ -96,11 +96,11 @@ export const actEditUser = (data, token) => {
 };
 
 export const actDeleteUser = (idUser, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .deleteUser(idUser, token)
       .then((res) => {
-        alert("Xoá người dùng thành công");
+        alert('Xoá người dùng thành công');
         console.log(res.data);
         window.location.reload(false);
       })
@@ -111,11 +111,11 @@ export const actDeleteUser = (idUser, token) => {
 };
 
 export const actAddMovie = (data, poster, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .addMovie(data, token)
-      .then((res) => {
-        alert("Thêm phim thành công");
+      .then(() => {
+        alert('Thêm phim thành công');
         upLoadPoster(createFormData(poster, data.tenPhim, data.maNhom));
       })
       .catch((err) => {
@@ -125,11 +125,11 @@ export const actAddMovie = (data, poster, token) => {
 };
 
 export const actDeleteMovie = (idMovie, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .deleteMovie(idMovie, token)
-      .then((res) => {
-        alert("Xoá phim thành công");
+      .then(() => {
+        alert('Xoá phim thành công');
         window.location.reload(false);
       })
       .catch((err) => {
@@ -140,11 +140,11 @@ export const actDeleteMovie = (idMovie, token) => {
 };
 
 export const actEditMovie = (data, poster, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .editMovie(data, token)
-      .then((res) => {
-        alert("Cập nhật phim thành công");
+      .then(() => {
+        alert('Cập nhật phim thành công');
         upLoadPoster(createFormData(poster, data.tenPhim, data.maNhom));
       })
       .catch((err) => {
@@ -157,9 +157,9 @@ const createFormData = (file, tenPhim, maNhom) => {
   let formData = new FormData();
 
   if (file != null) {
-    formData.append("poster", file, file.name);
-    formData.append("tenphim", tenPhim);
-    formData.append("manhom", maNhom);
+    formData.append('poster', file, file.name);
+    formData.append('tenphim', tenPhim);
+    formData.append('manhom', maNhom);
   }
 
   return formData;
@@ -168,7 +168,7 @@ const createFormData = (file, tenPhim, maNhom) => {
 export const upLoadPoster = (data) => {
   adminService
     .upLoadPoster(data)
-    .then((res) => {
+    .then(() => {
       window.location.reload(false);
     })
     .catch((err) => {
@@ -177,11 +177,11 @@ export const upLoadPoster = (data) => {
 };
 
 export const actAddShowTime = (data, token) => {
-  return (dispatch) => {
+  return () => {
     adminService
       .addShowTime(data, token)
-      .then((res) => {
-        alert("Thêm lịch chiếu thành công");
+      .then(() => {
+        alert('Thêm lịch chiếu thành công');
         window.location.reload(false);
       })
       .catch((err) => {

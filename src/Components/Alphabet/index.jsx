@@ -1,14 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, Typography } from "@mui/material";
-import useStyles from "./style";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Box, Typography } from '@mui/material';
+
+import useStyles from './style';
 
 const Alphabet = ({ index }) => {
   const styles = useStyles();
 
   return (
     <Box className={styles.root}>
-      <Typography component="span" className={styles.letter}>
+      <Typography component='span' className={styles.letter}>
         {String.fromCharCode(65 + index)} {/* 65 == "A" */}
       </Typography>
     </Box>

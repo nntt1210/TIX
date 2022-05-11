@@ -5,7 +5,6 @@ import { Box } from '@mui/material';
 
 import ButtonTrailer from './../ButtonTrailer';
 import ButtonBuy from './../ButtonBuy';
-
 import useStyles from './style';
 
 export default function ButtonOverlay(props) {

@@ -1,6 +1,9 @@
-import { Avatar, Box } from "@mui/material";
-import React from "react";
-import useStyles from "./style";
+import React from 'react';
+
+import { Avatar, Box } from '@mui/material';
+import PropTypes from 'prop-types';
+
+import useStyles from './style';
 
 export default function MovieBackground(props) {
   const styles = useStyles();
@@ -9,7 +12,7 @@ export default function MovieBackground(props) {
     <Box className={styles.root}>
       <Box>
         <Avatar
-          variant="square"
+          variant='square'
           className={styles.background}
           src={hinhAnh}
           alt={alt}
@@ -19,3 +22,7 @@ export default function MovieBackground(props) {
     </Box>
   );
 }
+MovieBackground.propTypes = {
+  hinhAnh: PropTypes.string,
+  alt: PropTypes.string,
+};

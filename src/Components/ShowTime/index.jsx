@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { Box } from '@mui/material';
+
+import useStyles from './style';
+import useContainerStyles from './../MyContainer/style';
+import {
+  actGetSystemCinemaApi,
+  actGetSystemShowTimeApi,
+} from './modules/action';
 import {
   renderCinemaTabs,
   renderShowTimes,
   renderSystemCinemas,
 } from '../../Helpers/cinema-manager';
-import {
-  actGetSystemCinemaApi,
-  actGetSystemShowTimeApi,
-} from './modules/action';
-import useStyles from './style';
-import useContainerStyles from './../MyContainer/style';
-import { Box } from '@mui/material';
 
 export default function ShowTime() {
   const width = window.innerWidth;

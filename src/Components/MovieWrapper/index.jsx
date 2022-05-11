@@ -1,6 +1,9 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import useStyles from "../MovieWrapper/style";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import PropTypes from 'prop-types';
+
+import useStyles from '../MovieWrapper/style';
 
 export default function MovieWrapper(props) {
   const styles = useStyles();
@@ -14,8 +17,10 @@ export default function MovieWrapper(props) {
           ? `url(${hinhAnh})`
           : `url(/img/default-movie.jpg)`,
       }}
-    >
-      {/* <i class="fa fa-phone" aria-hidden="true" style={{ display: "none" }}></i> */}
-    </NavLink>
+    ></NavLink>
   );
 }
+MovieWrapper.propTypes = {
+  hinhAnh: PropTypes.string,
+  maPhim: PropTypes.number,
+};

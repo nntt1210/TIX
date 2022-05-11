@@ -1,5 +1,5 @@
-import { bookingService } from "../../../../Services";
-import * as ActionType from "./constants";
+import { bookingService } from '../../../../Services';
+import * as ActionType from './constants';
 
 export const actGetSeatListApi = (idShowTime) => {
   return (dispatch) => {
@@ -40,8 +40,8 @@ export const actBookTicketApi = (data, token) => {
     dispatch(actBookTicketRequest());
     bookingService
       .bookTicket(data, token)
-      .then((res) => {
-        alert("Bạn đã đặt vé thành công ! Chúc bạn xem phim vui vẻ");
+      .then(() => {
+        alert('Bạn đã đặt vé thành công ! Chúc bạn xem phim vui vẻ');
       })
       .catch((err) => {
         dispatch(actBookTicketFailed(err));

@@ -1,7 +1,10 @@
-import { Box } from "@mui/material";
-import CinemaCollapse from "../Components/CinemaCollapse";
-import LogoWrapper from "../Components/LogoWrapper";
-import LogoWrapperCollapse from "../Components/LogoWrapperCollapse";
+import React from 'react';
+
+import { Box } from '@mui/material';
+
+import CinemaCollapse from '../Components/CinemaCollapse';
+import LogoWrapper from '../Components/LogoWrapper';
+import LogoWrapperCollapse from '../Components/LogoWrapperCollapse';
 
 export const renderCinemaTabs = (listCinema) => {
   return listCinema.map((item, index) => {
@@ -11,7 +14,7 @@ export const renderCinemaTabs = (listCinema) => {
           key={index}
           src={item.logo}
           alt={item.maHeThongRap}
-          target={"#" + item.maHeThongRap}
+          target={'#' + item.maHeThongRap}
           detail={true}
           name={item.tenHeThongRap}
           active={true}
@@ -23,7 +26,7 @@ export const renderCinemaTabs = (listCinema) => {
           key={index}
           src={item.logo}
           alt={item.maHeThongRap}
-          target={"#" + item.maHeThongRap}
+          target={'#' + item.maHeThongRap}
           detail={true}
           name={item.tenHeThongRap}
         />
@@ -76,7 +79,7 @@ export const renderCinemaContent = (
       return (
         <Box
           key={index}
-          className="tab-pane fade active show"
+          className='tab-pane fade active show'
           id={item.maHeThongRap}
         >
           {renderShowList(
@@ -89,7 +92,7 @@ export const renderCinemaContent = (
       );
     } else {
       return (
-        <Box key={index} className="tab-pane fade" id={item.maHeThongRap}>
+        <Box key={index} className='tab-pane fade' id={item.maHeThongRap}>
           {renderShowList(
             item.maHeThongRap,
             detailMovie,
@@ -122,7 +125,7 @@ export const renderShowList = (
   let lstCumRap = newLST[0].lstCumRap;
   if (list.length === 0)
     return (
-      <Box className="alert alert-danger">Cụm rạp này không có lịch chiếu</Box>
+      <Box className='alert alert-danger'>Cụm rạp này không có lịch chiếu</Box>
     );
   else {
     for (let i = 0; i < lstCumRap.length; i++) {
@@ -140,7 +143,7 @@ export const renderShowList = (
         );
       } else
         return (
-          <Box className="alert alert-danger">
+          <Box className='alert alert-danger'>
             Ngày này không có lịch chiếu !
           </Box>
         );
